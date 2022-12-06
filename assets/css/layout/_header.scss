@@ -1,0 +1,204 @@
+.header {
+  position: relative;
+  width: 100%;
+  padding: 4.2rem 8vw;
+  color: var(--color-white);
+  background-position: center;
+  background-size: cover;
+
+
+
+
+  &__top {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-areas: "logo nav";
+    align-items: end;
+
+    @include respond(medium) {
+      display: block;
+    }
+  }
+
+  &__logo {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    grid-area: logo;
+    place-self: center;
+    margin-right: 8rem;
+
+    @include respond(medium) {
+      /* Center child horizontally*/
+      display: flex;
+      justify-content: center;
+      margin: 5rem 0;
+    }
+  }
+
+  &__icon {
+    width: 19rem;
+
+    @include respond(medium){
+      z-index: 9999;
+    }
+  }
+
+  &__content {
+    padding: 8vw 0;
+    width: 50%;
+
+    @include respond(medium) {
+      width: 100%;
+      padding: 5rem 0;
+      text-align: center;
+    }
+  }
+
+  &__heading {
+    font-size: clamp(3rem, 3.5vw, 6rem);
+    margin-bottom: 2.5rem;
+  }
+
+  &__description {
+
+    font-size: clamp(1.5rem, 1.8vw, 3rem);
+    margin-bottom: 2.5rem;
+  }
+
+  &__list {
+    font-size: clamp(1.5rem, 1.8vw, 3rem);
+    padding-left: 3rem;
+    list-style: none;
+  }
+
+  &__item {
+
+    &:not(:last-of-type) {
+      margin-block-end: 4rem;
+    }
+  }
+
+  &__item:before {
+    content: '✓';
+    margin: 0 10px 0 -28px;
+  }
+
+  &__cta--wrapper {
+    display: block;
+
+    &:not(:last-of-type) {
+      margin-block-end: 4rem;
+    }
+  }
+
+  &__cta {
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: clamp(1.5rem, 1.8vw, 2.4rem);
+    font-weight: bold;
+    height: 1.8rem;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      color: var(--color-teal);
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      position: absolute;
+      top: clamp(1.8rem, 1.9vw, 2.9rem);
+      left: 0;
+      height: 3px;
+      background-color: var(--color-teal);
+    }
+
+    &:hover~.header__arrow {
+      transform: translate(1rem, 18%)
+    }
+  }
+
+  &__arrow {
+    fill: var(--color-teal);
+    height: clamp(1.5rem, 1.8vw, 2.5rem);
+    width: clamp(1.5rem, 1.8vw, 2.5rem);
+    margin-left: clamp(.5rem, .5vw, 1rem);
+    transform: translate(0, 18%);
+    transition: all .3s ease-in-out;
+
+    @include respond(small) {
+      display: none;
+    }
+  }
+
+}
+
+.home-header {
+  @include respond(medium) {
+    background-image: linear-gradient(to bottom,
+        rgba(var(--color-blue-a), 0.9), rgba(var(--color-teal-a), 0.8)),
+      url("assets/img/main-banner.jpg");
+  }
+
+
+
+  &::after {
+    position: absolute;
+    mix-blend-mode: screen;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: radial-gradient(circle at 100% 100%,
+        var(--color-teal),
+        var(--color-dark-blue) 70%,
+        var(--color-dark-blue));
+    z-index: -1;
+
+    @include respond(medium) {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+.general-header {
+  background-image: linear-gradient(to bottom right,
+        rgba(var(--color-dark-blue-a),0.8) 35%, rgba(var(--color-teal-a), 0.8)),
+      url("assets/img/about-1.jpg");
+
+
+
+  @include respond(medium) {
+    background-image: linear-gradient(to bottom,
+        rgba(var(--color-blue-a), 0.9), rgba(var(--color-teal-a), 0.8)),
+      url("assets/img/about-1.jpg");
+  }
+}
+
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -100;
+  opacity: .15;
+
+  @include respond(medium) {
+    display: none;
+  }
+
+  &__content {
+    height: 100%;
+    width: 100%;
+
+    // Makes video fill entire parent while maintaining aspect ratio
+    object-fit: cover;
+  }
+}

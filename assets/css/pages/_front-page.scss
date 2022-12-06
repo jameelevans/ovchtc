@@ -1,0 +1,597 @@
+.hexagon-bg {
+  position: fixed;
+  top: -10rem;
+  right: -10rem;
+  opacity: .9;
+
+  @include respond(large) {
+    opacity: .6;
+  }
+
+  @include respond(medium) {
+    display: none;
+  }
+}
+
+.support {
+  padding: 8rem 8vw;
+  text-align: center;
+
+  @include respond(medium) {
+    padding: 0;
+  }
+
+  & .h2__heading {
+
+    @include respond(medium) {
+      background-color: var(--color-dark-grey);
+      color: var(--color-white);
+      padding: 8rem 5rem;
+      font-weight: 300;
+    }
+  }
+
+
+  &__wrapper {
+    max-width: 130rem;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+
+    @include respond(largest) {
+      grid-template-rows: auto;
+      grid-template-columns: none;
+      padding: 2rem 2rem 0;
+    }
+  }
+
+  .data-collection {
+    background-color: var(--color-teal);
+    border-top-left-radius: 10rem;
+    padding: 5rem;
+    gap: 2rem;
+    display: grid;
+    place-items: center;
+    z-index: 5;
+    transition: all .5s ease;
+
+    &:hover {
+      background-color: var(--color-light-blue);
+    }
+
+    & .h3__heading {
+      align-self: end;
+    }
+
+    p {
+      font-size: $font-body;
+      font-weight: 400;
+      align-self: baseline;
+      line-height: 1.3;
+
+
+      @include respond(medlg) {
+        font-size: $font-body-mobile;
+      }
+    }
+  }
+
+  .innovation {
+    background-color: var(--color-light-blue);
+    display: grid;
+    grid-template-columns: 1.5fr 2.5fr;
+    z-index: 5;
+
+    transition: all .5s ease;
+
+    &:hover {
+      background-color: var(--color-grey);
+    }
+
+    &:hover .innovation__header {
+      background-color: var(--color-dark-grey);
+    }
+
+    &:hover .innovation__description {
+      background-color: var(--color-grey);
+    }
+
+    @include respond(medlg) {
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+    }
+
+    &__header {
+      background-color: var(--color-blue);
+      padding: 5rem;
+      float: left;
+      shape-outside: inset(50px 0px 0px 0px);
+      height: 100%;
+      border-bottom-right-radius: 10rem;
+      color: var(--color-white);
+      display: grid;
+      align-content: center;
+      place-items: center;
+      gap: 2rem;
+      transition: all .5s ease;
+
+      @include respond(small) {
+        float: none;
+        height: auto;
+      }
+    }
+
+    &__icon {
+      fill: var(--color-white);
+      width: 14rem;
+      height: 14rem;
+    }
+
+    &__description {
+      background-color: var(--color-light-blue);
+      height: 100%;
+      padding: 5rem;
+      text-align: left;
+      font-weight: 400;
+      display: grid;
+      align-content: center;
+      transition: all .5s ease;
+
+      @include respond(small) {
+        height: auto;
+      }
+
+      @include respond(medlg) {
+        text-align: center;
+      }
+
+    }
+
+    &__p {
+      font-size: clamp(1.9rem, 1.8vw, 2.1rem);
+      margin-bottom: 2rem;
+
+      @include respond(small) {
+        margin-left: 0;
+      }
+
+      @include respond(medlg) {
+        font-size: 2.7rem;
+      }
+    }
+
+    &__item {
+      font-size: $font-body;
+      margin-left: 2rem;
+      line-height: 1;
+      margin-bottom: 0.8rem;
+
+
+      @include respond(small) {
+        margin-left: 0;
+      }
+
+      @include respond(medlg) {
+        list-style: none;
+        font-size: $font-body-mobile;
+      }
+    }
+
+
+  }
+
+
+  & .proactive__wrapper {
+    max-width: 130rem;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    @include respond(largest) {
+      grid-template-rows: auto;
+      grid-template-columns: none;
+      padding: 2rem;
+      margin-top: 0;
+    }
+
+  }
+
+  .resource-sharing {
+    background-color: var(--color-teal);
+    border-bottom-right-radius: 10rem;
+    padding: 5rem;
+    display: grid;
+    gap: 2rem;
+    place-items: center;
+    z-index: 5;
+
+    transition: all .5s ease;
+
+    &:hover {
+      background-color: var(--color-light-blue);
+    }
+
+    & .h3__heading {
+      align-self: end;
+    }
+
+    p {
+      font-size: $font-body;
+      font-weight: 400;
+      line-height: 1.3;
+      align-self: baseline;
+
+      @include respond(medlg) {
+        font-size: $font-body-mobile;
+      }
+
+
+    }
+  }
+
+  .grantee-support {
+    background-color: var(--color-light-blue);
+    flex-direction: row-reverse;
+    display: flex;
+    z-index: 5;
+    transition: all .5s ease;
+
+    &:hover {
+      background-color: var(--color-grey);
+    }
+
+    &:hover .grantee-support__header {
+      background-color: var(--color-dark-grey);
+    }
+
+    &:hover .grantee-support__description {
+      background-color: var(--color-grey);
+    }
+
+    @include respond(medlg) {
+      flex-direction: column;
+
+    }
+
+    &__header {
+      background-color: var(--color-blue);
+      padding: 5rem;
+      float: right;
+      shape-outside: inset(50px 0px 0px 0px);
+      height: 100%;
+      width: 50%;
+      border-top-left-radius: 10rem;
+      border-bottom-left-radius: 0;
+      color: var(--color-white);
+      display: grid;
+      align-content: center;
+      place-items: center;
+      gap: 2rem;
+      transition: all .5s ease;
+
+      @include respond(medlg) {
+        height: auto;
+        width: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 10rem;
+      }
+    }
+
+    &__icon {
+      fill: var(--color-white);
+      width: 14rem;
+      height: 14rem;
+    }
+
+    &__description {
+      background-color: var(--color-light-blue);
+      height: 100%;
+      width: 50%;
+      padding: 5rem;
+      text-align: right;
+      font-weight: 400;
+      display: grid;
+      transition: all .5s ease;
+
+      @include respond(medlg) {
+        height: auto;
+        width: 100%;
+      }
+
+    }
+
+    &__p {
+      font-size: $font-body;
+      line-height: 1.2;
+      align-self: center;
+
+      @include respond(medlg) {
+        font-size: $font-body-mobile;
+        text-align: center;
+      }
+    }
+
+
+
+
+  }
+
+}
+
+.staff {
+  padding: 8rem 8vw;
+  text-align: center;
+  min-height: 100%;
+  background: linear-gradient(0deg, rgba(var(--color-grey-a), 0.8), rgba(var(--color-grey-a), 0.8)), url("assets/img/staff-bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+
+
+
+  @include respond(medium) {
+    padding: 0 0 10rem 0;
+  }
+
+  & .h2__heading {
+
+    @include respond(medium) {
+      background-color: var(--color-dark-grey);
+      color: var(--color-white);
+      padding: 4rem 5rem;
+      font-weight: 300;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    max-width: 130rem;
+    margin: 0 auto;
+    margin-block-end: 10rem;
+  }
+
+  // Member wrapper and link
+  &__member {
+    position: relative;
+    margin: 5rem;
+    text-decoration: none;
+    transition: all .5s ease;
+
+
+    //Grey overlay - initially invisible 
+    .staff__overlay {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 21.5rem;
+      width: 18.7rem;
+      left: 0;
+      z-index: 10;
+      clip-path: url(#octo-clip);
+      opacity: 0;
+      transition: all .5s ease;
+      background-color: var(--color-dark-grey);
+
+      @include respond(medium){
+        display: none;
+      }
+    }
+
+    // Grey staff overlay is visible on hover
+    &:hover .staff__overlay {
+      opacity: .9;
+      
+    }
+
+    // Reveil staff details on member hover
+    &:hover .staff__details {
+      opacity: 1;
+    }
+
+  // Reveil staff details on member hover
+    &:hover .staff__name {
+      bottom: -3.5rem;
+      opacity: 1;
+
+      
+    }
+
+    &:hover .staff__icon {
+      fill: var(--color-dark-grey);
+    }
+
+    &:hover .staff__headshot {
+      filter: blur(2px);
+
+      @include respond(medium) {
+        filter: blur(0);
+      }
+    }
+
+  }
+
+  &__is-mobile .staff__details{
+    color: var(--color-black);
+    opacity: 1;
+    margin-top: 2.5rem;
+  }
+
+
+  // Staff name for mobile users
+  &__is-mobile .staff__name {
+    font-size: 2rem;
+    opacity: 1;
+  }
+
+   // Staff name for mobile users
+   &__is-mobile .staff__title {
+    display: none;
+  }
+
+  // Staff overlay for mobile users
+  &__is-mobile .staff__overlay {
+    display: none;
+  }
+
+  &__is-desktop .staff__details{
+    color: var(--color-white);
+    position: absolute;
+    padding: 1rem;
+    top: 0;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    display: grid;
+    place-content: center;
+    opacity: 0;
+
+    @include respond(medium) {
+      opacity: 1;
+      position:relative;
+      margin-block-start: 2rem;
+      width: 100%;
+     
+    }
+  }
+
+  &__is-desktop .staff__name{
+    font-size: 1.5rem;
+  }
+  
+
+  // Headshot image 
+  &__headshot {
+    width: 18.5rem;
+    position: relative;
+    z-index: 2;
+    filter: grayscale(100%);
+  }
+
+  // Octogon behind headshot
+  &__icon {
+    position: absolute;
+    fill: var(--color-teal);
+    width: 23rem;
+    height: 23rem;
+    left: -15px;
+    top: -2px;
+    z-index: 1;
+    transition: all .5s ease;
+  }
+
+  // Staff details wrapper - initially hidden
+  &__details {
+    z-index: 10;
+    width: 18.5rem;
+    transition: all .5s ease;
+
+    @include respond(medium) {
+      opacity: 1;
+      position:relative;
+      margin-block-start: 2rem;
+      width: 100%;
+      transform: translateX(-15px);
+    }
+    
+
+  }
+
+  // Staff details name
+  &__name {
+    font-weight: 600;
+    line-height: 1.2;
+    align-self: center;
+    z-index: 99;
+
+
+    @include respond(medlg) {
+      font-size: $font-body-mobile;
+      text-align: center;
+      opacity: 1;
+    }
+
+    @include respond(medium) {
+      color: var(--color-black);
+    } 
+  }
+
+  // Staff title - Hidden on mobile
+  &__title {
+    font-size: 1.3rem;
+
+    @include respond(medium) {
+      display: none;
+    }    
+  }
+
+
+
+}
+
+.statistics {
+  padding: 3rem 8vw;
+  text-align: center;
+  color: var(--color-white);
+
+  &__container {
+    background-color: var(--color-blue);
+    border-top-left-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+    padding: 5.5rem;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    place-items: center;
+    transform: translateY(-15rem);
+    transition: all .5s ease;
+
+    &:hover {
+      background-color: var(--color-dark-grey);
+    }
+
+    @include respond(medium) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3 auto);
+    }
+  }
+
+  &__item {
+    font-size: clamp(2.3rem, 1.6vw, 2.6rem);
+    font-weight: 600;
+    margin: 1rem;
+    max-width: 40rem;
+
+    @include respond(large) {
+      font-size: 2rem;
+    }
+  }
+
+  &__heading {
+    display: block;
+    font-size: clamp(5.2rem, 3vw, 6.2rem);
+    margin-block-end: 1.5rem;
+
+    @include respond(large) {
+      font-size: 5rem;
+    }
+  }
+
+  &__divider {
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-white);
+
+    @include respond(medium) {
+      width: 50%;
+      height: 1px;
+      background-color: var(--color-teal);
+      margin: 4rem 0;
+    }
+  }
+
+}

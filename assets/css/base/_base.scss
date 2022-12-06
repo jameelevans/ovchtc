@@ -1,0 +1,24 @@
+// * Simple CSS Reset
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+  }
+
+  body{
+   
+  }
+
+

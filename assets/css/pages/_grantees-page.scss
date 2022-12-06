@@ -1,0 +1,474 @@
+.map {
+  background-color: var(--color-grey);
+
+  &__wrapper {
+    max-width: 130rem;
+    margin: 0 auto;
+    position: relative;
+    padding-block-end: 15rem;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    text-align: left;
+    margin-block-end: 3rem;
+
+    @include respond(medium) {
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+    }
+  }
+
+  &__description {
+    padding: 8rem 15vw 0 8rem;
+
+    @include respond(medium) {
+      padding: 0;
+    }
+  }
+
+  &__heading {
+    font-size: clamp(2.5rem, 1.8vw, 2.8rem);
+    font-weight: 400;
+    margin-block-end: 3rem;
+
+    @include respond(medium) {
+      background-color: var(--color-dark-grey);
+      color: var(--color-white);
+      padding: 8rem 5rem;
+      font-weight: 300;
+      margin-block-end: 5rem;
+      text-align: center;
+    }
+    
+  }
+
+  &__p {
+    font-size: 1.7rem;
+    line-height: 1.6;
+
+    @include respond(medium) {
+      margin: 0 8vw;
+    }
+
+    &:not(:last-of-type) {
+      margin-block-end: 2rem;
+    }
+  }
+
+
+
+ 
+
+  &__bottom {
+    position: relative;
+    padding-block-end: 10rem;
+
+
+
+
+
+
+  }
+
+
+}
+
+.map__dropdown {
+  text-align: center;
+  position: relative;
+  padding: 0;
+  position: absolute;
+  right: 5rem;
+  top: -8rem;
+  width: 40rem;
+  z-index: 10;
+
+  @include respond(medium) {
+    padding: 2rem;
+    position: relative;
+    width: 100%;
+    right: unset;
+    top: unset;
+  }
+
+
+  
+
+  #dropdown-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-white);
+    z-index: 99;
+    text-align: center;
+    width: 25rem;
+
+
+    @include respond(medium) {
+      position: relative;
+      margin: 0 auto;
+      transform: translateX(0);
+      left: unset!important;
+      width: 80%;
+  }
+
+
+  }
+
+  .dropdown-toggle {
+    color: var(--color-white);
+    background-color: var(--color-black);
+    font-size: 1.4rem;
+    padding: 10px 0;
+    font-weight: 500;
+    cursor: pointer;
+
+    transition: all ease-in-out 0.3s;
+
+    @include respond(medium) {
+      padding: 2rem 0;
+  }
+
+
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: #0979ce;
+      color: #ffffff;
+    }
+  }
+
+  #dropdown-menu {
+    width: 100%;
+    box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.5);
+    margin-top: .7rem;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: none;
+    background-color: #ffffff;
+    z-index: 10;
+    height: 40rem;
+    overflow-y: scroll;
+  }
+
+  #dropdown-menu,
+  .dropdown-toggle {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      border: 5px solid;
+      border-top-color: rgba(0, 0, 0, 0);
+      border-left-color: rgba(0, 0, 0, 0);
+      margin-top: -2.5px;
+      background-color: rgba(0, 0, 0, 0);
+      transition: all ease-in-out 0.2s;
+    }
+  }
+
+  #dropdown-menu {
+    z-index: 10;
+    position: absolute;
+
+    &::before {
+      z-index: -1;
+      transform: rotate(-135deg);
+      top: -4px;
+      border-color: #ffffff;
+      box-shadow: 1px 1px 4px -2px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .dropdown-open {
+    #dropdown-menu.dropdown-active {
+      display: block;
+    }
+  }
+
+  #dropdown-container.dropdown-open {
+    .dropdown-toggle {
+      //background-color: black;
+      color: #ffffff;
+
+      &:before {
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+  #dropdown-container {
+    .dropdown-toggle {
+      background-color: black;
+      color: #ffffff;
+
+
+    }
+  }
+
+  .dropdown-solid {
+
+    .dropdown-toggle,
+    #dropdown-menu {
+      background-color: var(--color-black);
+      color: var(--color-white);
+    }
+
+
+
+    #dropdown-menu {
+
+
+      &::before {
+        border-color: #0979CE;
+      }
+
+    }
+  }
+
+
+}
+
+.mapsvg-directory {
+  background-color: var(--color-teal) !important;
+  color: var(--color-black) !important;
+}
+
+.mapsvg-directory-item {
+  font-size: 1.4rem!important;
+  font-family: $font-primary!important;
+  color: var(--color-black)!important;
+
+  @include respond(medium){
+    padding: 1.8rem!important;
+  }
+  
+  
+}
+
+.mapsvg-details-container {
+  color: var(--color-black)!important;
+}
+
+.mapsvg-controller-view-content{
+  span{
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 812px){
+  .mapsvg-details-container {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 4rem 2rem;
+ }
+
+ .mapsvg-controller-view-content{
+
+  //transform: translateY(50%);
+  span{
+    display: block;
+  }
+  p{
+    margin-bottom: 3rem;
+  }
+}
+}
+
+
+.nano > .nano-content {
+  padding: 25rem 15rem;
+}
+
+.mapsvg-directory-item.selected, .mapsvg-category-item.selected {
+  background: var(--color-black) !important;
+  color: var(--color-white) !important;
+}
+
+.mapsvg-directory-item:hover,
+.mapsvg-category-item:hover {
+  background: var(--color-black) !important;
+  color: var(--color-white) !important;
+}
+
+.mapsvg-region-label {
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  font-size: 1.2rem!important;
+  padding: 5px!important;
+  border-radius: 50%!important;
+  line-height: 1.2;
+    height: 2.4rem;
+    width: 2.4rem;
+}
+
+.mapsvg-buttons{
+  top: 70% !important;
+}
+
+.mapsvg-btn-group {
+  box-shadow: none!important;
+}
+
+.mapsvg-btn-map {
+  border-radius: 50%!important;
+  border-bottom: none!important;
+  background-color: var(--color-black)!important;
+  color: var(--color-white)!important;
+
+  &:not(:last-of-type){
+    margin-block-end: 1rem;
+  }
+}
+
+.mapsvg-btn-map.mapsvg-in:before, .mapsvg-btn-map.mapsvg-out:before {
+  background-color: var(--color-white)!important;
+}
+
+.mapsvg-btn-map.mapsvg-in:after, .mapsvg-btn-map.mapsvg-out:after {
+  background-color: var(--color-white)!important;
+}
+
+.mapsvg-mobile-modal-close {
+  background: var(--color-black)!important;
+  border: none!important;
+  bottom: 8rem!important;
+  border-radius: 5rem!important;
+  padding: 1rem 5rem!important;
+}
+
+.awards{
+  padding: 8rem 8vw;
+margin: 0 auto;
+background-image: url(assets/img/honeycomb-bg.png);
+background-position: -22% 90%;
+background-size: 60%;
+background-repeat: repeat-y;
+background-attachment: fixed;
+
+@include respond(medium){
+  padding: 0 0 5rem;
+  background-position: -20% 0%;
+  background-size: 100%;
+}
+
+  &__wrapper {
+    max-width: 130rem;
+    margin: 0 auto;
+    position: relative;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 2rem;
+
+    @include respond(large){
+      grid-template-columns: 50% 50%;
+      
+    }
+
+    @include respond(medium){
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      padding: 0 5rem;
+    }
+  }
+
+  &__header{
+    max-width: 130rem;
+    margin: 0 auto;
+  }
+
+  .h2__heading{
+    text-align: left;
+    margin-bottom: 0;
+
+    @include respond(large) {
+
+      margin-bottom: 5rem;
+  
+    }
+
+    @include respond(medium) {
+      background-color: var(--color-dark-grey);
+      color: var(--color-white);
+      padding: 8rem 5rem;
+      font-weight: 300;
+  
+      text-align: center;
+    }
+    
+  }
+
+  &__column{
+    background-color: rgba(var(--color-white-a), .75);
+
+   
+    .h3__heading{
+      margin-block-end: 2.5rem;
+      line-height: 1.3;
+    }
+    p{
+      font-size: 1.8rem;
+      font-weight: 200;
+      line-height: 1.3;
+    }
+    
+
+    &:last-of-type{
+      background-color: var(--color-light-blue);
+      border-top-left-radius: 9rem;
+      border-bottom-right-radius: 9rem;
+      padding: 9rem 7rem;
+
+      @include respond(medium){
+        border-bottom-left-radius: 9rem;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  &__description{
+    width: 80%;
+    padding: 7rem 0;
+    margin-bottom: 0;
+
+    @include respond(large){
+      width: 100%;
+      padding: 0;
+      margin-bottom: 5rem;
+    }
+  }
+
+  &__p {
+    
+    &:not(:last-of-type){
+      margin-bottom: 2.5rem;
+    }
+}
+
+&__location{
+  background-color: var(--color-teal);
+  padding: 7rem;
+      border-top-right-radius: 9rem;
+      border-bottom-left-radius: 9rem;
+
+      @include respond(medium){
+        border-bottom-left-radius: 0;
+        margin-top: 5rem;
+      }
+
+      
+
+      
+}
+
+}
