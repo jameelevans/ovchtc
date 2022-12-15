@@ -38,8 +38,9 @@
                 </div>
                 <div class="footer__section">
                     <ul class="footer__list">
-                        <li class="footer__item"><a class="footer__link" href="#">Email Updates</a></li>
-                        <li class="footer__item"><a class="footer__link" href="#">TTA Request Form</a></li>
+                        <li class="footer__item"><a class="footer__link" href="mailto:htcollective@icf.com">Email Updates</a></li>
+                        <!-- Form currently under contruction, will add later
+                        <li class="footer__item"><a class="footer__link" href="">TTA Request Form</a></li>-->
                         <li class="footer__item"><a class="footer__link" href="<?php echo esc_url( site_url( '/ovc-faqs' ) );?>" title="Go to our FAQs page">Help Pages</a></li>
                     </ul>
                 </div>

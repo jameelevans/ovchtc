@@ -1,22 +1,16 @@
-# Blank Wordpress Starter Theme w/ Gulp, Webpack and SASS
+# OVC HTC Wordpress Theme w/ Gulp, Webpack and SASS
 
-This is a blank WordPress starter theme that uses Gulp, Webpack and Sass. It helps you speed up production to your WP themes and helps you follow the DRY method by not ever creating another gulpfile again.
-
-
-
-
+OVC HTC custom Wordpress theme
 
 ### Built With
 
-* Gulp
-* Webpack
-* [WordPress](https://wordpress.org/) - WordPress is open source software you can use to create a beautiful website, blog, or app.
-* [SASS](https://sass-lang.com/) - CSS with superpowers
-
-
+- Gulp
+- Webpack
+- [WordPress](https://wordpress.org/) - WordPress is open source software you can use to create a beautiful website, blog, or app.
+- [SASS](https://sass-lang.com/) - CSS with superpowers
 
 ### Authors
 
-* **Jameel Evans** - *Development* - [Jameel Evans](https://jameelevans.com/)
-
-
+- **Eduardo Minaya** - _Associate Creative Director_
+- **Jameel Evans** - _Development_
+- **Laura Myers** - _Design_

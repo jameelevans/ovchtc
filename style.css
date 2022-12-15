@@ -2608,7 +2608,8 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 }
 
 .bio__description {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
+  line-height: 1.5;
   -webkit-margin-after: 2rem;
           margin-block-end: 2rem;
 }
