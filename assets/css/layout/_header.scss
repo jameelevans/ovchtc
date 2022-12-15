@@ -48,6 +48,10 @@
     padding: 8vw 0;
     width: 50%;
 
+    @include respond(large) {
+      width: 65%;
+    }
+
     @include respond(medium) {
       width: 100%;
       padding: 5rem 0;
@@ -56,14 +60,23 @@
   }
 
   &__heading {
-    font-size: clamp(3rem, 3.5vw, 6rem);
+    font-size: 4.5rem;
     margin-bottom: 2.5rem;
+
+
+    @include respond(large) {
+      font-size: 3.5rem;
+    }
   }
 
   &__description {
 
-    font-size: clamp(1.5rem, 1.8vw, 3rem);
+    font-size: 2rem;
     margin-bottom: 2.5rem;
+
+    @include respond(large) {
+      font-size: 2rem;
+    }
   }
 
   &__list {
@@ -81,7 +94,7 @@
 
   &__item:before {
     content: '✓';
-    margin: 0 10px 0 -28px;
+    margin: 0 1rem 0 -2.8rem;
   }
 
   &__cta--wrapper {
@@ -97,10 +110,14 @@
     text-transform: uppercase;
     text-decoration: none;
     color: var(--color-white);
-    font-size: clamp(1.5rem, 1.8vw, 2.4rem);
+    font-size: 2.2rem;
     font-weight: bold;
     height: 1.8rem;
     transition: all .3s ease-in-out;
+
+    @include respond(large) {
+      font-size: 1.9rem;
+    }
 
     &:hover {
       color: var(--color-teal);
@@ -110,10 +127,15 @@
       content: "";
       width: 100%;
       position: absolute;
-      top: clamp(1.8rem, 1.9vw, 2.9rem);
+      top: 2.9rem;
       left: 0;
       height: 3px;
       background-color: var(--color-teal);
+
+      @include respond(large) {
+        top: 2.5rem;
+        height: 2px;
+      }
     }
 
     &:hover~.header__arrow {
@@ -137,11 +159,11 @@
 }
 
 .home-header {
-  @include respond(medium) {
+  /*@include respond(medium) {
     background-image: linear-gradient(to bottom,
         rgba(var(--color-blue-a), 0.9), rgba(var(--color-teal-a), 0.8)),
       url("assets/img/main-banner.jpg");
-  }
+  }*/
 
 
 
@@ -167,16 +189,16 @@
 }
 
 .general-header {
-  background-image: linear-gradient(to bottom right,
+ /* background-image: linear-gradient(to bottom right,
         rgba(var(--color-dark-blue-a),0.8) 35%, rgba(var(--color-teal-a), 0.8)),
-      url("assets/img/about-1.jpg");
-
+      url("assets/img/resources-header.jpg");*/
+      
 
 
   @include respond(medium) {
     background-image: linear-gradient(to bottom,
         rgba(var(--color-blue-a), 0.9), rgba(var(--color-teal-a), 0.8)),
-      url("assets/img/about-1.jpg");
+      url("assets/img/resources-header.jpg");
   }
 }
 

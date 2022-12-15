@@ -43,6 +43,8 @@
       text-transform: uppercase;
       transition: all .3s ease-in-out;
 
+      
+
       &:after {
         content: '';
         position: absolute;
@@ -61,7 +63,8 @@
         background: var(--color-teal);
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: var(--color-teal);
       }
 
@@ -83,6 +86,91 @@
     margin-top: 4rem;
 
   }
+
+
+
+  &__menu{
+      position: absolute;
+      background-color: transparent;
+    border: none;
+      height: 7rem;
+      width: 7rem;
+      border-radius: 3px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2000;
+      cursor: pointer;
+      box-shadow: none;
+
+      &:focus{
+        outline: 2px dashed var(--color-white);
+      }
+    
+  }
+
+//ICON
+  &__icon {
+    position: absolute;
+    top: 0;
+
+    
+
+    @include respond(medium){
+    //display: none;
+  }
+
+    //Base styles for all three icon lines
+    &::before,
+    &::after {
+      width: 4.5rem;
+      height: 3px;
+      border-radius: 1px;
+      background-color: var(--color-white);
+      display: inline-block;
+    }
+
+    //Content must be set empty for sudo elements
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    //Individual positioining for 1st and 3rd icon lines
+    &::before {
+      top: 2.5rem;
+    }
+
+    &::after {
+      top: 4rem;
+    }
+
+    &--close-x{
+      &::before{
+        top: 3rem;
+        transform: rotate(135deg);
+      }
+
+      .mobile-navigation__icon{
+        opacity: 0;
+        background-color: transparent;
+      }
+
+      &::after{
+         top: 3rem;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+
+
+  
+
+  
 
   &__checkbox {
     display: none;
@@ -127,12 +215,18 @@
     height: 100vh;
     width: 100vw;
     position: fixed;
-    top: -70px;
+    top: 0;
+    background: var(--color-blue);
     right: 0;
     z-index: 1500;
     transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     opacity: 0;
     visibility: hidden;
+  }
+
+  &__nav--is-visible{
+    opacity: 1;
+    visibility: visible;
   }
 
   .mobile-navigation__current-page{
@@ -224,46 +318,7 @@
     visibility:visible;
   }
 
-  //ICON
-  &__icon {
-    position: relative;
-
-    //Base styles for all three icon lines
-    &::before,
-    &::after {
-      width: 4.5rem;
-      height: 3px;
-      border-radius: 1px;
-      background-color: var(--color-white);
-      display: inline-block;
-    }
-
-    //Content must be set empty for sudo elements
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      left: -2rem;
-      transition: all 0.3s ease-in-out;
-    }
-
-    //Individual positioining for 1st and 3rd icon lines
-    &::before {
-      top: 2.5rem;
-    }
-
-    &::after {
-      top: 4rem;
-    }
-  }
-
-  &__button:hover &__icon::before {
-    top: 2.2rem;
-  }
-
-  &__button:hover &__icon::after {
-    top: 4.2rem;
-  }
+  
 
   //When checkbox is selected --> slecte its sibling, then select the buttons child (icon) then remove middle icon line
   &__checkbox:checked+&__button &__icon {

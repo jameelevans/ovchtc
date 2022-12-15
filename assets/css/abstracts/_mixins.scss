@@ -1,7 +1,19 @@
 /**
 *
 * * All mixins for project can be found in this file (Except for typography mixins)
-*
+**/
+
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/**
+*Breakpoint mixin directions
 * * --------| Order |-------- *
 *   TODO: Create media queries in the order below
 *   1 Base & Typography
@@ -41,3 +53,4 @@
         @media only screen and (max-width: 75em) { @content }; // 1200px
     }
 }
+

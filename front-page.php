@@ -8,9 +8,9 @@
 get_header();
 
 ?>
-	<main>
+	<main id="main-content">
 
-				<img src="<?php echo get_stylesheet_directory_uri()?>/assets/img/honeycomb-bg.png" alt="" class="hexagon-bg rellax" data-rellax-speed="-10">
+				<img src="<?php echo get_stylesheet_directory_uri()?>/assets/img/honeycomb-bg.png" alt="Hexagon BG Image" class="hexagon-bg rellax" data-rellax-speed="-10" role="presentation">
 
 		
 				
@@ -20,7 +20,7 @@ get_header();
 					<div class="support__wrapper">
 					
 						<div class="data-collection">
-							<h3 class="h3__heading">Data Collection & Analysis</h3>
+							<h3 class="h3__heading">Data Collection &amp; Analysis</h3>
 							<p>Support surrounding data collection analysis considerations with best practices evaluation and program integration.</p>
 						</div>
 
@@ -91,8 +91,9 @@ get_header();
 						if($staff->have_posts()) {
 							while($staff->have_posts()) {
 								$staff->the_post();?>
-													<!-- Individual staff -->
-								<a class="staff__member<?php if ( wp_is_mobile() ){echo ' staff__is-mobile';}else{echo ' staff__is-desktop';}?>" href="#" title="Learn more about <?php the_title();?>">
+								<!-- Individual staff -->
+								<?php $slug = get_post_field( 'post_name', get_the_ID() ); ?>
+								<a class="staff__member<?php if ( wp_is_mobile() ){echo ' staff__is-mobile';}else{echo ' staff__is-desktop';}?>" href="<?php echo esc_url( site_url( '/about' ) . '#' . $slug ); ?>" title="Learn more about <?php the_title();?>">
 									<span class="staff__overlay"></span>
 									<img class="staff__headshot" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title();?>">
 									<?php echo svg_icon('staff__icon', 'octogon');?>
@@ -124,7 +125,8 @@ get_header();
 							while($staff->have_posts()) {
 								$staff->the_post();?>
 													<!-- Individual staff -->
-								<a class="staff__member<?php if ( wp_is_mobile() ){echo ' staff__is-mobile';}else{echo ' staff__is-desktop';}?>" href="#" title="Learn more about <?php the_title();?>">
+													<?php $slug = get_post_field( 'post_name', get_the_ID() ); ?>
+								<a class="staff__member<?php if ( wp_is_mobile() ){echo ' staff__is-mobile';}else{echo ' staff__is-desktop';}?>" href="<?php echo esc_url( site_url( '/about' ) . '#tab1'); ?>" title="Learn more about <?php the_title();?>">
 									<span class="staff__overlay"></span>
 									<img class="staff__headshot" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title();?>">
 									<?php echo svg_icon('staff__icon', 'octogon');?>

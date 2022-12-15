@@ -1,0 +1,216 @@
+//* Orientations overall page styles
+.orientations {
+  padding: 8rem 8vw;
+  background-color: var(--color-white);
+  background-image: url('assets/img/honeycomb-bg.png');
+  background-position: -16% 30%;
+  background-size: 35%;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+
+  // Orientations page wrapper
+  &__wrapper {
+    max-width: 130rem;
+    margin: 0 auto;
+  }
+
+  // Header section
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+
+    @include respond(medium) {
+      grid-template-columns: auto;
+    }
+
+    //Heading
+    .h2__heading {
+      place-self: self-start;
+      margin-bottom: 0;
+
+      @include respond(medium) {
+        place-self: unset;
+        text-align: center;
+        margin-block-end: 5rem;
+      }
+    }
+  }
+
+  //Sort container
+  &__sort {
+    place-self: self-end;
+
+    @include respond(medium) {
+      place-self: unset;
+      text-align: center;
+    }
+
+    // Sort title
+    .widgettitle {
+      display: none;
+    }
+
+    // Sort select box
+    .wpc-sorting-form select,
+    .wpc-filter-content select {
+      padding: 1rem 1.5rem 1rem 1.5rem;
+      background-color: var(--color-black);
+      border-color: none;
+      border-radius: 0;
+      font-size: 1.8rem;
+      color: var(--color-white);
+      -webkit-appearance: none;
+    }
+  }
+
+  // Orientations grid wrapper
+  &__grid {
+    display: grid;
+    grid-template-rows: 100%;
+
+  }
+
+  // Single orientation wrapper
+  .orientation {
+
+    // Single orientation article
+    &__container {
+      display: grid;
+      grid-template-columns: 6fr 4fr;
+      gap: 10rem;
+      padding: 8rem 0;
+
+      @include respond(largest) {
+        gap: 5rem;
+      }
+
+      @include respond(large) {
+        grid-template-columns: auto;
+      }
+
+      // Not the last type of Single orientation articles
+      &:not(:last-of-type) {
+        border-bottom: 2px solid var(--color-teal);
+      }
+    }
+
+    // Orientation Details
+    &__details {
+      margin-left: 10rem;
+
+      @include respond(large) {
+        margin-left: 0;
+      }
+    }
+
+    // Orientation Date
+    &__date {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      transform: translateX(-10rem);
+
+      @include respond(large) {
+        margin-bottom: 4rem;
+        transform: none;
+      }
+    }
+
+    // Orientation month
+    &__month {
+      background-color: var(--color-blue);
+      color: var(--color-grey);
+      padding: 2rem 2.3rem;
+      font-weight: 400;
+      font-size: 1.6rem;
+      float: left;
+      text-align: center;
+
+      // Orientation day span
+      span {
+        display: block;
+        line-height: .7;
+        font-weight: bolder;
+        font-size: 2.3rem;
+      }
+    }
+
+    // Orientation year
+    &__year {
+      background-color: var(--color-grey);
+      color: var(--color-black);
+      padding: 2rem;
+      height: 50%;
+      line-height: .2;
+      font-size: 1.3rem;
+      font-weight: 700 !important;
+    }
+
+    // Orientation header
+    &__heading {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-block-end: 1.8rem;
+
+      @include respond(medium) {
+        grid-template-columns: auto;
+      }
+    }
+
+    // Orientation lenght
+    &__length {
+      font-size: 2.1rem;
+      text-transform: uppercase;
+      margin-block-end: 1.8rem;
+    }
+
+    // Orientation description
+    &__description {
+      font-size: 1.7rem;
+      line-height: 1.5;
+    }
+
+    // Orientation aside
+    &__aside {
+      display: grid;
+      align-items: center;
+    }
+
+    // Orientation matrials
+    &__materials {
+      background-color: var(--color-blue);
+      color: var(--color-white);
+      padding: 5rem;
+
+      // Orientation h4
+      .orientation__heading{
+        font-size: 2.3rem;
+        font-weight: 300;
+        margin-block-end: 4rem;
+      }
+    }
+
+    // Orientation link
+    &__link {
+      display: block;
+      color: var(--color-white);
+      font-size: 1.8rem;
+      transition: all .3s ease-in;
+
+      &:hover {
+        color: var(--color-teal);
+      }
+
+      // Not the last type of orientation link
+      &:not(:last-of-type) {
+        margin-block-end: 1.8rem;
+      }
+    }
+
+    // No orientations paragraph
+    &__none {
+      color: var(--color-white);
+      font-size: 1.8rem;
+    }
+  }
+}

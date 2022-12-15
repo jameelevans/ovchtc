@@ -28,7 +28,9 @@
 
     // Add bottom border radius on medium
     @include respond(medium) {
-      border-bottom-left-radius: var(--border-radius);
+      border-top-left-radius: 18rem;
+      border-bottom-left-radius: 18rem;
+      overflow: hidden;
       border-top-right-radius: 0;
 
     }
@@ -50,10 +52,10 @@
     @include respond(medium) {
       grid-template-columns: auto;
       grid-template-rows: 1fr 1fr;
-      border-bottom-left-radius: var(--border-radius);
-      border-top-left-radius: var(--border-radius);
+      border-bottom-left-radius: 18rem;
+      border-top-left-radius: 18rem;
       border-bottom-right-radius: 0;
-      background-color: transparent;
+      background-color: var(--color-light-blue);
 
     }
 
@@ -62,11 +64,18 @@
   &__description {
     font-size: clamp(1.9rem, 1.8vw, 2.1rem);
     line-height: 1.6;
+
+    @include respond(medium) {
+      font-size: 3rem;
+
+    }
   }
 
   &__description--odd {
     border-top-right-radius: var(--border-radius);
     padding: 10rem;
+
+  
 
 
   }
@@ -75,10 +84,14 @@
     position: relative;
     padding: 10rem 0 10rem 10rem;
     background-color: var(--color-light-blue);
+    border-bottom-left-radius: var(--border-radius);
 
     @include respond(medium) {
       padding: 10rem;
-      border-bottom-right-radius: var(--border-radius);
+
+      border-bottom-right-radius: 0;
+    border-top-left-radius: 18rem;
+    border-bottom-left-radius: 0;
 
     }
 
@@ -103,7 +116,10 @@
 
     }
 
-    .about__p {}
+    .about__p {
+
+
+    }
 
   }
 
@@ -113,8 +129,14 @@
     .about__image {
       width: 100%;
       height: 100%;
-      background-position: right;
+      background-image: linear-gradient(to bottom right,
+        rgba(var(--color-dark-blue-a),0.8) 35%,
+         rgba(var(--color-teal-a), 0.8)),
+         url('assets/img/about-bottom.jpg');
+      background-position: top right;
       background-size: cover;
+        /* flip horizontally */
+    transform: scaleX(-1);
 
 
     }
@@ -123,12 +145,23 @@
   }
 
   &__header--odd {
+    border-top-right-radius: var(--border-radius);
+    overflow: hidden;
 
     & .about__image {
-      border-bottom-left-radius: var(--border-radius);
+      background-image: linear-gradient(to bottom right,
+        rgba(var(--color-dark-blue-a),0.8) 35%,
+         rgba(var(--color-teal-a), 0.8)),
+         url('assets/img/about-top.jpg');
       border-top-right-radius: var(--border-radius);
       background-position: center;
       background-size: cover;
+
+
+      @include respond(medium) {
+        border-top-right-radius: 0;
+  
+      }
     }
 
 
@@ -137,21 +170,29 @@
   }
 
   &__header--even {
+    border-bottom-right-radius: var(--border-radius);
+
+    @include respond(medium) {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 18rem;
+    border-bottom-left-radius: 18rem;
+    background-color: var(--color-light-blue);
+
+    }
+   
+
+    overflow: hidden;
 
     & .about__image {
-      border-bottom-right-radius: var(--border-radius);
+
 
 
       @include respond(medium) {
         grid-template-columns: auto;
         grid-template-rows: 1fr 1fr;
-        border-bottom-left-radius: var(--border-radius);
         border-top-left-radius: 0;
         border-bottom-right-radius: 0;
-        z-index: -1;
         position: relative;
-        transform: translateY(-100px);
-        height: 120%;
         background-position: bottom;
 
       }
@@ -172,6 +213,7 @@
   background-position: -25% 120%;
   background-size: 40%;
   background-repeat: repeat-y;
+  background-attachment: fixed;
 
 
 
@@ -214,17 +256,18 @@
   }
 
 
-  .active {
+ .active {
     background-color: var(--color-teal) !important;
     width: 100%;
+  
 
     @include respond(medium) {
       width:auto;
     }
   
     &:not(:last-of-type) {
-      border-top-left-radius: 20px;
-      border-bottom-right-radius: 20px;
+      border-top-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
 
       @include respond(medium) {
         border-radius: 5rem;
@@ -232,8 +275,8 @@
     }
   
     &:last-of-type {
-      border-bottom-left-radius: 20px;
-      border-top-right-radius: 20px;
+      border-bottom-left-radius: 2rem;
+      border-top-right-radius: 2rem;
 
       @include respond(medium) {
         border-radius: 5rem;
@@ -279,6 +322,21 @@
   width: 100%;
   padding: 1.5rem 3rem;
 
+
+    &:not(:last-of-type) {
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+
+
+    
+  }
+
+  &:not(:last-of-type) {
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+
+    }
+
  
 }
 
@@ -301,25 +359,27 @@
 
 }
 
-.bios__link {}
+
 
 .bio__inner-wrapper {
  
 
 
-  .bio__staff{
+  .bio__content{
      transition: all .3s ease-in;
   }
 
   .active {
    display: block;
   
+  
+  
     
   }
 
   .hide {
     display: none;
-    
+ 
    
   }
 
@@ -337,7 +397,7 @@
   fill: var(--color-teal);
   width: 23rem;
   height: 23rem;
-  left: -15px;
+  left: -1.5rem;
   top: -2px;
   z-index: 1;
   transition: all .5s ease;
@@ -414,6 +474,12 @@
   font-weight: bold;
   height: 1.8rem;
   transition: all .3s ease-in-out;
+
+  &:focus {
+    outline: 3px dashed var(--color-teal);
+    outline-offset: 5px;
+    border-radius: 5px;
+}
 
   &:hover {
     color: var(--color-teal);

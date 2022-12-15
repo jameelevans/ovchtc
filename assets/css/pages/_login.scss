@@ -28,7 +28,7 @@
   & form {
     border: 2.5px solid var(--color-white);
     background-color: transparent;
-    padding: 15px 24px 34px;
+    padding: 1.5rem 2.4rem 3.4rem;
 
     //* Login labels
     & label {
@@ -93,12 +93,12 @@
     }
 
     & .button-primary {
-      width: 125px;
+      width: 12.5rem;
       background: var(--color-teal);
       font-size: 1.6rem;
       color: var(--color-black);
       cursor: pointer;
-      height: 35px;
+      height: 3.5rem;
       text-align: center;
       border: none;
       background-size: 450% 150%;

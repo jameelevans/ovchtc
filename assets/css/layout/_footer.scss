@@ -64,6 +64,9 @@
     }
 
     .footer__image {
+      background-image: linear-gradient(to bottom right,
+        rgba(var(--color-dark-blue-a),0.8) 35%, rgba(var(--color-teal-a), 0.8)),
+         url('assets/img/contact-footer.jpg');
       width: 100%;
       height: 100%;
       background-position: right;
@@ -81,6 +84,11 @@
     text-align: left;
     position: relative;
     z-index: 1;
+
+    & a:focus{
+      outline: 1px dashed var(--color-white);
+      outline-offset: 3px;
+    }
 
     @include respond(largest) {
       padding: 8rem 10vw;
@@ -143,6 +151,8 @@
     color: inherit;
     text-decoration: none;
     transition: all .3s ease-in-out;
+
+    
 
     &:hover {
       color: var(--color-teal)

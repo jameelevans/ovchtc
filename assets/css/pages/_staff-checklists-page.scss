@@ -1,0 +1,157 @@
+.staff-checklists{
+  padding: 8rem 8vw;
+  background-color: var(--color-white);
+  
+  &__header{
+    max-width: 130rem;
+    margin: 0 auto;
+    
+  }
+
+  &__heading{
+    text-align: left;
+    }
+
+
+  // Orientations page wrapper
+  &__wrapper {
+    max-width: 130rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8rem;
+
+    @include respond(large) {
+      gap: 4rem;
+    }
+
+    @include respond(medium) {
+      gap: 4rem;
+      grid-template-columns: auto;
+    }
+  }
+
+  .staff-checklist__inner{
+
+
+    .hr{
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-teal);
+      margin: 6rem 0 3.5rem;
+
+    }
+  }
+
+  .staff-checklist{
+    border-top-left-radius: 12rem;
+    height: 40rem;
+    background-position: right;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 2rem;
+    position: relative;
+
+    
+    
+
+  
+
+    &__header{
+      background-color: var(--color-white);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      text-align: center;
+
+      &:nth-of-type(odd) {
+        border: 1px solid var(--color-teal);
+      }
+  
+      &:nth-of-type(even) {
+        border: 1px solid var(--color-light-blue);
+      }
+
+
+    
+
+      
+    }
+
+
+
+    &__details{
+      font-size: 1.8rem;
+    }
+
+    
+    h4.staff-ckecklist__h4{
+      font-size: 2.8rem ;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .staff-ckecklist__cta {
+      position: relative;
+      color: var(--color-black);
+      padding: 1.5rem;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    svg.staff-ckecklist__icon {
+      fill: var(--color-blue);
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-right: 1rem;
+    transform: translateY(7px);
+      transition: all .5s ease;
+    }
+
+    .staff-ckecklist__link{
+      text-decoration: none;
+      color: var(--color-blue);
+      font-weight: 600;
+      position: relative;
+
+      &:hover {
+        color: var(--color-teal);
+      }
+    
+      &::after {
+        content: "";
+        width: 82%;
+        position: absolute;
+        top: 2rem;
+        right: 0;
+        height: 2px;
+        background-color: var(--color-blue);
+      }
+    }
+  
+  
+
+
+  }
+
+  .grantee {
+    box-shadow: 1.5rem 1.5rem var(--color-teal);
+  }
+
+  .new-award {
+    box-shadow: 1.5rem 1.5rem var(--color-light-blue);
+  }
+
+
+
+ 
+}
+
+
+
+

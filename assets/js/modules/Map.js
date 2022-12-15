@@ -1,49 +1,87 @@
 import $ from 'jquery';
 
-//*Tabbed Bios
-  //When page loads...
-  $(".bio__content").hide(); //Hide all content
-  $(".bios__item:first").addClass("active").show(); //Activate first tab
-  $(".bio__content:first").show(); //Show first tab content
-  //On Click Event
-  $(".bios__item").click(function() {
 
-    $(".bios__item").removeClass("active"); //Remove any "active" class
-        $(this).addClass("active"); //Add "active" class to selected tab
-        $(".bio__content").hide(); //Hide all tab content
 
-        var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-        $(activeTab).fadeIn(); //Fade in the active ID content
-        return false;
-    });
+  $('.mobile-navigation__menu').click(function() {
+    
+    /*Check and alternate attribute's value,
+    then show/hide accordingly using chaining. */
+    if ($('.mobile-navigation__menu')
+      .attr('aria-expanded') == 'false')
+      $('.mobile-navigation__menu')
+      .attr('aria-expanded', 'true')
+    
+    else
+      $('.mobile-navigation__menu')
+      .attr('aria-expanded', 'false')
+    
+    
+    /*Check and alternate attribute's value,
+    then show/hide accordingly using chaining. */
+    if ($('.mobile-navigation__nav')
+      .attr('aria-hidden') == 'true')
+      $('.mobile-navigation__nav')
+      .attr('aria-hidden', 'false')
+    else
+      $('.mobile-navigation__nav')
+      .attr('aria-hidden', 'true')
+  });
+
+
+
+
+// * Tabbed Bios
+
+
+  $('.bios__list > li > a').click(function(event) {
+    event.preventDefault(); //stop browser to take action for clicked anchor
   
-/* Map
-// Collecting id's and classes
-var usa = document.getElementById("usa"),
-	stateDetails = document.getElementById("state__details"),
-	allStates = usa.getElementsByClassName("state");
-	
+    //get displaying tab content jQuery selector
+    var active_tab_selector = $('.bios__list > li.active > a').attr('href');
+  
+    //find actived navigation and remove 'active' css
+    var actived_nav = $('.bios__list > li.active');
+    actived_nav.removeClass('active');
+  
+    //add 'active' css into clicked navigation
+    $(this).parents('li').addClass('active');
+  
+    //hide displaying tab content
+    $(active_tab_selector).removeClass('active');
+    $(active_tab_selector).addClass('hide');
+    
+    //show target tab content
+    var target_tab_selector = $(this).attr('href');
+    $(target_tab_selector).removeClass('hide');
+    $(target_tab_selector).addClass('active');
+  });
 
-  // On click of a US state if it has a path add the class active to the state and remove it if another state is clicked
-	usa.addEventListener("click", function(e){ 
-		var state = e.target.parentNode;
-		if(e.target.nodeName == "path") {
-		for (var i=0; i < allStates.length; i++) {
-			allStates[i].classList.remove("active");
-		}
-		state.classList.add("active");
+  // * Improve trainings Tabs
+  $('.improve-trainings__list > li > a').click(function(event) {
+    event.preventDefault(); //stop browser to take action for clicked anchor
+  
+    //get displaying tab content jQuery selector
+    var active_tab_selector = $('.improve-trainings__list > li.active > a').attr('href');
+  
+    //find actived navigation and remove 'active' css
+    var actived_nav = $('.improve-trainings__list > li.active');
+    actived_nav.removeClass('active');
+  
+    //add 'active' css into clicked navigation
+    $(this).parents('li').addClass('active');
+  
+    //hide displaying tab content
+    $(active_tab_selector).removeClass('active');
+    $(active_tab_selector).addClass('hide');
+    
+    //show target tab content
+    var target_tab_selector = $(this).attr('href');
+    $(target_tab_selector).removeClass('hide');
+    $(target_tab_selector).addClass('active');
+  });
 
-    // Collecting the paragraphs from states
-		var statePara = state.querySelector("desc p");
-   
-    //Show the state details in the State Details div and add the show class
-		stateDetails.innerHTML = "";
-		stateDetails.insertAdjacentHTML("afterbegin", "<p>"+statePara.innerHTML+"</p>");
-		stateDetails.classList.add("show");
-		}
-	});*/
 
-    //* Map dropdown
+    // * Map dropdown
 	// Get all the dropdown from document
 document.querySelectorAll('.dropdown-toggle').forEach(dropDownFunc);
 
@@ -86,10 +124,10 @@ function dropDownFunc(dropDown) {
                 
             }
 
-            // if(e.type == 'mouseout'){
+             //if(e.type == 'mouseout'){
             //     // close the dropdown after user leave the list
-            //     e.target.nextElementSibling.onmouseleave = closeDropdown;
-            // }
+               // e.target.nextElementSibling.onmouseleave = closeDropdown;
+             //}
         }
     }
 
@@ -127,6 +165,70 @@ document.querySelectorAll('#dropdown-menu').forEach(function (dropDownList) {
     // close the dropdown after user leave the list
     dropDownList.onmouseleave = closeDropdown;
 });
+
+
+// * Accessible Faqs 
+var accordion = $('body').find('[data-behavior="accordion"]');
+var expandedClass = 'is-expanded';
+
+$.each(accordion, function () { // loop through all accordions on the page
+
+  var accordionItems = $(this).find('[data-binding="expand-accordion-item"]');
+
+  $.each(accordionItems, function () { // loop through all accordion items of each accordion
+    var $this = $(this);
+    var triggerBtn = $this.find('[data-binding="expand-accordion-trigger"]');
+    
+    var setHeight = function (nV) {
+      // set height of inner content for smooth animation
+      var innerContent = nV.find('.faqs__content-inner')[0],
+          maxHeight = $(innerContent).outerHeight(),
+          content = nV.find('.faqs__content')[0];
+
+      if (!content.style.height || content.style.height === '0px') {
+        $(content).css('height', maxHeight);
+      } else {
+        $(content).css('height', '0px');
+      }
+    };
+    
+    var toggleClasses = function (event) {
+      var clickedItem = event.currentTarget;
+      var currentItem = $(clickedItem).parent();
+      var clickedContent = $(currentItem).find('.faqs__content')
+      $(currentItem).toggleClass(expandedClass);
+      setHeight(currentItem);
+      
+      if ($(currentItem).hasClass('is-expanded')) {
+        $(clickedItem).attr('aria-selected', 'true');
+        $(clickedItem).attr('aria-expanded', 'true');
+        $(clickedContent).attr('aria-hidden', 'false');
+
+      } else {
+        $(clickedItem).attr('aria-selected', 'false');
+        $(clickedItem).attr('aria-expanded', 'false');
+        $(clickedContent).attr('aria-hidden', 'true');
+      }
+    }
+    
+    triggerBtn.on('click', event, function (e) {
+      e.preventDefault();
+      toggleClasses(event);
+    });
+
+    // open tabs if the spacebar or enter button is clicked whilst they are in focus
+    $(triggerBtn).on('keydown', event, function (e) {
+      if (e.keyCode === 13 || e.keyCode === 32) {
+        e.preventDefault();
+        toggleClasses(event);
+      }
+    });
+  });
+
+});
+
+
+
 
 
 	

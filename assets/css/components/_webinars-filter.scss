@@ -1,0 +1,234 @@
+.webinars-filter {
+  background-color: var(--color-white);
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(var(--color-black-a), .3);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+
+
+  //Gracefull degradation if backdrop isnt supported in browser
+  @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    backdrop-filter: blur(10px);
+    background-color: rgba(var(--color-black-a), .3);
+  }
+
+  //OPEN STATES --> Opens popup modal when #popup btns are clicked
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__heading {
+    text-align: center;
+    font-size: 4.5rem;
+    margin-block-end: 5rem;
+  }
+
+  &__exit {
+
+    &:link,
+    &:visited {
+      color: var(--color-white);
+      background-color: var(--color-black);
+      border-radius: 50%;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      width: 4rem;
+      height: 4rem;
+      padding: rem;
+      text-align: center;
+      font-size: 4rem;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 300;
+      transition: all .2s;
+      line-height: .9;
+    }
+
+    &:hover {
+      color: var(--color-teal);
+    }
+  }
+
+  &__content {
+    @include absCenter;
+    width: 50%;
+    background-color: var(--color-white);
+    box-shadow: 0 2rem 4rem rgba(var(--color-black-a), .2);
+    border-radius: 3px;
+    display: table;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.25);
+    transition: all .4s .2s;
+    padding: 8rem;
+
+    @include respond(medium) {
+      width: 90%;
+    }
+
+    @include respond(large) {
+      display: block;
+    }
+
+    
+
+
+  }
+
+  
+
+  #secondary .wpc-filter-chips-list li.wpc-filter-chip:not(.wpc-chip-reset-all) a,
+  .widget-area .widget .wpc-filter-chips-list li .wpc-filter-chip:not(.wpc-chip-reset-all) a,
+  body .wpc-filter-chips-list li.wpc-filter-chip:not(.wpc-chip-reset-all) a,
+  body#colibri .wpc-filter-chips-list li .wpc-filter-chip:not(.wpc-chip-reset-all) a,
+  .wpc-filter-chips-list li .wpc-filter-chip:not(.wpc-chip-reset-all) a {
+    border-color: var(--color-blue);
+  }
+// Chips containers
+  @media screen and (min-width: 768px){
+  .wpc-custom-selected-terms {
+      clear: both;
+      width: 100%;
+      padding: 1rem;
+  }
+}
+// Chips content
+.wpc-chip-content {
+  padding: 1rem;
+
+// Chips name
+  .wpc-filter-chip-name {
+    font-size: 1.5rem;
+  }
+}
+
+.wpc-filter-chip {
+
+  &:not(:last-of-type) {
+    margin-right: 2rem;
+  }
+}
+
+  // Filter sections
+  .wpc-filters-section {
+    margin-bottom: 1.5em;
+    position: relative;
+    width: 48%;
+    padding: 1.5rem;
+    display: inline-block;
+  }
+
+  //filter headers
+  .wpc-filter-layout-dropdown > .wpc-filter-header {
+    display: none;
+  }
+
+  // Dropdown select elements
+  .wpc-filter-layout-dropdown .select2-container .select2-selection--single, .wpc-sorting-form .select2-container .select2-selection--single {
+    width: 100% !important;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1.5rem 1rem;
+  }
+
+  // Dropdown arrow open
+  .wpc-filter-layout-dropdown .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b, .wpc-sorting-form .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    transform: rotate(45deg);
+    border-left: 3px solid var(--color-white);
+    border-top: 3px solid var(--color-white);
+    top: calc(50% + -.3rem);
+}
+
+//Drop arrow closed
+.wpc-filter-layout-dropdown .select2-container--default .select2-selection--single .select2-selection__arrow b, .wpc-sorting-form .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-left: 3px solid var(--color-white);
+    border-top: 3px solid var(--color-white);
+    width: 1.1rem;
+    height: 1.1rem;
+    font-size: -2.4rem;
+    transform: rotate(-135deg);
+    right: 2rem;
+    top: calc(50% + -0.9rem);
+    left: auto;
+    margin: 0;
+    display: block;
+    border-right: none;
+    border-bottom: none;
+}
+// Change drop down font size
+.sidebar .widget .wpc-filter-everything-dropdown li.select2-results__option, .wpc-filter-everything-dropdown .select2-results__option {
+  font-size: 1.3rem;
+}
+//Checkbox
+.wpc-filters-widget-main-wrapper input[type=radio]:checked, .wpc-filters-widget-main-wrapper input[type=checkbox]:checked {
+  border-color: var(--color-black);
+  background-color: var(--color-black);
+}
+
+.wpc-filters-widget-main-wrapper input[type=checkbox], .wpc-filters-widget-main-wrapper input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--color-black);
+  background: #ffffff;
+  border-radius: 0;
+  min-width: 2rem;
+}
+
+// Checkbox checkmark
+.wpc-filters-widget-main-wrapper input[type=checkbox]:after {
+    content: "";
+    opacity: 0;
+    display: block;
+    left: 5px;
+    top: 2px;
+    position: absolute;
+    width: 4px;
+    height: 8px;
+    border: 2px solid var(--color-white);
+    border-top: 0;
+    border-left: 0;
+    transform: rotate(45deg);
+    box-sizing: content-box;
+}
+//Checkbox labels
+.widget-area .widget li.wpc-term-item a, .wpc-filters-widget-main-wrapper li.wpc-term-item a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-black);
+  outline: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+  .wpc-filter-title {
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1.5rem;
+    text-align: center;
+    justify-content: center;
+}
+
+
+}

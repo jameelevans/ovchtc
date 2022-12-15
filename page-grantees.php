@@ -5,10 +5,10 @@
  * @package your-wp-project
  */
 
-get_header();
+ get_header('general');
 
 ?>
-	<main>
+	<main  id="main-content">
     <section class="map">
       <div class="map__wrapper">
         <div class="map__top">
@@ -35,8 +35,7 @@ get_header();
           <!-- US Map -->
           <?php  echo do_shortcode('[mapsvg id="4"]'); ?>
           </div>     
-          <div id="state__details">
-          </div><!-- .State Details -->
+         
         </div><!-- .Map section -->
       </div>       
     </section>

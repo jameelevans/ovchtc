@@ -16,19 +16,33 @@
 		<?php wp_head(); ?>
 	</head>
 
-	<body class="container <?php if (is_front_page() && (!wp_is_mobile())) { echo 'front-page';} else {echo 'general';} ?>">
-	
+	<style>
+		.home-header {
+				background-image: none;
+			}
+
+		@media screen and (max-width: 800px){
+		.home-header {
+			background-image: linear-gradient(to bottom,
+					rgba(var(--color-dark-blue-a), 1), rgba(var(--color-blue-a), 0.9)),
+				url("<?php if (has_post_thumbnail()){ the_post_thumbnail();}else{ echo  get_stylesheet_directory_uri() . '/assets/img/brainstorming-bg.jpeg';	}?>");
+			}
+		}
+	</style>
+
+	<body class="container front-page">
+		<a class="screen-reader-shortcut" href="#main-content" tabindex="1">Skip to main content</a>
 		
 		<!-- Header -->
-		<header id="top" class="header<?php if (is_front_page() && (!wp_is_mobile())) { echo ' home-header';} else {echo ' general-header';} ?>">
-			<?php if (is_front_page()) { echo bg_video();} ?>
+		<header id="top" class="header home-header"  role="banner">
+			<?php echo bg_video(); ?>
 
 		
 			
 
 		<div class="header__top">
 			<!-- Logo image-->
-			<a class="header__logo" href="/">
+			<a class="header__logo" href="/" title="Click here to go to the Home page">
 				<?php
 				// If logo uploaded to customizer display it, if not show nothing
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -47,27 +61,32 @@
 		</div>
 
 		<div class="header__content">
-			<h1 class="header__heading"><?php
-					if(is_front_page()){
-						echo get_bloginfo( 'description' );
-					}
-          else if (is_home()) {
-          	echo '<h1 class="header__heading">Start Here</h1>';
-          }
-          else if (is_404()) {
-          	echo '404 Error';
-          } else {
-          echo the_title();
-          }
-        ?></h1>
+		<?php if (!is_category()) {?>
 
+				<h1 class="header__heading"><?php
+						if(is_front_page()){
+							echo get_bloginfo( 'description' );
+						}
+						else if (is_home()) {
+							echo '<h1 class="header__heading">Start Here</h1>';
+						}else if (is_page('staff-checklist') || is_page('ovc-faqs') || is_search()) {
+								echo '';
+						}else if (is_404()) {
+							echo '404 Error';
+						} else {
+						echo the_title();
+						}
+					?></h1>
+		<?php }?>
 
-<?php
+				<?php
 					if (is_home()) {
-          	echo '<p class="header__description">xxxLorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.xxx</p>';
+          	echo '<p class="header__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>';
           }
           else if (is_404()) {
           	echo 'Sorry You may be lost!';
+					}else if (is_category() || is_page('staff-checklist') || is_page('ovc-faqs') || is_search()) {
+							echo '';
           } else {
 						echo the_content();
           }
@@ -76,11 +95,11 @@
 				<?php 
 				
 				if( is_home() ): ?>
-						<div class="header__cta--wrapper"><a class="header__cta" href="#" ?>STAFF CHECKLISTS</a>
+						<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( site_url( '/staff-checklist' ) ); ?>" ?>STAFF CHECKLISTS</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
-						<div class="header__cta--wrapper"><a class="header__cta" href="#" ?>Orientations</a>
+						<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( site_url( '/orientation' ) ); ?>" ?>Orientations</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
-						<div class="header__cta--wrapper"><a class="header__cta" href="#" ?>OVC FAQs</a>
+						<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( site_url( '/ovc-faqs' ) );?>" ? title="Go to our FAQs page">OVC FAQs</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 				<?php endif;?>
 		
@@ -92,7 +111,7 @@
 						$link_title = $link['title'];
 						$link_target = $link['target'] ? $link['target'] : '_self';
 						?>
-						<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+						<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 				<?php endif;
 			
@@ -103,7 +122,7 @@
 					$link_title = $link['title'];
 					$link_target = $link['target'] ? $link['target'] : '_self';
 					?>
-					<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+					<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
 					<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 			<?php endif;
 
@@ -113,7 +132,7 @@
 					$link_title = $link['title'];
 					$link_target = $link['target'] ? $link['target'] : '_self';
 					?>
-					<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+					<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
 					<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 			<?php endif;
 			?>

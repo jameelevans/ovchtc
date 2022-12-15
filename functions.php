@@ -124,9 +124,9 @@ function svg_icon($class, $icon) { ?>
   //* 8. Display Home BG Video
   function bg_video() { ?>
   <div class="bg-video">
-    <video class="bg-video__content" autoplay muted loop>
-      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/braingstroming-bg.mp4" type="video/mp4"> 
-      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/braingstroming-bg.webm" type="video/webm"> 
+    <video class="bg-video__content" poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/brainstorming-bg.jpg" autoplay muted playsinline loop>
+      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/brainstorming-bg.mp4" type="video/mp4"> 
+      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/brainstorming-bg.webm" type="video/webm"> 
       Your browser is not supported! Please upgrade to a modern browser.
     </video>
   </div>
@@ -141,17 +141,18 @@ function site_navigation() { ?>
         <nav class="navigation__nav" aria-controls="primary-navigation">
       <ul class="navigation__list">
                 <li class="navigation__item">
-          <a href="<?php echo esc_url( site_url( '/about' ) ); ?>" class="navigation__link<?php if(is_page('about')){echo ' navigation__current-page';} ?>">About</a>
+          <a href="<?php echo esc_url( site_url( '/about' ) ); ?>" class="navigation__link<?php if(is_page('about')){echo ' navigation__current-page';} ?>" title="Go to the About page">About</a>
         </li>
         <li class="navigation__item">
-          <a href="<?php echo esc_url( site_url( '/grantees' ) ); ?>" class="navigation__link<?php if(is_page('grantees')){echo ' navigation__current-page';} ?>">Grantees</a>
+          <a href="<?php echo esc_url( site_url( '/grantees' ) ); ?>" class="navigation__link<?php if(is_page('grantees')){echo ' navigation__current-page';} ?>" title="Go to the Grantees page">Grantees</a>
         </li>
         <li class="navigation__item">
-          <a href="<?php echo esc_url( site_url( '/resources' ) ); ?>" class="navigation__link<?php if(is_home()){echo ' navigation__current-page';} ?>">Resources</a>
+          <a href="<?php echo esc_url( site_url( '/resources' ) ); ?>" class="navigation__link<?php if(is_home() || is_category('orientation') || is_category('capacity-building-webinar') || is_page('staff-checklist') || is_page('ovc-faqs')){echo ' navigation__current-page';} ?>" title="Go to the Resources page">Resources</a>
         </li>
+        <!-- Contact page currently in development
         <li class="navigation__item">
-          <a href="<?php echo esc_url( site_url( '#' ) ); ?>" class="navigation__link<?php if(is_page('combat-to-coding')){echo ' navigation__current-page';} ?>">Contact</a>
-        </li>
+          <a href="<?php //echo esc_url( site_url( '#' ) ); ?>" class="navigation__link<?php //if(is_page('contact')){echo ' navigation__current-page';} ?>" title="Go to the Contact page">Contact</a>
+        </li> .Contact page currently in development-->
       </ul>
     </nav>
   </div><!-- .navigation -->
@@ -162,29 +163,31 @@ function site_navigation() { ?>
 function mobile_navigation() { ?>
   <!-- Mobile navigation -->
   <div class="mobile-navigation">
-    <input id="navi-toggle" type="checkbox" class="mobile-navigation__checkbox">
-    <!-- navigation menu toggle-->
-    <label for="navi-toggle" class="mobile-navigation__button">
+    <!-- Hidden menu label for accessibility-->
+    <span hidden id="mobile-menu">Main menu</span>
+    <button class="mobile-navigation__menu"  aria-controls="mobile-navigation" tabindex="0" aria-expanded="false" aria-labelledby="mobile-menu">
       <!-- navigation menu icon-->
-      <span class="mobile-navigation__icon">&nbsp;</span>
-    </label>
-    <div class="mobile-navigation__background">&nbsp;</div>
+      <i class="mobile-navigation__icon" alt="Menu icon" aria-hidden="true">&nbsp;</i>
+    </button>
+
+
 
       <div class="navigation__background">&nbsp;</div>
-      <nav class="mobile-navigation__nav" aria-controls="mobile-navigation" aria-expanded="false">
+      <nav class="mobile-navigation__nav" aria-label="Mobile menu" aria-labelledby="mobile-menu" aria-hidden="true">
         <ul class="mobile-navigation__list">
           <li class="mobile-navigation__item">
-            <a href="<?php echo esc_url( site_url( '/about' ) ); ?>" class="mobile-navigation__link<?php if(is_page('services')){echo ' mobile-navigation__current-page';} ?>">About</a>
+            <a href="<?php echo esc_url( site_url( '/about' ) ); ?>" class="mobile-navigation__link<?php if(is_page('about')){echo ' mobile-navigation__current-page';} ?>" title="Go to the About page">About</a>
           </li>
           <li class="mobile-navigation__item">
-            <a href="<?php echo esc_url( site_url( '/grantees' ) ); ?>" class="mobile-navigation__link<?php if(is_page('grantees')){echo ' mobile-navigation__current-page';} ?>">Grantees</a>
+            <a href="<?php echo esc_url( site_url( '/grantees' ) ); ?>" class="mobile-navigation__link<?php if(is_page('grantees')){echo ' mobile-navigation__current-page';} ?>" title="Go to the Grantees page">Grantees</a>
           </li>
           <li class="mobile-navigation__item">
-            <a href="<?php echo esc_url( site_url( '/resources' ) ); ?>" class="mobile-navigation__link<?php if(is_home()){echo ' mobile-navigation__current-page';} ?>">Resources</a>
+            <a href="<?php echo esc_url( site_url( '/resources' ) ); ?>" class="mobile-navigation__link<?php if(is_home() || is_category('orientation') || is_category('capacity-building-webinar') || is_page('staff-checklist') || is_page('ovc-faqs')){echo ' mobile-navigation__current-page';} ?>" title="Go to the Resources page">Resources</a>
           </li>
+          <!-- Contact page currently in development
           <li class="mobile-navigation__item">
-            <a href="<?php echo esc_url( site_url( '#' ) ); ?>" class="mobile-navigation__link<?php if(is_page('combat-to-coding')){echo ' mobile-navigation__current-page';} ?>">Contact</a>
-          </li>
+            <a href="<?php //echo esc_url( site_url( '#' ) ); ?>" class="mobile-navigation__link<?php //if(is_page('contact')){echo ' mobile-navigation__current-page';} ?>" title="Go to the Contact page">Contact</a>
+          </li> .Contact page currently in development -->
           <li class="mobile-navigation__item">
                 <a href="" class="mobile-navigation__social-link"><?php echo svg_icon('mobile-navigation__social-icon', 'facebook');?></a>
                 <a href="" class="mobile-navigation__social-link"><?php echo svg_icon('mobile-navigation__social-icon', 'twitter');?></a>
@@ -238,28 +241,111 @@ register_post_type('states-served', array(
 
 
 
- // Events Post Type
- register_post_type('events', array(
-  'show_in_rest' => true,
-  'map_meta_cap' => true,
-  'supports' => array('title', 'editor', 'excerpt','thumbnail'),
-  'rewrite' => array('slug' => 'event'),
-  'has_archive' => true,
-  'public' => true,
-  'labels' => array(
-    'name' => 'Events',
-    'add_new_item' => 'Add New Event',
-    'edit_item' => 'Edit Events',
-    'all_items' => 'All Events'
-  ),
-  'menu_icon' => 'dashicons-calendar'
-));
+  // Training Improvements Post Type
+  register_post_type('improvements', array(
+    'show_in_rest' => true,
+    'map_meta_cap' => true,
+    'supports' => array('title', 'editor', 'excerpt','thumbnail'),
+    'rewrite' => array('slug' => 'training-improvement'),
+    'taxonomies'  => array( 'category' ),
+    'has_archive' => true,
+    'public' => true,
+    'labels' => array(
+      'name' => 'Training Improvements',
+      'add_new_item' => 'Add New Training Improvement',
+      'edit_item' => 'Edit Training Improvements',
+      'all_items' => 'All Training Improvements'
+    ),
+    'menu_icon' => 'dashicons-lightbulb'
+  ));
+
+
+    // Staff Checklists Post Type
+    register_post_type('checklists', array(
+      'show_in_rest' => true,
+      'map_meta_cap' => true,
+      'supports' => array('title', 'editor', 'excerpt','thumbnail'),
+      'rewrite' => array('slug' => 'staff-checklists'),
+      'public' => true,
+      'labels' => array(
+        'name' => 'Staff Checklists',
+        'add_new_item' => 'Add New Staff Checklist',
+        'edit_item' => 'Edit Staff Checklists',
+        'all_items' => 'All Staff Checklists',
+        'singular_name' => 'Checklist'
+      ),
+      'menu_icon' => 'dashicons-clipboard'
+    ));
+
+    // FAQs Post Type
+    register_post_type('faqs', array(
+      'show_in_rest' => true,
+      'map_meta_cap' => true,
+      'supports' => array('title', 'editor', 'excerpt','thumbnail'),
+      'rewrite' => array('slug' => 'faqs'),
+      'taxonomies'  => array( 'category' ),
+      'has_archive' => true,
+      'public' => true,
+      'labels' => array(
+        'name' => 'FAQs',
+        'add_new_item' => 'Add New FAQ',
+        'edit_item' => 'Edit FAQs',
+        'all_items' => 'All FAQs'
+      ),
+      'menu_icon' => 'dashicons-editor-help'
+    ));
 
 }
  
   add_action('init', 'custom_post_types');
   // . 8 Enable custom post types
 
+
+// Change dashboard Posts to Webinars
+function cp_change_post_object() {
+    $get_post_type = get_post_type_object('post');
+    $labels = $get_post_type->labels;
+        $labels->name = 'Webinars';
+        $labels->singular_name = 'Webinars';
+        $labels->add_new = 'Add Webinars';
+        $labels->add_new_item = 'Add Webinars';
+        $labels->edit_item = 'Edit Webinars';
+        $labels->new_item = 'Webinars';
+        $labels->view_item = 'View Webinars';
+        $labels->search_items = 'Search Webinars';
+        $labels->not_found = 'No Webinars found';
+        $labels->not_found_in_trash = 'No Webinars found in Trash';
+        $labels->all_items = 'All Webinars';
+        $labels->menu_name = 'Webinars';
+        $labels->name_admin_bar = 'Webinars';
+}
+add_action( 'init', 'cp_change_post_object' );
+
+
+  //* 14 Register widgets UI
+  function quickchic_widgets_init() {
+    register_sidebar(array(
+    'name' => __( 'Sidebar 1', 'quickchic' ),
+    'id' => 'sidebar-1',
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '<h4>',
+    'after_title' => '</h4>',
+    ));
+    }
+    add_action( 'init', 'quickchic_widgets_init' );
+ //14 Register widgets UI
+
+ //* Add even and odd post classes
+ function oddeven_post_class ( $classes ) {
+  global $current_class;
+  $classes[] = $current_class;
+  $current_class = ($current_class == 'odd') ? 'even' : 'odd';
+  return $classes;
+}
+add_filter ( 'post_class' , 'oddeven_post_class' );
+global $current_class;
+$current_class = 'odd';
   
 
 

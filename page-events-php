@@ -1,0 +1,17 @@
+<?php
+/**
+ * * The template for displaying the about page
+ *
+ * @package your-wp-project
+ */
+
+ get_header('general');
+
+?>
+	<main>
+    <section class="faqs">
+events
+      
+    </section>
+	</main>
+<?php get_footer(); ?>

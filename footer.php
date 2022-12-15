@@ -12,12 +12,12 @@
             <div class="footer__contact">
                 <h2 class="footer__header">Contact Us</h2>
                 <ul class="footer__list">
-                    <li class="footer__item"><a href="" class="footer__link">Contact Staff</a></li>
-                    <li class="footer__item"><a href="" class="footer__link">Contact HTC | HTCollective@Icf.com</a></li>
+                    <li class="footer__item"><a href="<?php echo esc_url( site_url( '/about#tab1' ) ); ?>" class="footer__link">Contact Staff</a></li>
+                    <li class="footer__item"><a href="mailto:HTCollective@Icf.com" class="footer__link">Contact HTC | HTCollective@Icf.com</a></li>
                     
                 </ul>
             </div>
-            <div class="footer__image"  style="background-image: url('<?php echo  get_template_directory_uri()?>/assets/img/about-1.jpg');">
+            <div class="footer__image">
                 &nbsp;
             </div>
             
@@ -40,7 +40,7 @@
                     <ul class="footer__list">
                         <li class="footer__item"><a class="footer__link" href="#">Email Updates</a></li>
                         <li class="footer__item"><a class="footer__link" href="#">TTA Request Form</a></li>
-                        <li class="footer__item"><a class="footer__link" href="#">Help Pages</a></li>
+                        <li class="footer__item"><a class="footer__link" href="<?php echo esc_url( site_url( '/ovc-faqs' ) );?>" title="Go to our FAQs page">Help Pages</a></li>
                     </ul>
                 </div>
 
@@ -55,12 +55,8 @@
         </div>
         
     </footer>
-    <?php 
-    if (is_front_page()){
-       echo '<script type="text/javascript" src="//localhost:3000/wp-content/themes/ovc-htc/node_modules/rellax/rellax.min.js?ver=6.1.1" id="rellax-js"></script>';
-       echo "<script type='text/javascript'>var rellax = new Rellax('.rellax')</script>";
-    } 
-    ?>
+  
+
 
     <?php wp_footer(); ?>
 </body>

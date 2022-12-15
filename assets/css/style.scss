@@ -65,6 +65,9 @@ Text Domain: jameelevans.com
 //  * Buttons
 @import "components/buttons";
 
+//  * Webinars filter
+@import "components/webinars-filter";
+
 
 //*--------| Layouts |--------*//
 // *Header
@@ -78,17 +81,29 @@ Text Domain: jameelevans.com
 
 
 //*--------| Pages |--------*//
-//*Login page
+//* Login page
 @import "pages/login";
 
-//*Front page
+//* Front page
 @import "pages/front-page";
 
-//*About page
+//* About page
 @import "pages/about-page";
 
-//*Grantees page
+//* Grantees page
 @import "pages/grantees-page";
 
-//*Resources page
+//* Resources page
 @import "pages/resources";
+
+//* Orientation page
+@import "pages/orientation-page";
+
+//* Capacity Building Webinar page
+@import "pages/capacity-building-webinar-page";
+
+//* Staff Checklists page
+@import "pages/staff-checklists-page";
+
+//* FAQs page
+@import "pages/faqs-page";

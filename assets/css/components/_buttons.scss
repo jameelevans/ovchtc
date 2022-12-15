@@ -1,39 +1,27 @@
 //* Overall button styles
-.btn {
+.btn__black {
   &,
   &:link {
-    width: max-content!important;
-    overflow: hidden!important;
-    font-family: $font-primary!important;
-    cursor: pointer!important;
-    text-align: center!important;
-    border-radius: 0!important;
+    width: max-content;
+    overflow: hidden;
+    font-family: $font-primary;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 0;
     transition: all 0.3s ease-in-out;
-    padding: 0.5rem 2rem !important;;
-    text-decoration: none!important;
+    padding: 0.5rem 2rem ;
+    text-decoration: none;
     text-transform:capitalize;
-    position: relative!important;
-    display: inline-block!important;
-    font-size: 1.8rem!important;
-    height: auto!important;
-    font-weight: 300!important;
+    position: relative;
+   //display: inline-block;
+    font-size: 1.8rem;
+    height: auto;
+    font-weight: 300;
     margin-top: 1rem;
-
-    @include respond(medium) {
-      padding: 1.5rem 3.5rem!important;
-      font-size: 2rem!important;
-      letter-spacing: 2px!important;
-      text-transform: uppercase!important;
-      font-weight: 600!important;
-      border-radius: 5rem!important;
-    }
-  }
-
-  //* Black button
-  &--black {
-    background-color: var(--color-black)!important;
-    color: var(--color-white)!important;
-    border: none!important;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: none;
+    
 
     &:hover {
       background-color: var(--color-white);
@@ -50,10 +38,32 @@
       transform: translateY(-0.1rem);
       box-shadow: 0 0.5rem 1rem rgba(var(--color-black-a), 0.2);
     }
+
+    @include respond(medium) {
+      padding: 1.5rem 3.5rem!important;
+      font-size: 2rem!important;
+      letter-spacing: 2px!important;
+      text-transform: uppercase!important;
+      font-weight: 600!important;
+      border-radius: 5rem!important;
+    }
   }
+
+  
 
   
 
 
 
 }
+
+//* Show button only on mobile
+.only-on-mobile {
+  display: none;
+
+  @include respond(medium) {
+   display: inline-block;
+ }
+
+   
+ }
