@@ -33,7 +33,7 @@
             </div>
           </div>
           <!-- US Map -->
-          <?php  echo do_shortcode('[mapsvg id="4"]'); ?>
+          <?php  echo do_shortcode('[mapsvg id="1"]'); ?>
           </div>     
          
         </div><!-- .Map section -->
