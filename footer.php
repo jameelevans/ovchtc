@@ -51,6 +51,12 @@
                     <a href="" class="footer__social-link"><?php echo svg_icon('footer__icon', 'web');?></a>
                 </div>
 
+                <div class="footer__section">
+                    <p class="footer__award-info">The website is supported by ICF under 15POVC-21-GK-02595-HT, awarded by the Office for Victims of Crime, Office of Justice Programs, U.S. Department of Justice. The opinions, findings, and conclusions or recommendations expressed in this webinar are those of the contributors and do not necessarily represent the official position or policies of the U.S. Department of Justice.</p>
+                </div>
+
+                
+
                
             </div>
         </div>

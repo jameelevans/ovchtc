@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /*
 Theme Name: Starter Wordpress Theme
-Author: Jameel Evans
-Description: This theme was designed and coded by Jameel Evans.
+Author: ICF
+Description: This theme was designed and by Laura Myers and Eduardo Minaya. The theme was coded by Jameel Evans
 Version: 1.0
-Text Domain: jameelevans.com
+Text Domain: ovchtc.com
  */
 /**
 --------------------------------------------------------------
@@ -1257,7 +1257,7 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 
 .footer__bottom .footer__wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1.5fr;
 }
 
 @media only screen and (max-width: 56.25em) {
@@ -1364,14 +1364,16 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
     display: flex;
     place-content: center;
     padding: 2.5rem;
-    -webkit-margin-after: 5rem;
-            margin-block-end: 5rem;
     border-bottom: 2px solid var(--color-teal);
   }
 }
 
 .footer__logo {
   width: 30rem;
+}
+
+.footer__award-info {
+  font-size: 1.4rem;
 }
 
 .login {

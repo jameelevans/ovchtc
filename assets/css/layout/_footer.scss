@@ -100,7 +100,7 @@
 
     .footer__wrapper {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr 1.5fr;
   
       @include respond(medlg) {
         grid-template-columns: auto;
@@ -199,13 +199,16 @@
       display: flex;
       place-content: center;
       padding: 2.5rem;
-      margin-block-end: 5rem;
       border-bottom: 2px solid var(--color-teal);
     }
   }
 
   &__logo {
     width: 30rem;
+  }
+
+  &__award-info{
+    font-size: 1.4rem;
   }
 }
     
