@@ -1326,9 +1326,7 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 }
 
 .footer__social {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
 }
 
 @media only screen and (max-width: 56.25em) {
@@ -1366,9 +1364,7 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 
 @media only screen and (max-width: 56.25em) {
   .footer__mobile {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     place-content: center;
     padding: 2.5rem;
     border-bottom: 2px solid var(--color-teal);
@@ -3691,6 +3687,12 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
           transform: translate(0, 18%);
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+}
+
+.improve-training__no-show {
+  color: var(--color-black);
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 .orientations {

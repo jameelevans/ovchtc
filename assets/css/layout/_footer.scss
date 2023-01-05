@@ -160,7 +160,9 @@
   }
 
   &__social {
-    display: flex;
+    //display: flex;
+    // Remove until we have social media links
+    display: none;
 
     @include respond(medlg) {
       display: none;
@@ -196,7 +198,9 @@
     display: none;
 
     @include respond(medlg) {
-      display: flex;
+      //display: flex;
+       // Remove until we have social media links
+    display: none;
       place-content: center;
       padding: 2.5rem;
       border-bottom: 2px solid var(--color-teal);

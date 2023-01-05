@@ -86,7 +86,7 @@
 
 				<?php
 					if (is_home()) {
-          	echo '<p class="header__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>';
+          	echo '<p class="header__description">These resources will help you and your partners stay connected to the most effective practices to successfully administer your award.</p>';
           }
           else if (is_404()) {
           	echo 'Sorry You may be lost!';

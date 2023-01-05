@@ -115,7 +115,7 @@
                                     <!-- .HTC staff -->
                             <?php }
                                     } else { ?>
-                                    <p class="staff__no-show">There is no staff to show yet</p>
+                                    <p class="improve-training__no-show">There is no One Pager's to show yet</p>
                             <?php }?>
                     </div>
 
@@ -153,7 +153,7 @@
                                     <!-- .TA Navigators Expertise staff -->
                             <?php }
                                     } else { ?>
-                                    <p class="staff__no-show">There is no staff to show yet</p>
+                                    <p class="improve-training__no-show">There is no training information to show yet</p>
                             <?php }?>
 
                     </div>
