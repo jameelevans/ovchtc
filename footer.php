@@ -12,7 +12,7 @@
             <div class="footer__contact">
                 <h2 class="footer__header">Contact Us</h2>
                 <ul class="footer__list">
-                    <li class="footer__item"><a href="<?php echo esc_url( site_url( '/about#tab1' ) ); ?>" class="footer__link">Contact Staff</a></li>
+                    <li class="footer__item"><a href="<?php echo esc_url( site_url( '/about#tab1' ) ); ?>" class="footer__link" title="Go to the staff page">Contact Staff</a></li>
                     <li class="footer__item"><a href="mailto:HTCollective@Icf.com" class="footer__link">Contact HTC | HTCollective@Icf.com</a></li>
                     
                 </ul>
@@ -31,14 +31,14 @@
                         <li class="footer__item">htcollective@icf.com</li>
                     </ul>
                     <div class="footer__social">
-                        <a href="" class="footer__social-link"><?php echo svg_icon('footer__icon', 'facebook');?></a>
-                        <a href="" class="footer__social-link"><?php echo svg_icon('footer__icon', 'twitter');?></a>
-                        <a href="" class="footer__social-link"><?php echo svg_icon('footer__icon', 'web');?></a>
+                        <a href="" class="footer__social-link" title="Go to our Fackbook page"><?php echo svg_icon('footer__icon', 'facebook');?></a>
+                        <a href="" class="footer__social-link" title="Go to our Twitter page"><?php echo svg_icon('footer__icon', 'twitter');?></a>
+                        <a href="" class="footer__social-link" title="Go to our other web page"><?php echo svg_icon('footer__icon', 'web');?></a>
                     </div>
                 </div>
                 <div class="footer__section">
                     <ul class="footer__list">
-                        <li class="footer__item"><a class="footer__link" href="mailto:htcollective@icf.com">Email Updates</a></li>
+                        <li class="footer__item"><a class="footer__link" href="mailto:htcollective@icf.com" title="Email us now">Email Updates</a></li>
                         <!-- Form currently under contruction, will add later
                         <li class="footer__item"><a class="footer__link" href="">TTA Request Form</a></li>-->
                         <li class="footer__item"><a class="footer__link" href="<?php echo esc_url( site_url( '/ovc-faqs' ) );?>" title="Go to our FAQs page">Help Pages</a></li>
@@ -46,9 +46,9 @@
                 </div>
 
                 <div class="footer__social footer__mobile">
-                    <a href="" class="footer__social-link"><?php echo svg_icon('footer__icon', 'facebook');?></a>
-                    <a href="" class="footer__social-link"><?php echo svg_icon('footer__icon', 'twitter');?></a>
-                    <a href="" class="footer__social-link"><?php echo svg_icon('footer__icon', 'web');?></a>
+                    <a href="" class="footer__social-link" title="Go to our Fackbook page"><?php echo svg_icon('footer__icon', 'facebook');?></a>
+                    <a href="" class="footer__social-link"  title="Go to our Twitter page"><?php echo svg_icon('footer__icon', 'twitter');?></a>
+                    <a href="" class="footer__social-link" title="Go to our other web page"><?php echo svg_icon('footer__icon', 'web');?></a>
                 </div>
 
                 <div class="footer__section">

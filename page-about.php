@@ -78,7 +78,7 @@
                                                                         if( $link ): 
                                                                        
                                                                         ?>
-                                                                        <div class="bio__cta--wrapper"><a class="bio__cta" href="<?php echo esc_url( $link ); ?>" target="_blank" title="Email <?php the_title();?> now">Contact</a>
+                                                                        <div class="bio__cta--wrapper"><a class="bio__cta" href="mailto:<?php echo  $link ?>" target="_blank" title="Email <?php the_title();?> now">Contact</a>
                                                                         <?php echo svg_icon('bio__arrow', 'arrow-right');?></div>
                                                                         <?php endif;?>
                                                         </div>
@@ -119,7 +119,7 @@
                                                                         if( $link ): 
                                                                        
                                                                         ?>
-                                                                        <div class="bio__cta--wrapper"><a class="bio__cta" href="<?php echo esc_url( $link ); ?>" target="_blank" title="Email <?php the_title();?> now">Contact</a>
+                                                                        <div class="bio__cta--wrapper"><a class="bio__cta" href="mailto:<?php echo  $link ?>" target="_blank" title="Email <?php the_title();?> now">Contact</a>
                                                                         <?php echo svg_icon('bio__arrow', 'arrow-right');?></div>
                                                                         <?php endif;?>
                                                         </div>
