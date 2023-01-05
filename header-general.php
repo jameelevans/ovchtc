@@ -100,11 +100,11 @@
 				<?php 
 				
 				if( is_home() ): ?>
-						<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( site_url( '/staff-checklist' ) ); ?>" ?>STAFF CHECKLISTS</a>
+						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url( '/staff-checklist' ) ); ?>" ?>STAFF CHECKLISTS</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
-						<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( site_url( '/orientation' ) ); ?>" ?>Orientations</a>
+						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url( '/orientation' ) ); ?>" ?>Orientations</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
-						<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( site_url( '/ovc-faqs' ) );?>" ? title="Go to our FAQs page">OVC FAQs</a>
+						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url( '/ovc-faqs' ) );?>" ? title="Go to our FAQs page">OVC FAQs</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 				<?php endif;?>
 		
@@ -116,7 +116,7 @@
 						$link_title = $link['title'];
 						$link_target = $link['target'] ? $link['target'] : '_self';
 						?>
-						<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
+						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 				<?php endif;
 			
@@ -127,7 +127,7 @@
 					$link_title = $link['title'];
 					$link_target = $link['target'] ? $link['target'] : '_self';
 					?>
-					<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
+					<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
 					<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 			<?php endif;
 
@@ -137,7 +137,7 @@
 					$link_title = $link['title'];
 					$link_target = $link['target'] ? $link['target'] : '_self';
 					?>
-					<div class="header__cta--wrapper"><a class="header__cta" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
+					<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
 					<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 			<?php endif;
 			?>

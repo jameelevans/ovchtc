@@ -738,6 +738,22 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   height: 1.8rem;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+  /*
+    // This pseudo underline only works for single line links
+    &::after {
+      content: "";
+      width: 100%;
+      position: absolute;
+      top: 2.9rem;
+      left: 0;
+      height: 3px;
+      background-color: var(--color-teal);
+
+      @include respond(large) {
+        top: 2.5rem;
+        height: 2px;
+      }
+    }*/
 }
 
 @media only screen and (max-width: 62.5em) {
@@ -750,26 +766,20 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   color: var(--color-teal);
 }
 
-.header__cta::after {
-  content: "";
-  width: 100%;
-  position: absolute;
-  top: 2.9rem;
-  left: 0;
-  height: 3px;
-  background-color: var(--color-teal);
-}
-
-@media only screen and (max-width: 62.5em) {
-  .header__cta::after {
-    top: 2.5rem;
-    height: 2px;
-  }
-}
-
 .header__cta:hover ~ .header__arrow {
   -webkit-transform: translate(1rem, 18%);
           transform: translate(1rem, 18%);
+}
+
+.header .underline {
+  /* I don't know why this is needed, I just added it and it worked in IE Edge. If we remove this width, the gradient breaks in IE Edge */
+  width: calc(100%);
+  position: absolute;
+  top: 2.9rem;
+  left: 0;
+  background-image: linear-gradient(transparent calc(100% - 3px), teal 10px);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .header__arrow {
