@@ -353,7 +353,13 @@ function sort_webinar_posts() {
 
 <div class="sort" aria-haspopup="true" aria-expanded="false">
   <button class="sort__button" id="sort__posts-button">
-  <?php echo svg_icon('arrow', 'angle-down');?> Sort Posts
+  <?php echo svg_icon('arrow', 'angle-down');?> 
+  <?php if (is_page('ovc-faqs')){
+    echo 'Sort By';
+  }else{
+    echo 'Sort Posts';
+  }
+    ?>
   </button>
   <div class="sort__content" aria-labelledby="sort__posts-button">
   <?php
