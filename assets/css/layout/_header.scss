@@ -8,7 +8,7 @@
 
 
 
-
+  // Top header section
   &__top {
     display: grid;
     grid-template-columns: min-content auto;
@@ -20,6 +20,7 @@
     }
   }
 
+  // Header logo
   &__logo {
     margin: 0;
     padding: 0;
@@ -36,6 +37,7 @@
     }
   }
 
+  // Header icon
   &__icon {
     width: 19rem;
 
@@ -44,6 +46,7 @@
     }
   }
 
+  // Header content section
   &__content {
     padding: 8vw 0;
     width: 50%;
@@ -59,32 +62,40 @@
     }
   }
 
+  // Header main heading
   &__heading {
     font-size: 4.5rem;
     margin-bottom: 2.5rem;
 
 
     @include respond(large) {
-      font-size: 3.5rem;
+      font-size: 4rem;
     }
   }
 
+  // Header description
   &__description {
 
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 2.5rem;
 
-    @include respond(large) {
-      font-size: 2rem;
+    @include respond(medium) {
+      font-size: 2.9rem;
     }
   }
 
+   // Header Lists
   &__list {
-    font-size: clamp(1.5rem, 1.8vw, 3rem);
+    font-size: 2.5rem;
     padding-left: 3rem;
     list-style: none;
+
+    @include respond(medium) {
+      font-size: 2.9rem;
+    }
   }
 
+   // Header list items
   &__item {
 
     &:not(:last-of-type) {
@@ -92,11 +103,13 @@
     }
   }
 
+   // Header list check mark
   &__item:before {
     content: '✓';
     margin: 0 1rem 0 -2.8rem;
   }
 
+   // Header CTA wrapper
   &__cta--wrapper {
     display: block;
 
@@ -105,6 +118,7 @@
     }
   }
 
+  // Header CTA
   &__cta {
     position: relative;
     text-transform: uppercase;
@@ -116,14 +130,12 @@
     transition: all .3s ease-in-out;
 
     @include respond(large) {
-      font-size: 1.9rem;
+      font-size: 2.5rem;
     }
 
     &:hover {
       color: var(--color-teal);
     }
-
-   
 
     /*
     // This pseudo underline only works for single line links
@@ -147,15 +159,7 @@
     }
   }
 
-  .underline {
-    /* I don't know why this is needed, I just added it and it worked in IE Edge. If we remove this width, the gradient breaks in IE Edge */
-    width: calc(100%);
-    background-image: linear-gradient(transparent calc(100% - 3px), teal 10px);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-  
-  }
-
+  // Header CTA arrow
   &__arrow {
     fill: var(--color-teal);
     height: clamp(1.5rem, 1.8vw, 2.5rem);
@@ -171,15 +175,10 @@
 
 }
 
+// Home header
 .home-header {
-  /*@include respond(medium) {
-    background-image: linear-gradient(to bottom,
-        rgba(var(--color-blue-a), 0.9), rgba(var(--color-teal-a), 0.8)),
-      url("assets/img/main-banner.jpg");
-  }*/
 
-
-
+  // Header gradient overlay
   &::after {
     position: absolute;
     mix-blend-mode: screen;
@@ -201,12 +200,8 @@
   }
 }
 
+// General header
 .general-header {
- /* background-image: linear-gradient(to bottom right,
-        rgba(var(--color-dark-blue-a),0.8) 35%, rgba(var(--color-teal-a), 0.8)),
-      url("assets/img/resources-header.jpg");*/
-      
-
 
   @include respond(medium) {
     background-image: linear-gradient(to bottom,
@@ -215,7 +210,7 @@
   }
 }
 
-
+// Background video positoning
 .bg-video {
   position: absolute;
   top: 0;

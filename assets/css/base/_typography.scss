@@ -154,3 +154,12 @@ body {
 	}
 }
 
+// Underline
+.underline {
+  /* I don't know why this is needed, I just added it and it worked in IE Edge. If we remove this width, the gradient breaks in IE Edge */
+  width: calc(100%);
+  background-image: linear-gradient(transparent calc(100% - 3px), teal 10px);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+}

@@ -1,3 +1,4 @@
+// About section
 .about {
   display: grid;
   grid-template-rows: auto;
@@ -6,20 +7,17 @@
 
   @include respond(medium) {
     text-align: center;
+    padding: 8rem 1rem;
 
   }
-
+  // About wrapper
   &__wrapper {
     display: grid;
     max-width: 130rem;
     margin: 0 auto;
-
-
-
-
-
   }
 
+  // About wrapper odd
   &__wrapper--odd {
     background-color: var(--color-teal);
     border-top-right-radius: var(--border-radius);
@@ -28,8 +26,8 @@
 
     // Add bottom border radius on medium
     @include respond(medium) {
-      border-top-left-radius: 18rem;
-      border-bottom-left-radius: 18rem;
+      border-top-left-radius: 10rem;
+      border-bottom-left-radius: 10rem;
       overflow: hidden;
       border-top-right-radius: 0;
 
@@ -43,6 +41,7 @@
 
   }
 
+  // About wrapper even
   &__wrapper--even {
     background-color: var(--color-light-blue);
     border-bottom-right-radius: var(--border-radius);
@@ -61,25 +60,29 @@
 
   }
 
+  // About description
   &__description {
     font-size: clamp(1.9rem, 1.8vw, 2.1rem);
     line-height: 1.6;
 
     @include respond(medium) {
-      font-size: 3rem;
+      font-size: 2.6rem;
 
     }
   }
 
+  // About description odd
   &__description--odd {
     border-top-right-radius: var(--border-radius);
     padding: 10rem;
 
-  
+    @include respond(medium) {
+      padding: 5rem;
 
-
+    }
   }
 
+  // About description even
   &__description--even {
     position: relative;
     padding: 10rem 0 10rem 10rem;
@@ -87,10 +90,10 @@
     border-bottom-left-radius: var(--border-radius);
 
     @include respond(medium) {
-      padding: 10rem;
+      padding: 5rem;
 
       border-bottom-right-radius: 0;
-    border-top-left-radius: 18rem;
+    border-top-left-radius: 10rem;
     border-bottom-left-radius: 0;
 
     }
@@ -123,6 +126,7 @@
 
   }
 
+  // About header
   &__header {
     float: right;
 
@@ -144,6 +148,7 @@
 
   }
 
+  // About header odd
   &__header--odd {
     border-top-right-radius: var(--border-radius);
     overflow: hidden;
@@ -169,6 +174,7 @@
 
   }
 
+  // About header even
   &__header--even {
     border-bottom-right-radius: var(--border-radius);
 
@@ -205,7 +211,7 @@
 
 }
 
-
+// Bio secion
 .bios {
   padding: 8rem 8vw;
   background-color: var(--color-grey);
@@ -216,11 +222,7 @@
   background-attachment: fixed;
 
 
-
-
-
-
-
+// Bios wrapper
   &__wrapper {
     max-width: 130rem;
     display: grid;
@@ -236,7 +238,7 @@
 }
 
 
-
+// Bios list
 .bios__list {
   list-style: none;
   background-color: transparent;
@@ -285,6 +287,7 @@
   }
 }
 
+// Bios items
 .bios__item {
   background-color: var(--color-white);
   width: 90%;
@@ -311,8 +314,7 @@
 
 }
 
-
-
+// Bios link
 .bios__link {
   text-decoration: none;
   color: var(--color-black);
@@ -340,6 +342,7 @@
  
 }
 
+// Bio container
 .bio__container {
   display: grid;
   grid-template-columns: 1fr 5fr;
@@ -360,7 +363,7 @@
 }
 
 
-
+// Bio inner wrapper
 .bio__inner-wrapper {
  
 
@@ -385,6 +388,7 @@
 
 }
 
+// Bio headshot
 .bio__headshot {
   width: 18.5rem;
   position: relative;
@@ -392,6 +396,7 @@
   filter: grayscale(100%);
 }
 
+// Bio icon
 .bio__icon {
   position: absolute;
   fill: var(--color-teal);
@@ -403,8 +408,10 @@
   transition: all .5s ease;
 }
 
+// Bio item
 .bio__item {}
 
+// Bio media
 .bio__media {
   position: relative;
   margin: 0 auto;
@@ -412,8 +419,7 @@
 
 }
 
-
-
+// Bio details
 .bio__details {
   display: grid;
   align-content: center;
@@ -423,6 +429,7 @@
   }
 }
 
+// Bio heading
 .bio__heading {
   font-size: 2.5rem;
   font-weight: 400;
@@ -452,12 +459,14 @@
   }
 }
 
+// Bio description
 .bio__description {
   font-size: 1.7rem;
   line-height: 1.5;
   margin-block-end: 2rem;
 }
 
+// Bio CTA wrapper
 .bio__cta--wrapper {
   display: block;
 
@@ -466,6 +475,7 @@
   }
 }
 
+// Bio CTA
 .bio__cta {
   position: relative;
   text-transform: uppercase;
@@ -501,6 +511,7 @@
   }
 }
 
+// Bio arrow
 .bio__arrow {
   fill: var(--color-teal);
   height: 2rem;

@@ -1,3 +1,4 @@
+// FAQs section
 .faq {
   padding: 8rem 8vw;
   background-color: var(--color-white);
@@ -7,11 +8,14 @@
   background-repeat: repeat-y;
   background-attachment: fixed;
 
+  // FAQs details
   &__details {
     max-width: 130rem;
     width: 60%;
 
-
+    @include respond(medium) {
+      width: 100%;
+    }
 
     .h2__heading {
       text-align: left;
@@ -19,6 +23,7 @@
 
   }
 
+  // FAQs content
   &__content {
     font-size: 1.8rem;
     line-height: 1.6;
@@ -29,22 +34,21 @@
     }
   }
 
+  // FAQs quote
   .wp-block-quote {
     font-style: italic;
     font-size: 2.5rem;
     margin: 0 0 2rem 5rem;
   }
-
-
-
+  // FAQs horizontal rule
   .hr {
     width: 100%;
     height: 1px;
     background-color: var(--color-teal);
     margin: 6rem 0;
-
   }
 
+  // FAQs main section
   &__main {
     display: flex;
     gap: 2rem;
@@ -102,9 +106,11 @@
       &:after {
         position: absolute;
         color: var(--color-black);
+        top: 50%;
         content: url("assets/img/angle-down.svg");
         right: 5rem;
-        transform: translateY(20%);
+        transform: translateY(-50%);
+        transform-origin: center;
         transition: all .1s ease-in;
 
       }
@@ -144,8 +150,8 @@
     }
 
     .is-expanded .faqs__title:after {
-
-      transform: rotate(180deg);
+      transform-origin: center;
+      transform: rotate(180deg) translateY(50%);
     }
 
     &__sidebar {
@@ -194,28 +200,7 @@
     
   }
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
- 
-
-
-
+  // FAQs bottom section
   &__bottom{
     position: relative;
   }
