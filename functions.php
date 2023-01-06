@@ -347,6 +347,50 @@ add_filter ( 'post_class' , 'oddeven_post_class' );
 global $current_class;
 $current_class = 'odd';
   
+ //* Webinar Sorting 
+function sort_webinar_posts() {
+  ?>
+
+<div class="sort" aria-haspopup="true" aria-expanded="false">
+  <button class="sort__button" id="sort__posts-button">
+  <?php echo svg_icon('arrow', 'angle-down');?> Sort Posts
+  </button>
+  <div class="sort__content" aria-labelledby="sort__posts-button">
+  <?php
+     $get_cat        = get_the_category();
+     $first_cat      = $get_cat[0];
+     $category_name  = $first_cat->cat_name;
+    if (is_home()) {?>
+      <a href="<?php echo esc_url('?ordr=title');?>" data-sort="Ascending">Ascending</a>
+      <a href="<?php echo esc_url('?ordr=title-desc');?>" data-sort="Descending">Descending</a>
+      <a href="<?php echo esc_url('?ordr=date-desc');?>" data-sort="Most Recent">Most Recent</a>
+      <a href="<?php echo esc_url('?ordr=date');?>" data-sort="Oldest First">Oldest First</a>
+   <?php }else if (is_page('ovc-faqs')) {?>
+      <a href="<?php echo esc_url( '?ordr=title' );?>" data-sort="A to Z">A to Z</a>
+      <a href="<?php echo esc_url( '?ordr=title-desc' );?>" data-sort="Z to A">Z to A</a>
+    <?php }else if (is_category()) {?>
+      <a href="<?php echo esc_url('?ordr=title');?>" data-sort="newest">Ascending</a>
+      <a href="<?php echo esc_url('?ordr=title-desc');?>" data-sort="oldest">Descending</a>
+      <a href="<?php echo esc_url('?ordr=date-desc');?>" data-sort="newest">Most Recent</a>
+      <a href="<?php echo esc_url('?ordr=date');?>" data-sort="newest">Oldest First</a>
+   <?php }
+  ?> 
+  </div>
+</div>
+
+  
+  <script>
+    var sortButton = document.querySelector('.sort__button');
+    var sortContent = document.querySelector('.sort__content');
+    sortButton.addEventListener('click', function() {
+      sortContent.classList.toggle('active');
+      sortButton.classList.toggle('active');
+      sortButton.setAttribute('aria-expanded', sortContent.classList.contains('active'));
+    });
+  </script>
+  <?php
+}
+
 
 
 

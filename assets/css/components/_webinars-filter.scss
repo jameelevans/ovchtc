@@ -232,3 +232,69 @@
 
 
 }
+
+.webinars__sort{
+  text-align: right;
+
+  @include respond(medium) {
+    text-align: center;
+  }
+}
+
+.sort {
+  position: relative;
+  display: inline-block;
+  text-align: right;
+}
+
+.sort__button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: .5rem 2rem .5rem 1rem;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 3px;
+}
+
+.sort__content {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  background-color: #f1f1f1;
+  min-width: 19rem;
+  border-top-left-radius: 1.5rem;
+  box-shadow: 2px 2px 2px var(--color-black);
+  font-size: 1.5rem;
+}
+
+.sort__content a {
+  color: black;
+  padding: 1.2rem 1.6rem;
+  text-decoration: none;
+  display: block;
+}
+
+.sort__content a:hover {
+
+  color: var(--color-teal);
+}
+
+.arrow {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+  fill: var(--color-white);
+  height: 3rem;
+  width: 3rem;
+  transition: transform .3s;
+}
+
+.sort__button.active .arrow {
+  transform: rotate(180deg);
+}
+
+.active  {
+  display: block;
+}

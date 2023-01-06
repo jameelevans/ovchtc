@@ -605,6 +605,78 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
           justify-content: center;
 }
 
+.webinars__sort {
+  text-align: right;
+}
+
+@media only screen and (max-width: 50em) {
+  .webinars__sort {
+    text-align: center;
+  }
+}
+
+.sort {
+  position: relative;
+  display: inline-block;
+  text-align: right;
+}
+
+.sort__button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: .5rem 2rem .5rem 1rem;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 3px;
+}
+
+.sort__content {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  background-color: #f1f1f1;
+  min-width: 19rem;
+  border-top-left-radius: 1.5rem;
+  -webkit-box-shadow: 2px 2px 2px var(--color-black);
+          box-shadow: 2px 2px 2px var(--color-black);
+  font-size: 1.5rem;
+}
+
+.sort__content a {
+  color: black;
+  padding: 1.2rem 1.6rem;
+  text-decoration: none;
+  display: block;
+}
+
+.sort__content a:hover {
+  color: var(--color-teal);
+}
+
+.arrow {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+  fill: var(--color-white);
+  height: 3rem;
+  width: 3rem;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+
+.sort__button.active .arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.active {
+  display: block;
+}
+
 .header {
   position: relative;
   width: 100%;
@@ -4421,6 +4493,17 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   padding: 1rem 1.5rem;
   color: var(--color-white);
   float: right;
+}
+
+.faq__main .faqs__sort {
+  text-align: right;
+}
+
+@media only screen and (max-width: 50em) {
+  .faq__main .faqs__sort {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
 }
 
 .faq__bottom {

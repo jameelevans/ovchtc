@@ -15,7 +15,7 @@
             <div class="orientations__header">
               <h1 class="h2__heading">Orientations</h1>
               <div class="orientations__sort">
-                <?php echo do_shortcode('[fe_sort id="3"]');?>
+                <?php sort_webinar_posts();?>
               </div>
             </div>
             <!-- Orientation grid wrapper  -->

@@ -15,7 +15,7 @@
             <div class="capacity-building-webinars__header">
               <h1 class="h2__heading">Capacity Building Webinars</h1>
               <div class="capacity-building-webinars__sort">
-                <?php echo do_shortcode('[fe_sort id="4"]');?>
+                <?php sort_webinar_posts();?>
               </div>
             </div>
             <!-- Capacity Building Webinar grid wrapper  -->

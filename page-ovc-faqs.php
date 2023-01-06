@@ -65,7 +65,7 @@
         </div>
         
         <div class="faqs__sidebar">
-          <div class="faqs__sort"><?php echo do_shortcode('[fe_sort id="5"]');?></div>
+          <div class="faqs__sort"><?php sort_webinar_posts();?></div>
 
           
         </div>

@@ -15,7 +15,7 @@
             <div class="webinars__nav">
                 <div class="webinars__search"><?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
                 <div class="webinars__filter-control-wrapper"><a href="#webinars-filter" class="webinars__filter-control" title="Click here to open filters"><?php echo svg_icon('webinars__icon', 'filter');?>Filter Webinars By</a></div>  
-                <div class="webinars__sort"><?php echo do_shortcode('[fe_sort id="2"]');?></div>
+                <div class="webinars__sort"><?php sort_webinar_posts();?></div>
             </div>
             
             <!-- Webinar wrapper  -->
