@@ -71,7 +71,9 @@
 							echo '<h1 class="header__heading">Start Here</h1>';
 						}else if (is_page('staff-checklist') || is_page('ovc-faqs') || is_search()) {
 								echo '';
-						}else if (is_404()) {
+						}else if (is_page('events')) {
+							echo 'Upcoming Events';
+					}else if (is_404()) {
 							echo '404 Error';
 						} else {
 						echo the_title();
@@ -95,11 +97,11 @@
 				<?php 
 				
 				if( is_home() ): ?>
-						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url( '/staff-checklist' ) ); ?>" ?>STAFF CHECKLISTS</a>
+						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url( '/staff-checklist' ) ); ?>" title="Go to our Staff Checklist page">Staff Checklists</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
-						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url( '/orientation' ) ); ?>" ?>Orientations</a>
+						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url( '/orientation' ) ); ?>" title="Go to our Orientations page">Orientations</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
-						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url( '/ovc-faqs' ) );?>" ? title="Go to our FAQs page">OVC FAQs</a>
+						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url( '/ovc-faqs' ) );?>" title="Go to our FAQs page">OVC FAQs</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 				<?php endif;?>
 		

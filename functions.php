@@ -124,9 +124,9 @@ function svg_icon($class, $icon) { ?>
   //* 8. Display Home BG Video
   function bg_video() { ?>
   <div class="bg-video">
-    <video class="bg-video__content" poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/brainstorming-bg.jpg" autoplay muted playsinline loop>
-      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/brainstorming-bg.mp4" type="video/mp4"> 
-      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/brainstorming-bg.webm" type="video/webm"> 
+    <video class="bg-video__content" poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/home-bg-video.jpg" autoplay muted playsinline loop>
+      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/home-bg-video.mp4" type="video/mp4"> 
+      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/home-bg-video.webm" type="video/webm"> 
       Your browser is not supported! Please upgrade to a modern browser.
     </video>
   </div>
@@ -149,10 +149,13 @@ function site_navigation() { ?>
         <li class="navigation__item">
           <a href="<?php echo esc_url( site_url( '/resources' ) ); ?>" class="navigation__link<?php if(is_home() || is_category('orientation') || is_category('capacity-building-webinar') || is_page('staff-checklist') || is_page('ovc-faqs')){echo ' navigation__current-page';} ?>" title="Go to the Resources page">Resources</a>
         </li>
-        <!-- Contact page currently in development
         <li class="navigation__item">
-          <a href="<?php //echo esc_url( site_url( '#' ) ); ?>" class="navigation__link<?php //if(is_page('contact')){echo ' navigation__current-page';} ?>" title="Go to the Contact page">Contact</a>
-        </li> .Contact page currently in development-->
+          <a href="<?php echo esc_url( site_url( '/events' ) ); ?>" class="navigation__link<?php if(is_page_template('default-template.php')){echo ' navigation__current-page';} ?>" title="Go to the Events page">Events</a>
+        </li>
+       
+        <li class="navigation__item">
+          <a href="<?php echo esc_url( site_url( '/contact' ) ); ?>" class="navigation__link<?php if(is_page('contact')){echo ' navigation__current-page';} ?>" title="Go to the Contact page">Contact</a>
+        </li>
       </ul>
     </nav>
   </div><!-- .navigation -->
@@ -172,7 +175,7 @@ function mobile_navigation() { ?>
 
 
 
-      <div class="navigation__background">&nbsp;</div>
+      
       <nav class="mobile-navigation__nav" aria-label="Mobile menu" aria-labelledby="mobile-menu" aria-hidden="true">
         <ul class="mobile-navigation__list">
           <li class="mobile-navigation__item">
@@ -184,15 +187,20 @@ function mobile_navigation() { ?>
           <li class="mobile-navigation__item">
             <a href="<?php echo esc_url( site_url( '/resources' ) ); ?>" class="mobile-navigation__link<?php if(is_home() || is_category('orientation') || is_category('capacity-building-webinar') || is_page('staff-checklist') || is_page('ovc-faqs')){echo ' mobile-navigation__current-page';} ?>" title="Go to the Resources page">Resources</a>
           </li>
-          <!-- Contact page currently in development
           <li class="mobile-navigation__item">
-            <a href="<?php //echo esc_url( site_url( '#' ) ); ?>" class="mobile-navigation__link<?php //if(is_page('contact')){echo ' mobile-navigation__current-page';} ?>" title="Go to the Contact page">Contact</a>
-          </li> .Contact page currently in development -->
-          <li class="mobile-navigation__item">
-                <a href="" class="mobile-navigation__social-link"><?php echo svg_icon('mobile-navigation__social-icon', 'facebook');?></a>
-                <a href="" class="mobile-navigation__social-link"><?php echo svg_icon('mobile-navigation__social-icon', 'twitter');?></a>
-                <a href="" class="mobile-navigation__social-link"><?php echo svg_icon('mobile-navigation__social-icon', 'web');?></a>
+            <a href="<?php echo esc_url( site_url( '/events' ) ); ?>" class="mobile-navigation__link<?php if(is_page_template('default-template.php')){echo ' navigation__current-page';} ?>" title="Go to the Resources page">Events</a>
           </li>
+         
+          <li class="mobile-navigation__item">
+            <a href="<?php echo esc_url( site_url( '/contact' ) ); ?>" class="mobile-navigation__link<?php if(is_page('contact')){echo ' mobile-navigation__current-page';} ?>" title="Go to the Contact page">Contact</a>
+          </li>
+          
+           <!-- We currently have mo social media
+          <li class="mobile-navigation__item">
+                <a href="" class="mobile-navigation__social-link"><?php //echo svg_icon('mobile-navigation__social-icon', 'facebook');?></a>
+                <a href="" class="mobile-navigation__social-link"><?php //echo svg_icon('mobile-navigation__social-icon', 'twitter');?></a>
+                <a href="" class="mobile-navigation__social-link"><?php //echo svg_icon('mobile-navigation__social-icon', 'web');?></a>
+          </li>-->
         </ul>
       </nav>
   </div><!-- .Moblie navigation -->
@@ -396,6 +404,7 @@ function sort_webinar_posts() {
   </script>
   <?php
 }
+
 
 
 

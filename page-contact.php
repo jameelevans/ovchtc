@@ -9,25 +9,12 @@
 
 ?>
 	<main  id="main-content">
-    <section class="faqs">
-      <div class="faqs__details">
-        <h1 class="h2__heading">OVC Human Trafficking Program FAQs</h1>
-        <p class="faqs__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.
-          Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.
-          Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur
-          pellentesque nibh nibh, at maximus ante fermentum sit amet.</p>
 
-          <blockquote class="faqs__quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit Ut et massa mi.</blockquote>
+    <section class="contact">
+      
 
-          <p class="faqs__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.
-          Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.
-          Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur
-          pellentesque nibh nibh, at maximus ante fermentum sit amet.</p>
-      </div>
-      <div class="hr">&nbsp;</div>
-
-      <div id="faqs__top" class="faqs__main">
-        <?php the_content();?>
+      <div id="contact__top" class="contact__main">
+      <iframe width="100%" height="1900px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=e7mQz0a-AEqXAIHOT_G39naZkcCiRUhFppTpmJtkTglUOUJONURQQThJRVdXUVRKU0dIUDhHUE01NC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
       </div>
       
     </section>

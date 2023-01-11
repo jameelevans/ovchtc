@@ -39,9 +39,12 @@
                 <div class="footer__section">
                     <ul class="footer__list">
                         <li class="footer__item"><a class="footer__link" href="mailto:htcollective@icf.com" title="Email us now">Email Updates</a></li>
-                        <!-- Form currently under contruction, will add later
-                        <li class="footer__item"><a class="footer__link" href="">TTA Request Form</a></li>-->
+                        <li class="footer__item"><a class="footer__link" href="<?php echo esc_url( site_url( '/grantees' ) ); ?>" title="Go to the Grantees page">Grantees</a></li>
+                        <li class="footer__item"><a class="footer__link" href="<?php echo esc_url( site_url( '/resources' ) ); ?>" title="Go to the Resources page">Resources</a></li>
+                        <li class="footer__item"><a class="footer__link" href="<?php echo esc_url( site_url( '/events' ) ); ?>" title="Go to the Events page">Events</a></li>
+                        <li class="footer__item"><a class="footer__link" href="">TTA Request Form</a></li>
                         <li class="footer__item"><a class="footer__link" href="<?php echo esc_url( site_url( '/ovc-faqs' ) );?>" title="Go to our FAQs page">Help Pages</a></li>
+                        <li class="footer__item"><a class="footer__link" href="<?php echo esc_url( site_url( '/admin' ) ); ?>" title="Go to the Admin page">Admin</a></li>
                     </ul>
                 </div>
 
