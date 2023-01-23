@@ -190,7 +190,7 @@
       .orientation__heading{
         font-size: 2.3rem;
         font-weight: 300;
-        margin-block-end: 4rem;
+        margin-block-end: 3rem;
       }
     }
 
@@ -198,7 +198,9 @@
     &__link {
       display: block;
       color: var(--color-white);
-      font-size: 1.8rem;
+      font-size: 1.7rem;
+      line-height: 1.2;
+      text-decoration: none;
       transition: all .3s ease-in;
 
       &:hover {
@@ -207,7 +209,7 @@
 
       // Not the last type of orientation link
       &:not(:last-of-type) {
-        margin-block-end: 1.8rem;
+        margin-block-end: 1.3rem;
       }
     }
 

@@ -3991,14 +3991,16 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 .orientations .orientation__materials .orientation__heading {
   font-size: 2.3rem;
   font-weight: 300;
-  -webkit-margin-after: 4rem;
-          margin-block-end: 4rem;
+  -webkit-margin-after: 3rem;
+          margin-block-end: 3rem;
 }
 
 .orientations .orientation__link {
   display: block;
   color: var(--color-white);
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  text-decoration: none;
   -webkit-transition: all .3s ease-in;
   transition: all .3s ease-in;
 }
@@ -4008,8 +4010,8 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 }
 
 .orientations .orientation__link:not(:last-of-type) {
-  -webkit-margin-after: 1.8rem;
-          margin-block-end: 1.8rem;
+  -webkit-margin-after: 1.3rem;
+          margin-block-end: 1.3rem;
 }
 
 .orientations .orientation__none {
@@ -4199,14 +4201,16 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 .capacity-building-webinars .capacity-building-webinar__materials .capacity-building-webinar__heading {
   font-size: 2.3rem;
   font-weight: 300;
-  -webkit-margin-after: 4rem;
-          margin-block-end: 4rem;
+  -webkit-margin-after: 3rem;
+          margin-block-end: 3rem;
 }
 
 .capacity-building-webinars .capacity-building-webinar__link {
   display: block;
   color: var(--color-white);
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  text-decoration: none;
   -webkit-transition: all .3s ease-in;
   transition: all .3s ease-in;
 }
@@ -4216,8 +4220,8 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 }
 
 .capacity-building-webinars .capacity-building-webinar__link:not(:last-of-type) {
-  -webkit-margin-after: 1.8rem;
-          margin-block-end: 1.8rem;
+  -webkit-margin-after: 1.3rem;
+          margin-block-end: 1.3rem;
 }
 
 .capacity-building-webinars .capacity-building-webinar__none {
