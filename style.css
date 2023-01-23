@@ -4573,6 +4573,13 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
+@media only screen and (max-width: 50em) {
+  .faq__backtop {
+    bottom: 5rem;
+    right: 5rem;
+  }
+}
+
 .faq__backtop:hover .faq__icon {
   -webkit-transform: translate(-50%, -60%);
           transform: translate(-50%, -60%);

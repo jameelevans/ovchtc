@@ -217,6 +217,12 @@
     transform: scale(0);
     transition: transform .3s ease-in-out;
 
+    @include respond(medium) {
+      bottom: 5rem;
+    right: 5rem;
+      
+    }
+
 
     &:hover .faq__icon {
       transform: translate(-50%, -60%);
