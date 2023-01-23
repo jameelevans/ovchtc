@@ -393,7 +393,8 @@
   width: 18.5rem;
   position: relative;
   z-index: 2;
-  filter: grayscale(100%);
+  clip-path: url(#octo-clip);
+  filter: grayscale(100%) brightness(115%);
 }
 
 // Bio icon

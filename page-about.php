@@ -51,6 +51,14 @@
                 
 
                         <div class="bio__inner-wrapper">
+                                <!-- Clip path svg reference-->
+                                <svg height="0" width="0" aria-hidden="true" role="presentation" style="speak:none;" tabindex="-1">
+                                        <defs>
+                                                <clipPath id="octo-clip">
+                                                <polygon points="186.63,161.78 93.42,215.6 0.21,161.78 0.21,54.15 93.42,0.34 186.63,54.15 	"/>
+                                                </clipPath>
+                                        </defs>
+                                </svg><!-- .Clip path svg reference-->
                                 <div id="tab1" class="bio__content bio__staff active">
                                         <?php
                                         $staff = new WP_Query(array(
@@ -67,7 +75,7 @@
                                                 <?php $slug = get_post_field( 'post_name', get_the_ID() ); ?>
                                                 <div id="<?php echo $slug;?>" class="bio__container">
                                                         <div class="bio__media">
-                                                                <img class="bio__headshot" src="<?php the_post_thumbnail_url(); ?>" alt="Headshot of <?php the_title();?>">
+                                                                <img class="bio__headshot" src="<?php the_post_thumbnail_url('staff-headshot'); ?>" alt="Headshot of <?php the_title();?>">
                                                                 <?php echo svg_icon('bio__icon', 'octogon');?>
                                                         </div>
                                                         <div class="bio__details">

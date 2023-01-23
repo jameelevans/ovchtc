@@ -2635,8 +2635,10 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   width: 18.5rem;
   position: relative;
   z-index: 2;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
+  -webkit-clip-path: url(#octo-clip);
+          clip-path: url(#octo-clip);
+  -webkit-filter: grayscale(100%) brightness(115%);
+          filter: grayscale(100%) brightness(115%);
 }
 
 .bio__icon {
