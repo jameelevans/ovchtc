@@ -73,20 +73,72 @@
                               <div class="capacity-building-webinar__materials">
                                 <h4 class="capacity-building-webinar__heading">Materials</h4>
 
-                                <?php if(!get_field('webinar_link') && !get_field('download_pdf')){
+                                <?php
+                                
+                                
+                                $transcript = get_field('download_transcript');
+                                $pdfcb = get_field('download_pdf');
+                                $pdfcb2 = get_field('download_pdf_2');
+                                $pdfcb3 = get_field('download_pdf_3');
+                                $pdfcb4 = get_field('download_pdf_4');
+                                $pdfcb5 = get_field('download_pdf_5');
+                                $pdfcb6 = get_field('download_pdf_6');
+
+                                /* Getting file size
+                                $attachment_id = $pdfcb;
+                                $url = wp_get_attachment_url( $attachment_id );
+                                $pdfcbsize = filesize( get_attached_file( $attachment_id ) );
+                                $pdfcbsize = size_format($pdfcbsize, 2);*/
+
+                                if(!get_field('webinar_link') && !get_field('download_pdf')){
                                   echo '<!--If no capacity-building-webinar paragrapgh  -->';
                                   echo '<p class="capacity-building-webinar__none"> Sorry no materials at this time. Check back later.</p>';
                                 } else {
-                                    if(get_field('webinar_link')){?>
-                                      <!--Capacity Building Webinar webinar link  -->
-                                      <a class="capacity-building-webinar__link" href="<?php the_field('webinar_link') ?>">Listen/View Webinar</a>
-                                    <?php }
+                                  if(get_field('download_transcript')){?>
+                                    <!--Capacity Building Webinar webinar link  -->
+                                    <a class="capacity-building-webinar__link" href="<?php the_field('download_transcript') ?>">View Transcripts (TXT <?php the_field("transcript_size")?>)</a>
+                                  <?php }
 
-                                    if(get_field('download_pdf')){?>
-                                      <!--Capacity Building Webinar powerpoint link  -->
-                                      <a class="capacity-building-webinar__link" href="<?php the_field("download_pdf") ?>">View PowerPoint (PDF <?php the_field("download_size")?>)</a>
-                                    <?php }
-                                  }?>
+                                  if(get_field('webinar_link')){?>
+                                    <!--Capacity Building Webinar webinar link  -->
+                                    <a class="capacity-building-webinar__link" href="<?php the_field('webinar_link') ?>">Listen/View Webinar</a>
+                                  <?php }
+
+                                  if(get_field('download_pdf')){?>
+                                    <!--Capacity Building Webinar powerpoint link  -->
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb['url']; ?>">Download the <?php echo $pdfcb['filename']; ?> (PDF <?php the_field("download_size")?>)</a>
+                                  <?php }
+
+                                  if(get_field('download_pdf_2')){?>
+                                    <!--Capacity Building Webinar powerpoint link  -->
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb2['url']; ?>">Download the <?php echo $pdfcb2['filename']; ?> (PDF <?php the_field("download_size_2")?>)</a>
+                                  <?php }
+
+                                  if(get_field('download_pdf_3')){?>
+                                    <!--Capacity Building Webinar powerpoint link  -->
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb3['url']; ?>">Download the <?php echo $pdfcb3['filename']; ?> (PDF <?php the_field("download_size_3")?>)</a>
+                                  <?php }
+
+                                  if(get_field('download_pdf_4')){?>
+                                    <!--Capacity Building Webinar powerpoint link  -->
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb4['url']; ?>">Download the <?php echo $pdfcb4['filename']; ?> (PDF <?php the_field("download_size_4")?>)</a>
+                                  <?php }
+
+                                  if(get_field('download_pdf_5')){?>
+                                    <!--Capacity Building Webinar powerpoint link  -->
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb5['url']; ?>">Download the <?php echo $pdfcb5['filename']; ?> (PDF <?php the_field("download_size_5")?>)</a>
+                                  <?php }
+
+                                  if(get_field('download_pdf_6')){?>
+                                    <!--Capacity Building Webinar powerpoint link  -->
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb6['url']; ?>">Download the <?php echo $pdfcb6['filename']; ?> (PDF <?php the_field("download_size_6")?>)</a>
+                                  <?php }
+                                  
+                                }?>
+
+
+
+                
 
                                  
                                
