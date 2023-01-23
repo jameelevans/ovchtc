@@ -168,6 +168,10 @@
     &__description {
       font-size: 1.7rem;
       line-height: 1.5;
+
+      ol, ul {
+        margin-left: 2rem;
+      }
     }
 
     // Orientation aside

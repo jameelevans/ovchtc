@@ -73,10 +73,30 @@
                               <div class="orientation__materials">
                                 <h4 class="orientation__heading">Materials</h4>
 
-                                <?php if(!get_field('webinar_link') && !get_field('download_pdf')){
+                                <?php
+                                $transcript = get_field('download_transcript');
+                                $pdf = get_field('download_pdf');
+                                $pdf2 = get_field('download_pdf_2');
+                                $pdf3 = get_field('download_pdf_3');
+                                $pdf4 = get_field('download_pdf_4');
+                                $pdf5 = get_field('download_pdf_5');
+                                $pdf6 = get_field('download_pdf_6');
+
+                                /* Getting file size
+                                $attachment_id = $pdf;
+                                $url = wp_get_attachment_url( $attachment_id );
+                                $pdfsize = filesize( get_attached_file( $attachment_id ) );
+                                $pdfsize = size_format($pdfsize, 2);*/
+
+                                if(!get_field('webinar_link') && !get_field('download_pdf')){
                                   echo '<!--If no orientation paragrapgh  -->';
                                   echo '<p class="orientation__none"> Sorry no materials at this time. Check back later.</p>';
                                 } else {
+                                    if(get_field('download_transcript')){?>
+                                      <!--Orientation webinar link  -->
+                                      <a class="orientation__link" href="<?php the_field('download_transcript') ?>">View Transcripts (TXT <?php the_field("transcript_size")?>)</a>
+                                    <?php }
+
                                     if(get_field('webinar_link')){?>
                                       <!--Orientation webinar link  -->
                                       <a class="orientation__link" href="<?php the_field('webinar_link') ?>">Listen/View Webinar</a>
@@ -84,8 +104,34 @@
 
                                     if(get_field('download_pdf')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php the_field("download_pdf") ?>">View PowerPoint (PDF <?php the_field("download_size")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf['url']; ?>">Download the <?php echo $pdf['filename']; ?> (PDF <?php the_field("download_size")?>)</a>
                                     <?php }
+
+                                    if(get_field('download_pdf_2')){?>
+                                      <!--Orientation powerpoint link  -->
+                                      <a class="orientation__link" href="<?php echo $pdf2['url']; ?>">Download the <?php echo $pdf2['filename']; ?> (PDF <?php the_field("download_size_2")?>)</a>
+                                    <?php }
+
+                                    if(get_field('download_pdf_3')){?>
+                                      <!--Orientation powerpoint link  -->
+                                      <a class="orientation__link" href="<?php echo $pdf3['url']; ?>">Download the <?php echo $pdf3['filename']; ?> (PDF <?php the_field("download_size_3")?>)</a>
+                                    <?php }
+
+                                    if(get_field('download_pdf_4')){?>
+                                      <!--Orientation powerpoint link  -->
+                                      <a class="orientation__link" href="<?php echo $pdf4['url']; ?>">Download the <?php echo $pdf4['filename']; ?> (PDF <?php the_field("download_size_4")?>)</a>
+                                    <?php }
+
+                                    if(get_field('download_pdf_5')){?>
+                                      <!--Orientation powerpoint link  -->
+                                      <a class="orientation__link" href="<?php echo $pdf5['url']; ?>">Download the <?php echo $pdf5['filename']; ?> (PDF <?php the_field("download_size_5")?>)</a>
+                                    <?php }
+
+                                    if(get_field('download_pdf_6')){?>
+                                      <!--Orientation powerpoint link  -->
+                                      <a class="orientation__link" href="<?php echo $pdf6['url']; ?>">Download the <?php echo $pdf6['filename']; ?> (PDF <?php the_field("download_size_6")?>)</a>
+                                    <?php }
+                                    
                                   }?>
 
                                  

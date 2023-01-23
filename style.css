@@ -2151,8 +2151,10 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   width: 18.5rem;
   position: relative;
   z-index: 2;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
+  -webkit-clip-path: url(#octo-clip);
+          clip-path: url(#octo-clip);
+  -webkit-filter: grayscale(100%) brightness(115%);
+          filter: grayscale(100%) brightness(115%);
 }
 
 .staff__icon {
@@ -3518,6 +3520,11 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   background-attachment: fixed;
 }
 
+.improve-trainings__header {
+  max-width: 130rem;
+  margin: 0 auto;
+}
+
 .improve-trainings__header .h2__heading {
   text-align: left;
 }
@@ -3960,6 +3967,10 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 .orientations .orientation__description {
   font-size: 1.7rem;
   line-height: 1.5;
+}
+
+.orientations .orientation__description ol, .orientations .orientation__description ul {
+  margin-left: 2rem;
 }
 
 .orientations .orientation__aside {
@@ -4549,14 +4560,28 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   padding: 2rem 2.7rem;
   border-radius: 10rem;
   border: 2px solid var(--color-grey);
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  position: fixed;
+  bottom: 10rem;
+  right: 13rem;
+  z-index: 9999;
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 .faq__backtop:hover .faq__icon {
   -webkit-transform: translate(-50%, -60%);
           transform: translate(-50%, -60%);
+}
+
+.faq__backtop--is-visible {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .faq__icon {

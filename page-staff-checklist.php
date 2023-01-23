@@ -28,13 +28,15 @@ get_header('general');
                             $checklists->the_post();?>
                             <!-- Staff Checklists -->
                             <div class="staff-checklist__inner">
-                              <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+                              <?php 
+                               $pdf = get_field('download_pdf');
+                              $img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
                               <div class="staff-checklist <? if ( $postCount == 2 ) {echo 'grantee';} else {echo 'new-award';}?>"  style="background-image: linear-gradient(to bottom right,
-        rgba(var(--color-dark-blue-a),0.8) 35%, rgba(var(--color-teal-a), 0.8)),url('<?php echo  $url?>'); background-position: 0% -60px; background-size: cover;">
+        rgba(var(--color-dark-blue-a),0.8) 35%, rgba(var(--color-teal-a), 0.8)),url('<?php echo  $img?>'); background-position: 0% -60px; background-size: cover;">
                                 <div class="staff-checklist__header">
                                   <h4 class="staff-ckecklist__h4"><?php the_title();?></h4>
                                   <div class="staff-ckecklist__cta">
-                                    <a class="staff-ckecklist__link" href="<?php echo esc_url( $link_url ); ?>" target="_blank" title="Download the PDF now"><?php echo svg_icon('staff-ckecklist__icon', 'download');?> Download PDF (<?php echo the_field('download_size');?>)</a>
+                                    <a class="staff-ckecklist__link" href="<?php echo $pdf['url']; ?>" target="_blank" title="Download the <?php the_title();?> pdf now"><?php echo svg_icon('staff-ckecklist__icon', 'download');?> Download PDF (<?php echo the_field('download_size');?>)</a>
                                   </div>
                                 </div>
                               </div>

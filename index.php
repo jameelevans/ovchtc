@@ -11,7 +11,7 @@
 	<main id="main-content">
     <section class="webinars">
         <div class="webinars__wrapper">
-            <div class="webinars__header"><h2 class="h2__heading">Community of Practice Calls</h2></div>
+            <div class="webinars__header"><h2 class="h2__heading">Webinars</h2></div>
             <div class="webinars__nav">
                 <div class="webinars__search"><?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
                 <div class="webinars__filter-control-wrapper"><a href="#webinars-filter" class="webinars__filter-control" title="Click here to open filters"><?php echo svg_icon('webinars__icon', 'filter');?>Filter Webinars By</a></div>  

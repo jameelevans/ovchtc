@@ -70,6 +70,7 @@ function jameelevans_custom_logo_setup() {
   add_image_size( 'x-large', 2000, 1125, false);
   add_image_size( 'xx-large', 3000, 1688, false);
   add_image_size( 'full-size', 3200, 1801, false);
+  add_image_size( 'staff-headshot', 304, 350, true);
   add_image_size('pageBanner', 1300, 700, true);
 }
 add_action( 'after_setup_theme', 'jameelevans_custom_logo_setup' );

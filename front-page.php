@@ -95,7 +95,7 @@ get_header();
 								<?php $slug = get_post_field( 'post_name', get_the_ID() ); ?>
 								<a class="staff__member<?php if ( wp_is_mobile() ){echo ' staff__is-mobile';}else{echo ' staff__is-desktop';}?>" href="<?php echo esc_url( site_url( '/about' ) . '#' . $slug ); ?>" title="Learn more about <?php the_title();?>">
 									<span class="staff__overlay"></span>
-									<img class="staff__headshot" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title();?>">
+									<img class="staff__headshot" src="<?php the_post_thumbnail_url('staff-headshot'); ?>" alt="<?php the_title();?>">
 									<?php echo svg_icon('staff__icon', 'octogon');?>
 									<div class="staff__details">
 										<p class="staff__name"><?php the_title();?></p>
