@@ -94,7 +94,7 @@
                                 } else {
                                     if(get_field('download_transcript')){?>
                                       <!--Orientation webinar link  -->
-                                      <a class="orientation__link" href="<?php the_field('download_transcript') ?>">View Transcripts (TXT <?php the_field("transcript_size")?>)</a>
+                                      <a class="orientation__link" href="<?php the_field('download_transcript') ?>">View Transcripts (<?php the_field("transcript_size")?>)</a>
                                     <?php }
 
                                     if(get_field('webinar_link')){?>
@@ -104,32 +104,32 @@
 
                                     if(get_field('download_pdf')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdf['url']; ?>">Download the <?php echo $pdf['filename']; ?> (PDF <?php the_field("download_size")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf['url']; ?>">Download the <?php echo $pdf['title']; ?> PDF (<?php the_field("download_size")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_2')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdf2['url']; ?>">Download the <?php echo $pdf2['filename']; ?> (PDF <?php the_field("download_size_2")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf2['url']; ?>">Download the <?php echo $pdf2['title']; ?> PDF (<?php the_field("download_size_2")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_3')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdf3['url']; ?>">Download the <?php echo $pdf3['filename']; ?> (PDF <?php the_field("download_size_3")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf3['url']; ?>">Download the <?php echo $pdf3['title']; ?> PDF (<?php the_field("download_size_3")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_4')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdf4['url']; ?>">Download the <?php echo $pdf4['filename']; ?> (PDF <?php the_field("download_size_4")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf4['url']; ?>">Download the <?php echo $pdf4['title']; ?> PDF (<?php the_field("download_size_4")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_5')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdf5['url']; ?>">Download the <?php echo $pdf5['filename']; ?> (PDF <?php the_field("download_size_5")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf5['url']; ?>">Download the <?php echo $pdf5['title']; ?> PDF (<?php the_field("download_size_5")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_6')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdf6['url']; ?>">Download the <?php echo $pdf6['filename']; ?> (PDF <?php the_field("download_size_6")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf6['url']; ?>">Download the <?php echo $pdf6['title']; ?> PDF (<?php the_field("download_size_6")?>)</a>
                                     <?php }
                                     
                                   }?>

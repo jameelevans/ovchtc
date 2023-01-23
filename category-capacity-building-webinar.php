@@ -106,32 +106,32 @@
 
                                   if(get_field('download_pdf')){?>
                                     <!--Capacity Building Webinar powerpoint link  -->
-                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb['url']; ?>">Download the <?php echo $pdfcb['filename']; ?> (PDF <?php the_field("download_size")?>)</a>
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb['url']; ?>">Download the <?php echo $pdfcb['title']; ?> PDF (<?php the_field("download_size")?>)</a>
                                   <?php }
 
                                   if(get_field('download_pdf_2')){?>
                                     <!--Capacity Building Webinar powerpoint link  -->
-                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb2['url']; ?>">Download the <?php echo $pdfcb2['filename']; ?> (PDF <?php the_field("download_size_2")?>)</a>
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb2['url']; ?>">Download the <?php echo $pdfcb2['title']; ?> PDF (<?php the_field("download_size_2")?>)</a>
                                   <?php }
 
                                   if(get_field('download_pdf_3')){?>
                                     <!--Capacity Building Webinar powerpoint link  -->
-                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb3['url']; ?>">Download the <?php echo $pdfcb3['filename']; ?> (PDF <?php the_field("download_size_3")?>)</a>
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb3['url']; ?>">Download the <?php echo $pdfcb3['title']; ?> PDF (<?php the_field("download_size_3")?>)</a>
                                   <?php }
 
                                   if(get_field('download_pdf_4')){?>
                                     <!--Capacity Building Webinar powerpoint link  -->
-                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb4['url']; ?>">Download the <?php echo $pdfcb4['filename']; ?> (PDF <?php the_field("download_size_4")?>)</a>
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb4['url']; ?>">Download the <?php echo $pdfcb4['title']; ?> PDF (<?php the_field("download_size_4")?>)</a>
                                   <?php }
 
                                   if(get_field('download_pdf_5')){?>
                                     <!--Capacity Building Webinar powerpoint link  -->
-                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb5['url']; ?>">Download the <?php echo $pdfcb5['filename']; ?> (PDF <?php the_field("download_size_5")?>)</a>
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb5['url']; ?>">Download the <?php echo $pdfcb5['title']; ?> PDF (<?php the_field("download_size_5")?>)</a>
                                   <?php }
 
                                   if(get_field('download_pdf_6')){?>
                                     <!--Capacity Building Webinar powerpoint link  -->
-                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb6['url']; ?>">Download the <?php echo $pdfcb6['filename']; ?> (PDF <?php the_field("download_size_6")?>)</a>
+                                    <a class="capacity-building-webinar__link" href="<?php echo $pdfcb6['url']; ?>">Download the <?php echo $pdfcb6['title']; ?> PDF (<?php the_field("download_size_6")?>)</a>
                                   <?php }
                                   
                                 }?>
