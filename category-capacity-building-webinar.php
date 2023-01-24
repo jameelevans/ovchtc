@@ -101,7 +101,7 @@
 
                                   if(get_field('webinar_link')){?>
                                     <!--Capacity Building Webinar webinar link  -->
-                                    <a class="capacity-building-webinar__link" href="<?php the_field('webinar_link') ?>">Listen/View Webinar</a>
+                                    <a class="capacity-building-webinar__link" href="<?php the_field('webinar_link') ?>" target="_blank">Listen/View Webinar</a>
                                   <?php }
 
                                   if(get_field('download_pdf')){?>
