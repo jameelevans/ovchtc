@@ -116,7 +116,7 @@
                                                 <?php $slug = get_post_field( 'post_name', get_the_ID() ); ?>
                                                 <div id="<?php echo $slug;?>" class="bio__container">
                                                         <div class="bio__media">
-                                                                <img class="bio__headshot" src="<?php the_post_thumbnail_url(); ?>" alt="Headshot of <?php the_title();?>">
+                                                                <img class="bio__headshot" src="<?php the_post_thumbnail_url('staff-headshot'); ?>" alt="Headshot of <?php the_title();?>">
                                                                 <?php echo svg_icon('bio__icon', 'octogon');?>
                                                         </div>
                                                         <div class="bio__details">
