@@ -406,6 +406,19 @@ function sort_webinar_posts() {
   <?php
 }
 
+// Use custom template for event series posts
+add_filter(
+  'template_include',
+  static function ( $template ) {
+    if ( is_singular( 'tribe_event_series' ) ) {
+      // Point this to the template you want to use.
+      $template = locate_template( 'templates/series.php' );
+    }
+ 
+    return $template;
+  }
+);
+
 
 
 

@@ -5045,3 +5045,50 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 .contact__top .office-form-notice-password {
   display: none !important;
 }
+
+.error {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 10rem;
+}
+
+.error__image {
+  padding: 5rem;
+  width: 50%;
+  margin-bottom: 4rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.error__header {
+  font-size: 5rem;
+  text-align: center;
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
+}
+
+.error__p {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.error__home, .error__home:link, .error__home:visited {
+  background-color: var(--color-blue);
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: var(--color-white);
+  cursor: pointer;
+  width: 16rem;
+  border-radius: 2px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  padding: 1rem 3rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}

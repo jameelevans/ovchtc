@@ -79,7 +79,7 @@
 						}else if (is_page('events')) {
 							echo 'Upcoming Events';
 					}else if (is_404()) {
-							echo '404 Error';
+							echo '';
 						} else {
 						echo the_title();
 						}
@@ -91,7 +91,7 @@
           	echo '<p class="header__description">These resources will help you and your partners stay connected to the most effective practices to successfully administer your award.</p>';
           }
           else if (is_404()) {
-          	echo 'Sorry You may be lost!';
+          	echo '';
 					}else if (is_category() || is_page('staff-checklist') || is_page('ovc-faqs') || is_search()) {
 							echo '';
           } else {
