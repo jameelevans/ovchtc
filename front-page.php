@@ -32,7 +32,7 @@ get_header();
 							<div class="innovation__description">
 								<p class="innovation__p">Host monthly office hours, quarterly communities of practice calls, and trainings on topics such as:</p>
 								<ul class="innovation__list">
-									<li class="innovation__item">Eploring and conducting euity audits</li>
+									<li class="innovation__item">Exploring and conducting euity audits</li>
 									<li class="innovation__item">Addressing community and partner service gaps</li>
 									<li class="innovation__item">Strengthening programmatic structure</li>
 								</ul>
@@ -58,7 +58,7 @@ get_header();
 
 						<div class="resource-sharing">
 							<h3 class="h3__heading">Resource Sharing &amp; Network Navigation</h3>
-							<p>Revelop and share important resources relevant to victim service providers disseminate new and existing OVC TTA provider and other federal resources.</p>
+							<p>Develop and share important resources relevant to victim service providers disseminate new and existing OVC TTA provider and other federal resources.</p>
 						</div>
 					</div>
 		

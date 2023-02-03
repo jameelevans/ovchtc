@@ -13,7 +13,7 @@
       <div class="map__wrapper">
         <div class="map__top">
           <div class="map__description">
-            <h2 class="map__heading">Map of OVC-Funded Human Trafficking Services and Task Forces Events</h2>
+            <h2 class="map__heading">Map of OVC-Funded Human Trafficking Services and Task Forces</h2>
             <p class="map__p">OVC began funding trafficking victim service providers under the Services for Victims of Human Trafficking Program in 2003. OVC is now the largest federal funder of services for human trafficking victims in the United States.</p>
 
             <p class="map__p">The interactive map below shows the breadth of victim services and supportcoverage provided by OVC grantees and OVC-funded human trafficking taskforces. This information is also available in the searchable Matrix of OVCFundedHuman Trafficking Services Grantees and Task Forces.</p>

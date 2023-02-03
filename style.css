@@ -4392,6 +4392,11 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   line-height: 1.6;
 }
 
+.faq__content--inner {
+  -webkit-margin-after: 2.5rem;
+          margin-block-end: 2.5rem;
+}
+
 .faq__content p {
   -webkit-margin-after: 5rem;
           margin-block-end: 5rem;
@@ -4800,7 +4805,7 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   -webkit-box-shadow: 1rem 1rem var(--color-black);
           box-shadow: 1rem 1rem var(--color-black);
   border-top-left-radius: 10rem;
-  padding: 8rem 7rem 6rem !important;
+  padding: 8rem 7.5rem 6rem !important;
   text-align: center;
   position: relative;
 }
