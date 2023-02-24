@@ -12,7 +12,7 @@
                 <section class="about">
                         <div class="about__wrapper about__wrapper--odd">
                                 <div class="about__description about__description--odd">
-                                        <p class="about__p">The HTC understands that effective TTA requires a collaborative approach that leverages the expertise of all training recipients and subject matter experts to further elevate the support provided to victims of trafficking. This collective approach leads to sustainable actions that are rooted in best practice, in addition to innovative solutions that meet the unique needs of each agency.</p>
+                                        <?php echo the_field('content_section_one'); ?>
                                 </div>
                                 <div class="about__header about__header--odd">
                                        <div  class="about__image">
@@ -23,13 +23,7 @@
 
                         <div class="about__wrapper about__wrapper--even">
                                 <div class="about__description about__description--even">
-                                        <p class="about__p">The HTC's TTA support is
-                                        available to OVC human
-                                        trafficking victim service
-                                        grantees (including those
-                                        providing tailored services to
-                                        minor victims of sex and
-                                        labor trafficking).</p>
+                                        <?php echo the_field('content_section_two'); ?>
                                 </div>
                                 <div class="about__header about__header--even">
                                         <div  class="about__image">

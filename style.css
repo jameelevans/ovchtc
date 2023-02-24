@@ -311,6 +311,19 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   margin-bottom: 8rem;
 }
 
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.fixed-position {
+  position: fixed;
+}
+
 .btn__black, .btn__black:link {
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -459,14 +472,14 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
           transform: translate(-50%, -50%) scale(0.25);
   -webkit-transition: all .4s .2s;
   transition: all .4s .2s;
-  padding: 8rem;
+  padding: 5rem;
 }
 
-@media only screen and (max-width: 50em) {
+@media only screen and (max-width: 62.5em) {
   .webinars-filter__content {
     width: 90%;
     height: 70%;
-    padding: 2rem;
+    padding: 1rem;
     overflow-y: scroll;
   }
 }
@@ -513,7 +526,7 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   display: inline-block;
 }
 
-@media only screen and (max-width: 50em) {
+@media only screen and (max-width: 62.5em) {
   .webinars-filter .wpc-filters-section {
     width: 100%;
     display: block;
@@ -696,6 +709,54 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 
 .active {
   display: block;
+}
+
+.backtop {
+  background-color: var(--color-black);
+  padding: 2rem 2.7rem;
+  border-radius: 10rem;
+  position: fixed;
+  bottom: 10rem;
+  right: 13rem;
+  z-index: 9999;
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+}
+
+@media only screen and (max-width: 50em) {
+  .backtop {
+    bottom: 5rem;
+    right: 5rem;
+  }
+}
+
+.backtop:hover .backtop__icon {
+  -webkit-transform: translate(-50%, -60%);
+          transform: translate(-50%, -60%);
+}
+
+.backtop--is-visible {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.backtop__icon {
+  fill: var(--color-white);
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
 }
 
 .header {
@@ -4562,59 +4623,6 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   }
 }
 
-.faq__bottom {
-  position: relative;
-}
-
-.faq__backtop {
-  background-color: var(--color-black);
-  padding: 2rem 2.7rem;
-  border-radius: 10rem;
-  border: 2px solid var(--color-grey);
-  position: fixed;
-  bottom: 10rem;
-  right: 13rem;
-  z-index: 9999;
-  opacity: 0;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: -webkit-transform .3s ease-in-out;
-  transition: -webkit-transform .3s ease-in-out;
-  transition: transform .3s ease-in-out;
-  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
-}
-
-@media only screen and (max-width: 50em) {
-  .faq__backtop {
-    bottom: 5rem;
-    right: 5rem;
-  }
-}
-
-.faq__backtop:hover .faq__icon {
-  -webkit-transform: translate(-50%, -60%);
-          transform: translate(-50%, -60%);
-}
-
-.faq__backtop--is-visible {
-  opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-.faq__icon {
-  fill: var(--color-white);
-  height: 3rem;
-  width: 3rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transition: all .2s ease-in;
-  transition: all .2s ease-in;
-}
-
 .events {
   padding: 8rem 8vw;
   background-color: var(--color-grey);
@@ -5037,6 +5045,49 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-c-view-selector--tabs .tribe-events-c-view-selector__content {
   display: none;
+}
+
+.tribe-events-single {
+  position: relative;
+}
+
+.tribe-events-single .events__date {
+  position: relative;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: 1.5rem !important;
+  font-weight: 600;
+  text-align: center;
+  float: left;
+}
+
+.tribe-events-single .events__month {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  display: block;
+  margin: 0;
+}
+
+.tribe-events-single .events__day {
+  font-size: 1.8rem;
+  display: block;
+  margin: -7px;
+}
+
+.tribe-events-single .events__location {
+  background-color: var(--color-grey);
+  color: var(--color-black);
+  padding: .5rem 2rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  float: right;
+}
+
+.tribe-events-single-event-title {
+  font-weight: 500;
+  font-size: 4rem;
+  -webkit-margin-after: 4rem;
+          margin-block-end: 4rem;
 }
 
 .contact__top .office-form-form-title {

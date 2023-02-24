@@ -144,7 +144,10 @@ use Tribe\Events\Views\V2\Template_Bootstrap;?>
 
 		
 		</header><!-- .Header -->
+  
+      <?php echo tribe( Template_Bootstrap::class )->get_view_html();?>
+ 
 <?php
-echo tribe( Template_Bootstrap::class )->get_view_html();
+
 
 get_footer();

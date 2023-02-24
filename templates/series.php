@@ -124,7 +124,10 @@
 
 		
 		</header><!-- .Header -->
+    <main  id="main-content">
+        <?php echo the_content();?>
+    </main>
 <?php
-echo the_content();
+
 
 get_footer();

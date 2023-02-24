@@ -63,6 +63,7 @@
                
             </div>
         </div>
+        <a class="backtop" href="#top"><span class="sr-only">Back Top</span> <?php echo svg_icon('backtop__icon', 'angle-up');?></a>
         
     </footer>
   

@@ -465,3 +465,57 @@ position: relative;
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-c-view-selector--tabs .tribe-events-c-view-selector__content {
   display: none;
 }
+
+.tribe-events-single{
+  position: relative;
+
+
+
+     //Events date
+     .events__details{
+    
+      
+     
+     }
+
+     .events__date{
+     position: relative;
+        background-color: var(--color-blue);
+        color: var(--color-white);
+        padding: 1.5rem!important;
+        font-weight: 600;
+        text-align: center;
+        float: left;
+    }
+  
+    .events__month{
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      display: block;
+      margin: 0;
+  
+    }
+  
+    .events__day{
+      font-size: 1.8rem;
+      display: block;
+      margin: -7px;
+    }
+
+    .events__location{
+      background-color: var(--color-grey);
+      color: var(--color-black);
+      padding: .5rem 2rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+      float: right;
+    }
+
+}
+
+// Events title
+.tribe-events-single-event-title{
+  font-weight: 500;
+  font-size: 4rem;
+  margin-block-end: 4rem;
+}

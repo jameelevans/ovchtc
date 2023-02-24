@@ -2,30 +2,30 @@ import $ from 'jquery';
 
 
 
-  $('.mobile-navigation__menu').click(function() {
+$('.mobile-navigation__menu').click(function() {
     
-    /*Check and alternate attribute's value,
-    then show/hide accordingly using chaining. */
-    if ($('.mobile-navigation__menu')
-      .attr('aria-expanded') == 'false')
-      $('.mobile-navigation__menu')
-      .attr('aria-expanded', 'true')
-    
-    else
-      $('.mobile-navigation__menu')
-      .attr('aria-expanded', 'false')
-    
-    
-    /*Check and alternate attribute's value,
-    then show/hide accordingly using chaining. */
-    if ($('.mobile-navigation__nav')
-      .attr('aria-hidden') == 'true')
-      $('.mobile-navigation__nav')
-      .attr('aria-hidden', 'false')
-    else
-      $('.mobile-navigation__nav')
-      .attr('aria-hidden', 'true')
-  });
+  /*Check and alternate attribute's value,
+  then show/hide accordingly using chaining. */
+  if ($('.mobile-navigation__menu')
+    .attr('aria-expanded') == 'false')
+    $('.mobile-navigation__menu')
+    .attr('aria-expanded', 'true')
+  
+  else
+    $('.mobile-navigation__menu')
+    .attr('aria-expanded', 'false')
+  
+  
+  /*Check and alternate attribute's value,
+  then show/hide accordingly using chaining. */
+  if ($('.mobile-navigation__nav')
+    .attr('aria-hidden') == 'true')
+    $('.mobile-navigation__nav')
+    .attr('aria-hidden', 'false')
+  else
+    $('.mobile-navigation__nav')
+    .attr('aria-hidden', 'true')
+});
 
 
 

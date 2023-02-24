@@ -71,9 +71,7 @@
         </div>
       </div>
 
-      <div class="faq__bottom">
-        <a class="faq__backtop" href="#faqs__top"> <?php echo svg_icon('faq__icon', 'angle-up');?></a>
-      </div>
+      
       
     </section>
 	</main>

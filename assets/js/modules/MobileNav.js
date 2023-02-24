@@ -6,6 +6,7 @@ class MobileNav {
     this.mobileMenu = $(".mobile-navigation__menu");
     this.mobileContent = $(".mobile-navigation__nav");
     this.mobileIcon = $(".mobile-navigation__icon");
+    this.body = $(".container");
 
     
     this.events();
@@ -55,6 +56,7 @@ class MobileNav {
     this.mobileContent.toggleClass("mobile-navigation__nav--is-visible");
     this.mobileBackground.toggleClass("mobile-navigation__background--is-expanded");
     this.mobileIcon.toggleClass("mobile-navigation__icon--close-x");
+    this.body.toggleClass("fixed-position");
   }
 
 

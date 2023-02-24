@@ -109,18 +109,47 @@ $title = apply_filters( 'tribe_events_single_event_title_html', the_title( $befo
 
 <div id="tribe-events-content" class="tribe-events-single">
 
-	<p class="tribe-events-back">
-		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'the-events-calendar' ), $events_label_plural ); ?></a>
-	</p>
 
-	<!-- Notices -->
-	<?php tribe_the_notices() ?>
+	<!-- Event Back 
+	<p class="tribe-events-back">
+		<a href="<?php //echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'the-events-calendar' ), $events_label_plural ); ?></a>
+	</p>-->
+
+	
 
 	<?php echo $title; ?>
 
+	
+
 	<div class="tribe-events-schedule tribe-clearfix">
-		<?php echo tribe_get_event('start'); ?>
-    <?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
+		
+
+		<!-- Event date -->
+    
+
+		<div class="events__details">
+			<div class="events__date"  >
+        <span class="events__month">
+				<?php echo tribe_get_start_date ( $post, $display_time = false, $date_format = 'M' );  ?>
+        </span>
+        <span class="events__day">
+				<?php echo tribe_get_start_date ( $post, $display_time = false, $date_format = 'd' );  ?>
+        </span>
+      </div>
+
+			<div class="events__location">
+				<?php echo tribe_get_venue();	?>
+			</div>
+		</div >
+		
+
+			
+
+				
+
+	
+		
+		<!-- .Event date -->
 		<?php if ( tribe_get_cost() ) : ?>
 			<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
 		<?php endif; ?>
@@ -147,15 +176,19 @@ $title = apply_filters( 'tribe_events_single_event_title_html', the_title( $befo
 			<!-- Event content -->
 			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 			<div class="tribe-events-single-event-description tribe-events-content">
+			<p>Event date: <?php echo tribe_events_event_schedule_details( $event_id); ?></p>
 				<?php the_content(); ?>
 			</div>
+			<!-- Notices and series link -->
+			<?php tribe_the_notices() ?>
 			<!-- .tribe-events-single-event-description -->
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
 
 			<!-- Event meta -->
-			<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
-			<?php tribe_get_template_part( 'modules/meta' ); ?>
-			<?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
+			<?php //do_action( 'tribe_events_single_event_before_the_meta' ) ?>
+			<?php //tribe_get_template_part( 'modules/meta' ); ?>
+			<?php //do_action( 'tribe_events_single_event_after_the_meta' ) ?>
+
 		</div> <!-- #post-x -->
 		<?php if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
 	<?php endwhile; ?>

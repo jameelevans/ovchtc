@@ -114,7 +114,7 @@ add_filter('login_headertitle', 'ourLoginTitle');
 
  //* 7.  Display inline svg icon from sprite sheet with custom class
 function svg_icon($class, $icon) { ?>
-  <svg class="<?php echo $class ?>">
+  <svg class="<?php echo $class ?>" aria-hidden="true">
     <use
       xlink:href="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/sprite.svg' ); ?>#icon-<?php echo $icon ?>">
     </use>

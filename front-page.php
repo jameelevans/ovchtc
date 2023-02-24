@@ -20,8 +20,8 @@ get_header();
 					<div class="support__wrapper">
 					
 						<div class="data-collection">
-							<h3 class="h3__heading">Data Collection &amp; Analysis</h3>
-							<p>Support surrounding data collection analysis considerations with best practices evaluation and program integration.</p>
+							<?php echo the_field('content_section_one'); ?>
+							
 						</div>
 
 						<div class="innovation">
@@ -30,12 +30,7 @@ get_header();
 								<?php echo svg_icon('innovation__icon', 'innovation');?>
 							</div>
 							<div class="innovation__description">
-								<p class="innovation__p">Host monthly office hours, quarterly communities of practice calls, and trainings on topics such as:</p>
-								<ul class="innovation__list">
-									<li class="innovation__item">Exploring and conducting euity audits</li>
-									<li class="innovation__item">Addressing community and partner service gaps</li>
-									<li class="innovation__item">Strengthening programmatic structure</li>
-								</ul>
+								<?php echo the_field('content_section_two'); ?>
 							</div>
 						</div>
 					</div>
@@ -51,14 +46,12 @@ get_header();
 								<?php echo svg_icon('grantee-support__icon', 'proactive');?>
 							</div>
 							<div class="grantee-support__description">
-								<p class="grantee-support__p">Provide program consultations and needs assessments, policy/procedure review and feedback, and peer support facilitation/mentoring to ensure grantees meet their award goals and objectives. All work is done collaboratively with lived experience experts and field professionals to support and respond to evolving grantee needs.</p>
-								
+								<?php echo the_field('content_section_three'); ?>
 							</div>
 						</div>
 
 						<div class="resource-sharing">
-							<h3 class="h3__heading">Resource Sharing &amp; Network Navigation</h3>
-							<p>Develop and share important resources relevant to victim service providers disseminate new and existing OVC TTA provider and other federal resources.</p>
+							<?php echo the_field('content_section_four'); ?>
 						</div>
 					</div>
 		

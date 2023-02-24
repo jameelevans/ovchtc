@@ -73,12 +73,12 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(.25);
     transition: all .4s .2s;
-    padding: 8rem;
+    padding: 5rem;
 
-    @include respond(medium) {
+    @include respond(large) {
       width: 90%;
       height: 70%;
-      padding: 2rem;
+      padding: 1rem;
       overflow-y: scroll;
     }
 
@@ -134,7 +134,7 @@
     display: inline-block;
 
 
-    @include respond(medium) {
+    @include respond(large) {
       width: 100%;
       display: block;
     }
