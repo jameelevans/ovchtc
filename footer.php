@@ -27,7 +27,7 @@
             <div class="footer__wrapper">
                 <div class="footer__section">
                     <ul class="footer__list">
-                        <li class="footer__item">1-800-555-5555</li>
+                
                         <li class="footer__item">htcollective@icf.com</li>
                     </ul>
                     <div class="footer__social">
