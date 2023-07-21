@@ -13,7 +13,7 @@
     <section class="capacity-building-webinars">
         <div class="capacity-building-webinars__wrapper">
             <div class="capacity-building-webinars__header">
-              <h1 class="h2__heading">Capacity Building Webinars</h1>
+              <h1 class="h2__heading">Webinars</h1>
               <div class="capacity-building-webinars__sort">
                 <?php sort_webinar_posts();?>
               </div>
@@ -155,7 +155,16 @@
                           </article> <!--Single Capacity Building Webinar article  -->
                       <?php endwhile;
                       wp_reset_postdata();
-                  endif; ?>
+                      else : ?>
+                        <!-- Display the message if there are no posts -->
+                        <!-- Single orientation article  -->
+                        <article class="capacity-building-webinar__container">
+                          <div class="capacity-building-webinar__description">
+                            <p>Sorry there are no Webinar posts at this time.</p>
+                          </div>
+                        </article>
+                      
+                 <?php endif; ?>
             </div><!-- .Single Capacity Building Webinar wrapper  -->
         </div><!-- .Capacity Building Webinar grid wrapper  -->
     </section><!-- .Capacity Building Webinars setion  -->

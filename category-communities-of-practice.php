@@ -141,6 +141,8 @@
                                     
                                   }?>
 
+                                  
+
                                  
                                
                                 
@@ -149,7 +151,16 @@
                           </article> <!--Single orientation article  -->
                       <?php endwhile;
                       wp_reset_postdata();
-                  endif; ?>
+                      else : ?>
+                        <!-- Display the message if there are no posts -->
+                        <!-- Single orientation article  -->
+                        <article class="orientation__container">
+                          <div class="orientation__description">
+                            <p>Sorry there are no Communities of Practice posts at this time.</p>
+                          </div>
+                        </article>
+                      
+                 <?php endif; ?>
             </div><!-- .Single orientation wrapper  -->
         </div><!-- .Orientation grid wrapper  -->
     </section><!-- .Orientations setion  -->

@@ -13,7 +13,7 @@
     <section class="orientations">
         <div class="orientations__wrapper">
             <div class="orientations__header">
-              <h1 class="h2__heading">Training</h1>
+              <h1 class="h2__heading">Trainings</h1>
               <div class="orientations__sort">
                 <?php sort_webinar_posts();?>
               </div>
@@ -154,7 +154,16 @@
                           </article> <!--Single orientation article  -->
                       <?php endwhile;
                       wp_reset_postdata();
-                  endif; ?>
+                      else : ?>
+                        <!-- Display the message if there are no posts -->
+                        <!-- Single orientation article  -->
+                        <article class="orientation__container">
+                          <div class="orientation__description">
+                            <p>Sorry there are no Training posts at this time.</p>
+                          </div>
+                        </article>
+                      
+                 <?php endif; ?>
             </div><!-- .Single orientation wrapper  -->
         </div><!-- .Orientation grid wrapper  -->
     </section><!-- .Orientations setion  -->

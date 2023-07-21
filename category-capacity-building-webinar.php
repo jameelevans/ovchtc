@@ -155,7 +155,16 @@
                           </article> <!--Single Capacity Building Webinar article  -->
                       <?php endwhile;
                       wp_reset_postdata();
-                  endif; ?>
+                      else : ?>
+                        <!-- Display the message if there are no posts -->
+                        <!-- Single orientation article  -->
+                        <article class="capacity-building-webinar__container">
+                          <div class="capacity-building-webinar__description">
+                            <p>Sorry there are no Communities Buiding Webinar posts at this time.</p>
+                          </div>
+                        </article>
+                      
+                 <?php endif; ?>
             </div><!-- .Single Capacity Building Webinar wrapper  -->
         </div><!-- .Capacity Building Webinar grid wrapper  -->
     </section><!-- .Capacity Building Webinars setion  -->
