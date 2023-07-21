@@ -66,20 +66,25 @@
 		</div>
 
 		<div class="header__content">
-		<?php if (!is_category()) {
+		<?php if (!is_category()) {?>
+
+				<h1 class="header__heading"><?php
 						if(is_front_page()){
-							echo '<h1 class="header__heading">' . get_bloginfo( 'description' ) . '</h1>';
-						}else if (is_home()) {
+							echo get_bloginfo( 'description' );
+						}
+						else if (is_home()) {
 							echo '<h1 class="header__heading">Start Here</h1>';
-						}else if (is_page('staff-checklist') || is_page('ovc-faqs') || is_search() || is_single() || is_404()) {
-							echo '';
+						}else if (is_page('staff-checklist') || is_page('ovc-faqs') || is_search() || is_single()) {
+								echo '';
 						}else if (is_page('events')) {
 							echo 'Upcoming Events';
-						} else {?>
-							<h1 class="header__heading"><?php echo the_title();?></h1>
-						<?php }
-				
-		 }?>
+					}else if (is_404()) {
+							echo '';
+						} else {
+						echo the_title();
+						}
+					?></h1>
+		<?php }?>
 
 				<?php
 					if (is_home()) {

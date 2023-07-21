@@ -379,6 +379,62 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   }
 }
 
+.btn__blue, .btn__blue:link {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  position: relative;
+  display: block;
+  font-size: 1.8rem;
+  height: auto;
+  font-weight: 300;
+  margin-top: 2.5rem;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border: none;
+}
+
+.btn__blue:hover, .btn__blue:link:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transform: translateY(-0.3rem);
+          transform: translateY(-0.3rem);
+  -webkit-box-shadow: 0 1rem 2rem rgba(var(--color-black-a), 0.2);
+          box-shadow: 0 1rem 2rem rgba(var(--color-black-a), 0.2);
+}
+
+.btn__blue:active, .btn__blue:focus, .btn__blue:link:active, .btn__blue:link:focus {
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transform: translateY(-0.1rem);
+          transform: translateY(-0.1rem);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(var(--color-black-a), 0.2);
+          box-shadow: 0 0.5rem 1rem rgba(var(--color-black-a), 0.2);
+}
+
+@media only screen and (max-width: 50em) {
+  .btn__blue, .btn__blue:link {
+    padding: 1.5rem 3.5rem !important;
+    font-size: 2rem !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    border-radius: 5rem !important;
+  }
+}
+
 .only-on-mobile {
   display: none;
 }
@@ -4421,6 +4477,228 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 .staff-checklists .new-award {
   -webkit-box-shadow: 1.5rem 1.5rem var(--color-light-blue);
           box-shadow: 1.5rem 1.5rem var(--color-light-blue);
+}
+
+.single {
+  padding: 8rem 8vw;
+  background-color: var(--color-white);
+  background-image: url("assets/img/honeycomb-bg.png");
+  background-position: -16% 30%;
+  background-size: 35%;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+}
+
+.single__wrapper {
+  max-width: 130rem;
+  margin: 0 auto;
+}
+
+.single__header {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  width: 100%;
+}
+
+@media only screen and (max-width: 50em) {
+  .single__header {
+    grid-template-columns: auto;
+  }
+}
+
+.single__header .h2__heading {
+  place-self: self-start;
+  margin-bottom: 0;
+  text-align: left;
+  font-size: 4.5rem;
+}
+
+@media only screen and (max-width: 50em) {
+  .single__header .h2__heading {
+    place-self: unset;
+    text-align: center;
+    -webkit-margin-after: 5rem;
+            margin-block-end: 5rem;
+  }
+}
+
+.single__sort {
+  place-self: self-end;
+}
+
+@media only screen and (max-width: 50em) {
+  .single__sort {
+    place-self: unset;
+    text-align: center;
+  }
+}
+
+.single__sort .widgettitle {
+  display: none;
+}
+
+.single__sort .wpc-sorting-form select,
+.single__sort .wpc-filter-content select {
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  background-color: var(--color-black);
+  border-color: none;
+  border-radius: 0;
+  font-size: 1.8rem;
+  color: var(--color-white);
+  -webkit-appearance: none;
+}
+
+.single__grid {
+  display: grid;
+  grid-template-rows: 100%;
+}
+
+.single__container {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  gap: 10rem;
+  padding: 8rem 0;
+}
+
+@media only screen and (max-width: 75em) {
+  .single__container {
+    gap: 5rem;
+  }
+}
+
+@media only screen and (max-width: 62.5em) {
+  .single__container {
+    grid-template-columns: auto;
+  }
+}
+
+.single__container:not(:last-of-type) {
+  border-bottom: 2px solid var(--color-teal);
+}
+
+.single__details {
+  margin-left: 10rem;
+}
+
+@media only screen and (max-width: 62.5em) {
+  .single__details {
+    margin-left: 0;
+  }
+}
+
+.single__date {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  -webkit-transform: translateX(-10rem);
+          transform: translateX(-10rem);
+}
+
+@media only screen and (max-width: 62.5em) {
+  .single__date {
+    margin-bottom: 4rem;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+.single__month {
+  background-color: var(--color-blue);
+  color: var(--color-grey);
+  padding: 2rem 2.3rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  float: left;
+  text-align: center;
+}
+
+.single__month span {
+  display: block;
+  line-height: .7;
+  font-weight: bolder;
+  font-size: 2.3rem;
+}
+
+.single__year {
+  background-color: var(--color-grey);
+  color: var(--color-black);
+  padding: 2rem;
+  height: 50%;
+  line-height: .2;
+  font-size: 1.3rem;
+  font-weight: 700 !important;
+}
+
+.single__heading {
+  font-size: 2.6rem;
+  font-weight: 700;
+  -webkit-margin-after: 1.8rem;
+          margin-block-end: 1.8rem;
+}
+
+@media only screen and (max-width: 50em) {
+  .single__heading {
+    grid-template-columns: auto;
+  }
+}
+
+.single__length {
+  font-size: 2.1rem;
+  text-transform: uppercase;
+  -webkit-margin-after: 1.8rem;
+          margin-block-end: 1.8rem;
+}
+
+.single__description {
+  font-size: 1.7rem;
+  line-height: 1.5;
+}
+
+.single__description ol, .single__description ul {
+  margin-left: 2rem;
+}
+
+.single__aside {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.single__materials {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: 5rem;
+}
+
+.single__materials .single__heading {
+  font-size: 2.3rem;
+  font-weight: 300;
+  -webkit-margin-after: 3rem;
+          margin-block-end: 3rem;
+}
+
+.single__link {
+  display: block;
+  color: var(--color-white);
+  font-size: 1.7rem;
+  line-height: 1.2;
+  text-decoration: none;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+
+.single__link:hover {
+  color: var(--color-teal);
+}
+
+.single__link:not(:last-of-type) {
+  -webkit-margin-after: 1.3rem;
+          margin-block-end: 1.3rem;
+}
+
+.single__none {
+  color: var(--color-white);
+  font-size: 1.8rem;
 }
 
 .faq {

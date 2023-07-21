@@ -310,23 +310,23 @@ register_post_type('states-served', array(
   // . 8 Enable custom post types
 
 
-// Change dashboard Posts to Webinars
+// Change dashboard Posts to Online Trainings
 function cp_change_post_object() {
     $get_post_type = get_post_type_object('post');
     $labels = $get_post_type->labels;
-        $labels->name = 'Webinars';
-        $labels->singular_name = 'Webinars';
-        $labels->add_new = 'Add Webinars';
-        $labels->add_new_item = 'Add Webinars';
-        $labels->edit_item = 'Edit Webinars';
-        $labels->new_item = 'Webinars';
-        $labels->view_item = 'View Webinars';
-        $labels->search_items = 'Search Webinars';
-        $labels->not_found = 'No Webinars found';
-        $labels->not_found_in_trash = 'No Webinars found in Trash';
-        $labels->all_items = 'All Webinars';
-        $labels->menu_name = 'Webinars';
-        $labels->name_admin_bar = 'Webinars';
+        $labels->name = 'Online Trainings';
+        $labels->singular_name = 'Online Training';
+        $labels->add_new = 'Add Online Training';
+        $labels->add_new_item = 'Add Online Training';
+        $labels->edit_item = 'Edit Online Training';
+        $labels->new_item = 'Online Trainings';
+        $labels->view_item = 'View Online Trainings';
+        $labels->search_items = 'Search Online Trainings';
+        $labels->not_found = 'No Online Trainings found';
+        $labels->not_found_in_trash = 'No Online Trainings found in Trash';
+        $labels->all_items = 'All Online Trainings';
+        $labels->menu_name = 'Online Trainings';
+        $labels->name_admin_bar = 'Online Trainings';
 }
 add_action( 'init', 'cp_change_post_object' );
 

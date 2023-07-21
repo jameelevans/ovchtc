@@ -65,7 +65,14 @@
                               <!-- .Single Capacity Building Webinar length -->
                               <!-- Single Capacity Building Webinar description -->
                               <div class="capacity-building-webinar__description">
-                                <?php the_content();?>
+                                <?php
+                                    if( has_excerpt() ){
+                                    echo strip_tags(substr( get_the_excerpt(), 0, 420 ))."...";
+                                    } else {
+                                    echo wp_trim_words(get_the_content(), 60);
+                                    }?> 
+                                
+                                  <a class="btn__blue" href="<?php echo the_permalink();?>">See More</a>
                               </div><!-- Single Capacity Building Webinar description -->
                             </div><!-- .Capacity Building Webinar Details -->
                             <!--Single Capacity Building Webinar materials  -->

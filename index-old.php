@@ -11,25 +11,38 @@
 	<main id="main-content">
     <section class="webinars">
         <div class="webinars__wrapper">
-            <div class="webinars__header"><h2 class="h2__heading">Online Trainings</h2></div>
-            <!--
+            <div class="webinars__header"><h2 class="h2__heading">Webinars</h2></div>
             <div class="webinars__nav">
-                <div class="webinars__search"><?php //echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
-                <div class="webinars__filter-control-wrapper"><a href="#webinars-filter" class="webinars__filter-control" title="Click here to open filters"><?php //echo svg_icon('webinars__icon', 'filter');?>Filter Webinars By</a></div>  
-                <div class="webinars__sort"><?php //sort_webinar_posts();?></div>
-            </div>-->
+                <div class="webinars__search"><?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
+                <div class="webinars__filter-control-wrapper"><a href="#webinars-filter" class="webinars__filter-control" title="Click here to open filters"><?php echo svg_icon('webinars__icon', 'filter');?>Filter Webinars By</a></div>  
+                <div class="webinars__sort"><?php sort_webinar_posts();?></div>
+            </div>
             
             <!-- Webinar wrapper  -->
             <div class="webinars__grid">
+            <?php
+            $categories = get_categories( array(
+                'hide_empty' => 0,
+            ) );
             
+            foreach( $categories as $category ) {
 
+            //print_r($category);
+            echo $category->name;
+            echo $category->description;
+            $category_link = get_category_link( $category->term_id ); 
+            ?>
 
+            <a href="<?php echo $category_link; ?>"><?php echo $category->name; ?></a>
+
+            <?php
+            }
+            ?>
+
+            
                 <?php
-                $categories = get_categories( array(
-                    'hide_empty' => 0,
-                    'include'=> array( 4, 12, 5, 14, 13 ),
-                ) );
-                ?>
+                $webinars = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1 ));
+                    if( $webinars->have_posts() ):?>
                     <div id="webinars-filter" class="webinars-filter">
                         <div class="webinars-filter__content">
                             <a href="#section-tours" class="webinars-filter__exit" title="Click here to close filters">&times;</a>
@@ -41,23 +54,38 @@
                         </div>
                     </div>
 
-                        <?php foreach( $categories as $category ) {
-
-                            //print_r($category);
-                            $category_link = get_category_link( $category->term_id );
-                            ?>
-                           
-                            <a class="webinars__container" href="<?php echo esc_url( $category_link ); ?>" title="Click here to veiw all <?php echo esc_attr( $category_name ); ?> webinars">
-                                <header><h4 class="h4__header"><?php echo $category->name ; ?>s</h4></header>
-                                <p class="webinars__description"><?php echo $category->description;?></p>
-                                <div class="webinars__cta" >View Online Trainings</div>
-                            </a> <!-- .Webinar post  -->
-
+                        <?php while( $webinars->have_posts() ):
+                            $webinars->the_post(); ?>
+                            <!-- Webinar post  -->
                             <?php
-                            }
-                            ?>
-                           
-                     
+                            $get_cat        = get_the_category();             
+                            
+                            $first_cat      = $get_cat[0];
+                            $category_name  = $first_cat->cat_name;
+                            $category_link  = get_category_link( $first_cat->cat_ID ); ?>
+                            <a class="webinars__container" href="<?php echo esc_url( $category_link ); ?>" title="Click here to veiw all <?php echo esc_attr( $category_name ); ?> webinars">
+                          
+
+                                <header>
+                                    <!--<p class="webinars__category"><?php //echo $category_name ; ?></p>-->
+                                    <h4 class="h4__header"><?php echo $category_name ; ?></h4>
+                                </header>
+                                
+
+                                <p class="webinars__description"><?php
+                                    if( has_excerpt() ){
+                                    echo strip_tags(substr( get_the_excerpt(), 0, 105 ))."...";
+                                    } else {
+                                    echo wp_trim_words(get_the_content(), 15);
+                                    }?> </p>
+                                    
+                        
+                                    <div class="webinars__cta" >View Webinars</div>
+                            </a> <!-- .Webinar post  -->
+                        <?php endwhile;
+
+                        wp_reset_postdata();
+                    endif; ?>
 
 
                 

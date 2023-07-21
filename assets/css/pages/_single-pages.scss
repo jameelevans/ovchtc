@@ -1,0 +1,223 @@
+//* single overall page styles
+.single {
+  padding: 8rem 8vw;
+  background-color: var(--color-white);
+  background-image: url('assets/img/honeycomb-bg.png');
+  background-position: -16% 30%;
+  background-size: 35%;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+
+  // Single page wrapper
+  &__wrapper {
+    max-width: 130rem;
+    margin: 0 auto;
+  }
+
+  // Header section
+  &__header {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    width: 100%;
+
+    @include respond(medium) {
+      grid-template-columns: auto;
+    }
+
+    //Heading
+    .h2__heading {
+      place-self: self-start;
+      margin-bottom: 0;
+      text-align: left;
+      font-size: 4.5rem;
+
+      @include respond(medium) {
+        place-self: unset;
+        text-align: center;
+        margin-block-end: 5rem;
+      }
+    }
+  }
+
+  //Sort container
+  &__sort {
+    place-self: self-end;
+
+    @include respond(medium) {
+      place-self: unset;
+      text-align: center;
+    }
+
+    // Sort title
+    .widgettitle {
+      display: none;
+    }
+
+    // Sort select box
+    .wpc-sorting-form select,
+    .wpc-filter-content select {
+      padding: 1rem 1.5rem 1rem 1.5rem;
+      background-color: var(--color-black);
+      border-color: none;
+      border-radius: 0;
+      font-size: 1.8rem;
+      color: var(--color-white);
+      -webkit-appearance: none;
+    }
+  }
+
+  // Single grid wrapper
+  &__grid {
+    display: grid;
+    grid-template-rows: 100%;
+
+  }
+
+  
+
+  // Single article
+  &__container {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    gap: 10rem;
+    padding: 8rem 0;
+
+    @include respond(largest) {
+      gap: 5rem;
+    }
+
+    @include respond(large) {
+      grid-template-columns: auto;
+    }
+
+    // Not the last type of Single articles
+    &:not(:last-of-type) {
+      border-bottom: 2px solid var(--color-teal);
+    }
+  }
+
+  // single Details
+  &__details {
+    margin-left: 10rem;
+
+    @include respond(large) {
+      margin-left: 0;
+    }
+  }
+
+  // single Date
+  &__date {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    transform: translateX(-10rem);
+
+    @include respond(large) {
+      margin-bottom: 4rem;
+      transform: none;
+    }
+  }
+
+  // single month
+  &__month {
+    background-color: var(--color-blue);
+    color: var(--color-grey);
+    padding: 2rem 2.3rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    float: left;
+    text-align: center;
+
+    // single day span
+    span {
+      display: block;
+      line-height: .7;
+      font-weight: bolder;
+      font-size: 2.3rem;
+    }
+  }
+
+  // single year
+  &__year {
+    background-color: var(--color-grey);
+    color: var(--color-black);
+    padding: 2rem;
+    height: 50%;
+    line-height: .2;
+    font-size: 1.3rem;
+    font-weight: 700 !important;
+  }
+
+  // single header
+  &__heading {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-block-end: 1.8rem;
+
+    @include respond(medium) {
+      grid-template-columns: auto;
+    }
+  }
+
+  // single lenght
+  &__length {
+    font-size: 2.1rem;
+    text-transform: uppercase;
+    margin-block-end: 1.8rem;
+  }
+
+  // single description
+  &__description {
+    font-size: 1.7rem;
+    line-height: 1.5;
+
+    ol, ul {
+      margin-left: 2rem;
+    }
+  }
+
+  // single aside
+  &__aside {
+    display: grid;
+    align-items: center;
+  }
+
+  // single matrials
+  &__materials {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    padding: 5rem;
+
+    // single h4
+    .single__heading{
+      font-size: 2.3rem;
+      font-weight: 300;
+      margin-block-end: 3rem;
+    }
+  }
+
+  // single link
+  &__link {
+    display: block;
+    color: var(--color-white);
+    font-size: 1.7rem;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: all .3s ease-in;
+
+    &:hover {
+      color: var(--color-teal);
+    }
+
+    // Not the last type of single link
+    &:not(:last-of-type) {
+      margin-block-end: 1.3rem;
+    }
+  }
+
+  // No single paragraph
+  &__none {
+    color: var(--color-white);
+    font-size: 1.8rem;
+  }
+  
+}

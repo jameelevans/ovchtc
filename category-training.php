@@ -9,11 +9,11 @@
 
 ?>
 	<main>
-    <!-- Orientations setion  -->
+    <!-- Training setion  -->
     <section class="orientations">
         <div class="orientations__wrapper">
             <div class="orientations__header">
-              <h1 class="h2__heading">Communities of Practice</h1>
+              <h1 class="h2__heading">Training</h1>
               <div class="orientations__sort">
                 <?php sort_webinar_posts();?>
               </div>
@@ -21,21 +21,21 @@
             <!-- Orientation grid wrapper  -->
             <div class="orientations__grid">
             <?php
-                $communitiespractices = new WP_Query(
+                $trainings = new WP_Query(
                   array('post_type'=>'post',
                  'post_status'=>'publish',
-                  'category_name'=>'communities-of-practice',
+                  'category_name'=>'training',
                    'posts_per_page'=>-1 ));
-                  if( $communitiespractices->have_posts() ):?>
-                  <!-- Single communities-of-practice wrapper  -->
-                  <div class="communities-of-practice">
-                      <?php while( $communitiespractices->have_posts() ):
-                        $communitiespractices->the_post(); ?>
-                        <!-- Single orientation article  -->
+                  if( $trainings->have_posts() ):?>
+                  <!-- Single training wrapper  -->
+                  <div class="orientation">
+                      <?php while( $trainings->have_posts() ):
+                        $trainings->the_post(); ?>
+                        <!-- Single training article  -->
                         <article class="orientation__container">
-                            <!-- Orientation Details -->
+                            <!-- Training Details -->
                             <div class="orientation__details">
-                              <!-- Single orientation date -->
+                              <!-- Single Training date -->
                               <div class="orientation__date">
                                 <p class="orientation__month">
                                   <?php
@@ -65,12 +65,12 @@
                               <!-- .Single orientation length -->
                               <!-- Single orientation description -->
                               <div class="orientation__description">
-                                <?php
-                                  if( has_excerpt() ){
-                                  echo strip_tags(substr( get_the_excerpt(), 0, 420 ))."...";
-                                  } else {
-                                  echo wp_trim_words(get_the_content(), 60);
-                                  }?> 
+                              <?php
+                                if( has_excerpt() ){
+                                echo strip_tags(substr( get_the_excerpt(), 0, 420 ))."...";
+                                } else {
+                                echo wp_trim_words(get_the_content(), 60);
+                                }?> 
                                
                                 <a class="btn__blue" href="<?php echo the_permalink();?>">See More</a>
                               </div><!-- Single orientation description -->
@@ -82,18 +82,18 @@
 
                                 <?php
                                 $transcript = get_field('download_transcript');
-                                $pdfcp = get_field('download_pdf');
-                                $pdfcp2 = get_field('download_pdf_2');
-                                $pdfcp3 = get_field('download_pdf_3');
-                                $pdfcp4 = get_field('download_pdf_4');
-                                $pdfcp5 = get_field('download_pdf_5');
-                                $pdfcp6 = get_field('download_pdf_6');
+                                $pdf = get_field('download_pdf');
+                                $pdf2 = get_field('download_pdf_2');
+                                $pdf3 = get_field('download_pdf_3');
+                                $pdf4 = get_field('download_pdf_4');
+                                $pdf5 = get_field('download_pdf_5');
+                                $pdf6 = get_field('download_pdf_6');
 
                                 /* Getting file size
-                                $attachment_id = $pdfcp;
+                                $attachment_id = $pdf;
                                 $url = wp_get_attachment_url( $attachment_id );
-                                $pdfcpsize = filesize( get_attached_file( $attachment_id ) );
-                                $pdfcpsize = size_format($pdfcpsize, 2);*/
+                                $pdfsize = filesize( get_attached_file( $attachment_id ) );
+                                $pdfsize = size_format($pdfsize, 2);*/
 
                                 if(!get_field('webinar_link') && !get_field('download_pdf')){
                                   echo '<!--If no orientation paragrapgh  -->';
@@ -109,34 +109,39 @@
                                       <a class="orientation__link" href="<?php the_field('webinar_link') ?>" target="_blank">Listen/View Webinar</a>
                                     <?php }
 
+                                    if(get_field('webinar_link_2')){?>
+                                      <!--Orientation webinar link  -->
+                                      <a class="orientation__link" href="<?php the_field('webinar_link_2') ?>" target="_blank">Listen/View Webinar</a>
+                                    <?php }
+
                                     if(get_field('download_pdf')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdfcp['url']; ?>">Download the <?php echo $pdfcp['title']; ?> PDF (<?php the_field("download_size")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf['url']; ?>">Download the <?php echo $pdf['title']; ?> PDF (<?php the_field("download_size")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_2')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdfcp2['url']; ?>">Download the <?php echo $pdfcp2['title']; ?> PDF (<?php the_field("download_size_2")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf2['url']; ?>">Download the <?php echo $pdf2['title']; ?> PDF (<?php the_field("download_size_2")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_3')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdfcp3['url']; ?>">Download the <?php echo $pdfcp3['title']; ?> PDF (<?php the_field("download_size_3")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf3['url']; ?>">Download the <?php echo $pdf3['title']; ?> PDF (<?php the_field("download_size_3")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_4')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdfcp4['url']; ?>">Download the <?php echo $pdfcp4['title']; ?> PDF (<?php the_field("download_size_4")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf4['url']; ?>">Download the <?php echo $pdf4['title']; ?> PDF (<?php the_field("download_size_4")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_5')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdfcp5['url']; ?>">Download the <?php echo $pdfcp5['title']; ?> PDF (<?php the_field("download_size_5")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf5['url']; ?>">Download the <?php echo $pdf5['title']; ?> PDF (<?php the_field("download_size_5")?>)</a>
                                     <?php }
 
                                     if(get_field('download_pdf_6')){?>
                                       <!--Orientation powerpoint link  -->
-                                      <a class="orientation__link" href="<?php echo $pdfcp6['url']; ?>">Download the <?php echo $pdfcp6['title']; ?> PDF (<?php the_field("download_size_6")?>)</a>
+                                      <a class="orientation__link" href="<?php echo $pdf6['url']; ?>">Download the <?php echo $pdf6['title']; ?> PDF (<?php the_field("download_size_6")?>)</a>
                                     <?php }
                                     
                                   }?>
