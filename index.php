@@ -27,7 +27,7 @@
                 <?php
                 $categories = get_categories( array(
                     'hide_empty' => 0,
-                    'include'=> array( 4, 12, 5, 14, 13 ),
+                    'include'=> array( 3, 12, 7, 16, 17 ),
                 ) );
                 ?>
                     <div id="webinars-filter" class="webinars-filter">
