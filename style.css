@@ -4177,6 +4177,10 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   }
 }
 
+.capacity-building-webinars__category {
+  font-size: clamp(1.5rem, 1.8vw, 1.8rem);
+}
+
 .capacity-building-webinars__sort {
   place-self: self-end;
 }

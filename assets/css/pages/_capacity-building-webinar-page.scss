@@ -37,6 +37,10 @@
     }
   }
 
+  &__category{
+    font-size: $font-body;
+  }
+
   //Sort container
   &__sort {
     place-self: self-end;

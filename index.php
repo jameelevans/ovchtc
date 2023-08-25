@@ -27,7 +27,8 @@
                 <?php
                 $categories = get_categories( array(
                     'hide_empty' => 0,
-                    'include'=> array( 3, 12, 7, 16, 17 ),
+                    'include'=> array( 3, 12, 7, 16 ),  //live categories 
+                   // 'include'=> array( 12, 5, 14, 4 ), // local dev categories 
                 ) );
                 ?>
                     <div id="webinars-filter" class="webinars-filter">
@@ -50,7 +51,7 @@
                             <a class="webinars__container" href="<?php echo esc_url( $category_link ); ?>" title="Click here to veiw all <?php echo esc_attr( $category_name ); ?> webinars">
                                 <header><h4 class="h4__header"><?php echo $category->name ; ?>s</h4></header>
                                 <p class="webinars__description"><?php echo $category->description;?></p>
-                                <div class="webinars__cta" >View Online Trainings</div>
+                                <div class="webinars__cta" >View <?php echo $category->name ; ?>s</div>
                             </a> <!-- .Webinar post  -->
 
                             <?php

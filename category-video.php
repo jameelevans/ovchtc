@@ -13,7 +13,8 @@
     <section class="capacity-building-webinars">
         <div class="capacity-building-webinars__wrapper">
             <div class="capacity-building-webinars__header">
-              <h1 class="h2__heading">Capacity Building Webinars</h1>
+              <h1 class="h2__heading">Videos</h1>
+               
               <div class="capacity-building-webinars__sort">
                 <?php sort_webinar_posts();?>
               </div>
@@ -21,16 +22,16 @@
             <!-- Capacity Building Webinar grid wrapper  -->
             <div class="capacity-building-webinars__grid">
             <?php
-                $capacitybuilding = new WP_Query(
+                $video = new WP_Query(
                   array('post_type'=>'post',
                  'post_status'=>'publish',
-                  'category_name'=>'capacity-building-webinar',
+                  'category_name'=>'video',
                    'posts_per_page'=>-1 ));
-                  if( $capacitybuilding->have_posts() ):?>
+                  if( $video->have_posts() ):?>
                   <!-- Single Capacity Building Webinar wrapper  -->
                   <div class="capacity-building-webinar">
-                      <?php while( $capacitybuilding->have_posts() ):
-                        $capacitybuilding->the_post(); ?>
+                      <?php while( $video->have_posts() ):
+                        $video->the_post(); ?>
                         <!-- Single Capacity Building Webinar article  -->
                         <article class="capacity-building-webinar__container">
                             <!-- Capacity Building Webinar Details -->
@@ -160,7 +161,7 @@
                         <!-- Single orientation article  -->
                         <article class="capacity-building-webinar__container">
                           <div class="capacity-building-webinar__description">
-                            <p>Sorry there are no Communities Buiding Webinar posts at this time.</p>
+                            <p>Sorry there are no Videos to show at this time.</p>
                           </div>
                         </article>
                       
