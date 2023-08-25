@@ -27,7 +27,7 @@
                 <?php
                 $categories = get_categories( array(
                     'hide_empty' => 0,
-                    'include'=> array( 3, 12, 7, 16 ),  //live categories 
+                   'include'=> array( 3, 12, 7, 11 ),  //live categories 
                    // 'include'=> array( 12, 5, 14, 4 ), // local dev categories 
                 ) );
                 ?>
