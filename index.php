@@ -71,7 +71,7 @@
             <div>
             <ul class="improve-trainings__list">
                     <li class="improve-trainings__item active"><a href="#tab1" class="improve-trainings__link" title="Display all the One Pagers">One Pagers</a></li>
-                    <li class="improve-trainings__item"><a href="#tab2" class="improve-trainings__link" title="Display all the Training Info">Training Info</a></li>
+                    <li class="improve-trainings__item"><a href="#tab2" class="improve-trainings__link" title="Display all the Training Info">Additional Training Resources</a></li>
             </ul>
             </div>
 
