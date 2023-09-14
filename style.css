@@ -230,9 +230,21 @@ body {
 .underline {
   /* I don't know why this is needed, I just added it and it worked in IE Edge. If we remove this width, the gradient breaks in IE Edge */
   width: calc(100%);
-  background-image: linear-gradient(transparent calc(100% - 3px), teal 10px);
+  background-image: linear-gradient(transparent calc(100% - 3px), var(--color-teal) 10px);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.underline--black {
+  /* I don't know why this is needed, I just added it and it worked in IE Edge. If we remove this width, the gradient breaks in IE Edge */
+  width: calc(100%);
+  background-image: linear-gradient(transparent calc(100% - 3px), var(--color-black) 10px);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.underline--black:hover {
+  background-image: linear-gradient(transparent calc(100% - 3px), var(--color-blue) 10px);
 }
 
 *,
@@ -2952,6 +2964,20 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
 .map__p:not(:last-of-type) {
   -webkit-margin-after: 2rem;
           margin-block-end: 2rem;
+}
+
+.map__link {
+  color: var(--color-black);
+  text-decoration: none;
+  -webkit-text-decoration-color: var(--color-black);
+          text-decoration-color: var(--color-black);
+  font-weight: 700;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+
+.map__link:hover {
+  color: var(--color-blue);
 }
 
 .map__bottom {
