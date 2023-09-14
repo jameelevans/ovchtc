@@ -1,48 +1,51 @@
 <?php
 /**
- * * The template for displaying the Resources page
+ * The template for displaying the Resources page
  *
  * @package your-wp-project
  */
 
- get_header('general');
+get_header('general');
+
+function display_pdf_links($pdf, $size)
+{
+    if ($pdf) {
+        echo '<div class="improve-training__cta--wrapper">';
+        echo svg_icon('improve-training__icon', 'download');
+        echo '<a class="improve-training__cta" href="' . esc_url($pdf['url']) . '">Download PDF ' . esc_html($pdf['title']) . ' (' . esc_html($size) . ')</a>';
+        echo '</div>';
+    } else {
+        echo '<!-- If no improve-training downloads paragraph  -->';
+        echo '<p class="improve-training__none">Materials coming soon... Check back later.</p>';
+    }
+}
 
 ?>
-	<main id="main-content">
+
+<main id="main-content">
+    <!-- Webinars Section -->
     <section class="webinars">
         <div class="webinars__wrapper">
-            <div class="webinars__header"><h2 class="h2__heading">Webinars</h2></div>
+            <div class="webinars__header"><h2 class="h2__heading">Online Trainings</h2></div>
+            <!--
             <div class="webinars__nav">
-                <div class="webinars__search"><?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
-                <div class="webinars__filter-control-wrapper"><a href="#webinars-filter" class="webinars__filter-control" title="Click here to open filters"><?php echo svg_icon('webinars__icon', 'filter');?>Filter Webinars By</a></div>  
-                <div class="webinars__sort"><?php sort_webinar_posts();?></div>
-            </div>
+                <div class="webinars__search"><?php //echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
+                <div class="webinars__filter-control-wrapper"><a href="#webinars-filter" class="webinars__filter-control" title="Click here to open filters"><?php //echo svg_icon('webinars__icon', 'filter');?>Filter Webinars By</a></div>  
+                <div class="webinars__sort"><?php //sort_webinar_posts();?></div>
+            </div>-->
             
             <!-- Webinar wrapper  -->
             <div class="webinars__grid">
-            <?php
-            $categories = get_categories( array(
-                'hide_empty' => 0,
-            ) );
             
-            foreach( $categories as $category ) {
 
-            //print_r($category);
-            echo $category->name;
-            echo $category->description;
-            $category_link = get_category_link( $category->term_id ); 
-            ?>
 
-            <a href="<?php echo $category_link; ?>"><?php echo $category->name; ?></a>
-
-            <?php
-            }
-            ?>
-
-            
                 <?php
-                $webinars = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1 ));
-                    if( $webinars->have_posts() ):?>
+                $categories = get_categories( array(
+                    'hide_empty' => 0,
+                   'include'=> array( 3, 12, 7, 11 ),  //live categories 
+                   // 'include'=> array( 12, 5, 14, 4 ), // local dev categories 
+                ) );
+                ?>
                     <div id="webinars-filter" class="webinars-filter">
                         <div class="webinars-filter__content">
                             <a href="#section-tours" class="webinars-filter__exit" title="Click here to close filters">&times;</a>
@@ -54,133 +57,80 @@
                         </div>
                     </div>
 
-                        <?php while( $webinars->have_posts() ):
-                            $webinars->the_post(); ?>
-                            <!-- Webinar post  -->
-                            <?php
-                            $get_cat        = get_the_category();             
-                            
-                            $first_cat      = $get_cat[0];
-                            $category_name  = $first_cat->cat_name;
-                            $category_link  = get_category_link( $first_cat->cat_ID ); ?>
+                        <?php foreach( $categories as $category ) {
+
+                            //print_r($category);
+                            $category_link = get_category_link( $category->term_id );
+                            ?>
+                           
                             <a class="webinars__container" href="<?php echo esc_url( $category_link ); ?>" title="Click here to veiw all <?php echo esc_attr( $category_name ); ?> webinars">
-                          
-
-                                <header>
-                                    <!--<p class="webinars__category"><?php //echo $category_name ; ?></p>-->
-                                    <h4 class="h4__header"><?php echo $category_name ; ?></h4>
-                                </header>
-                                
-
-                                <p class="webinars__description"><?php
-                                    if( has_excerpt() ){
-                                    echo strip_tags(substr( get_the_excerpt(), 0, 105 ))."...";
-                                    } else {
-                                    echo wp_trim_words(get_the_content(), 15);
-                                    }?> </p>
-                                    
-                        
-                                    <div class="webinars__cta" >View Webinars</div>
+                                <header><h4 class="h4__header"><?php echo $category->name ; ?>s</h4></header>
+                                <p class="webinars__description"><?php echo $category->description;?></p>
+                                <div class="webinars__cta" >View <?php echo $category->name ; ?>s</div>
                             </a> <!-- .Webinar post  -->
-                        <?php endwhile;
 
-                        wp_reset_postdata();
-                    endif; ?>
+                            <?php
+                            }
+                            ?>
+                           
+                     
 
 
                 
             </div><!-- .Webinar wrapper  -->
         </div>
     </section>
+
+    <!-- Improve Trainings Section -->
     <section class="improve-trainings">
         <div class="improve-trainings__header"><h2 class="h2__heading">Improve Your Trainings</h2></div>
         <div class="improve-trainings__wrapper">
             <div>
-            <ul class="improve-trainings__list">
-                    <li class="improve-trainings__item active"><a href="#tab1" class="improve-trainings__link" title="Display all the One Pagers">One Pagers</a></li>
-                    <li class="improve-trainings__item"><a href="#tab2" class="improve-trainings__link" title="Display all the Training Info">Training Info</a></li>
-            </ul>
+                <ul class="improve-trainings__list">
+                        <li class="improve-trainings__item active"><a href="#tab1" class="improve-trainings__link" title="Display all the One Pagers">One Pagers</a></li>
+                        <li class="improve-trainings__item"><a href="#tab2" class="improve-trainings__link" title="Display all the Training Info">Additional Training Resources</a></li>
+                </ul>
             </div>
 
             <div class="improve-training__inner-wrapper">
-                    <div id="tab1" class="improve-training__content improve-training__one-pager active">
+                <div id="tab1" class="improve-training__content improve-training__one-pager
                     <?php
-                        $staff = new WP_Query(array(
-                    'posts_per_page' => -1,
-                    'post_type' => 'improvements',
-                    'category_name' => 'one-pagers',
-                    'orderby'  => 'title',
-                    'order' => 'ASC'
-                    ));
-                    if($staff->have_posts()) {
-                            while($staff->have_posts()) {
-                                    $staff->the_post();?>
-                                    <!-- HTC staff -->
-                                    <div class="improve-training__container">
-                                           
-                                        <div class="improve-training__details">
-                                            <h3 class="improve-training__heading"><?php the_title();?></h3>
-                                            <div class="improve-training__description"><?php the_content();?></div>
-                                            <?php 
-                                                $link = get_field('download_pdf');
-                                                if( $link ): 
-                                                $link_url = $link['url'];
-                                            ?>
-                                            <div class="improve-training__cta--wrapper">
-                                                <?php echo svg_icon('improve-training__icon', 'download');?>
-                                                <a class="improve-training__cta" href="<?php echo esc_url( $link_url ); ?>" target="_blank" title="Download the PDF now">Download PDF (<?php echo the_field('download_size');?>)</a>
-                                            </div>
-                                            <?php endif;?>
-                                        </div>
-                                    </div> 
-                                    <!-- .HTC staff -->
-                            <?php }
-                                    } else { ?>
-                                    <p class="improve-training__no-show">There is no One Pager's to show yet</p>
-                            <?php }?>
-                    </div>
+                    $improve_args = array(
+                        'posts_per_page' => -1,
+                        'post_type' => 'improvements',
+                        'orderby'  => 'title',
+                        'order' => 'ASC'
+                    );
 
-                    
+                    $improvements = new WP_Query($improve_args);
 
-                    <div id="tab2" class="improve-training_content improve-training__training-info hide">
+                    if ($improvements->have_posts()) {
+                        while ($improvements->have_posts()) {
+                            $improvements->the_post();
+                    ?>
+                            <div class="improve-training__container">
+                                <div class="improve-training__details">
+                                    <h3 class="improve-training__heading"><?php the_title(); ?></h3>
+                                    <div class="improve-training__description"><?php the_content(); ?></div>
+
+                                    <?php
+                                    for ($i = 1; $i <= 6; $i++) {
+                                        display_pdf_links(get_field("download_pdf_$i"), get_field("download_size_$i"));
+                                    }
+                                    ?>
+                                </div>
+                            </div>
                     <?php
-            $staff = new WP_Query(array(
-                    'posts_per_page' => -1,
-                    'post_type' => 'improvements',
-                    'category_name' => 'training-info',
-                    'orderby'  => 'title',
-                    'order' => 'ASC'
-                    ));
-                    if($staff->have_posts()) {
-                            while($staff->have_posts()) {
-                                    $staff->the_post();?>
-                                    <!-- TA Navigators Expertise staff -->
-                                    <div class="improve-training__container">
-                                    <div class="improve-training__details">
-                                            <h3 class="improve-training__heading"><?php the_title();?></h3>
-                                            <div class="improve-training__description"><?php the_content();?></div>
-                                            <?php 
-                                                $link = get_field('download_pdf');
-                                                if( $link ): 
-                                                $link_url = $link['url'];
-                                            ?>
-                                            <div class="improve-training__cta--wrapper">
-                                                <?php echo svg_icon('improve-training__icon', 'download');?>
-                                                <a class="improve-training__cta" href="<?php echo esc_url( $link_url ); ?>" target="_blank" title="Download the PDF now">Download PDF (<?php echo the_field('download_size');?>)</a>
-                                            </div>
-                                            <?php endif;?>
-                                        </div>
-                                    </div> 
-                                    <!-- .TA Navigators Expertise staff -->
-                            <?php }
-                                    } else { ?>
-                                    <p class="improve-training__no-show">There is no training information to show yet</p>
-                            <?php }?>
-
-                    </div>
-
-            </div> 
+                        }
+                    } else {
+                        echo '<p class="improve-training__no-show">There is no training information to show yet</p>';
+                    }
+                    wp_reset_postdata(); // Restore original post data.
+                    ?>
+                </div>
+            </div>
         </div>
     </section>
-	</main>
+</main>
+
 <?php get_footer(); ?>

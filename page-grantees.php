@@ -16,6 +16,9 @@
             <?php echo the_field('content_section_one'); ?>
           </div>
 
+          <div class="map__description">
+            <?php echo the_field('content_section_two'); ?>
+          </div>
         </div>
         <!-- Map section -->
         <div class="map__bottom">
@@ -35,23 +38,6 @@
          
         </div><!-- .Map section -->
       </div>       
-    </section>
-    <section class="awards">
-      <div class="awards__header"><h2 class="h2__heading">Awards List</h2></div>
-      <div class="awards__wrapper">
-        <div class="awards__column">
-          <div class="awards__description">
-            <?php echo the_field('content_section_two'); ?>
-          </div>
-          <div class="awards__location">
-            <?php echo the_field('content_section_three'); ?>
-          </div>
-
-        </div>
-        <div class="awards__column">
-          <?php echo the_field('content_section_four'); ?>
-        </div>
-      </div>
     </section>
 	</main>
 <?php get_footer(); ?>

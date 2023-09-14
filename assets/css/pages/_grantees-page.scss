@@ -13,19 +13,22 @@
   // Map top section
   &__top {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     text-align: left;
     margin-block-end: 3rem;
+    padding: 8rem;
+    gap: 8rem;
 
     @include respond(medium) {
       grid-template-columns: auto;
       grid-template-rows: auto;
+      padding: 0;
     }
   }
 
   // Map description
   &__description {
-    padding: 8rem 15vw 0 8rem;
+
 
     @include respond(medium) {
       padding: 0;

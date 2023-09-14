@@ -94,32 +94,32 @@
 
                           if(get_field('download_pdf')){?>
                             <!--single powerpoint link  -->
-                            <a class="single__link" href="<?php echo $pdf['url']; ?>">Download the <?php echo $pdf['title']; ?> PDF (<?php the_field("download_size")?>)</a>
+                            <a class="single__link" href="<?php echo $pdf['url']; ?>" target="_blank" download>Download the <?php echo $pdf['title']; ?> PDF (<?php the_field("download_size")?>)</a>
                           <?php }
 
                           if(get_field('download_pdf_2')){?>
                             <!--single powerpoint link  -->
-                            <a class="single__link" href="<?php echo $pdf2['url']; ?>">Download the <?php echo $pdf2['title']; ?> PDF (<?php the_field("download_size_2")?>)</a>
+                            <a class="single__link" href="<?php echo $pdf2['url']; ?>" target="_blank" download>Download the <?php echo $pdf2['title']; ?> PDF (<?php the_field("download_size_2")?>)</a>
                           <?php }
 
                           if(get_field('download_pdf_3')){?>
                             <!--single powerpoint link  -->
-                            <a class="single__link" href="<?php echo $pdf3['url']; ?>">Download the <?php echo $pdf3['title']; ?> PDF (<?php the_field("download_size_3")?>)</a>
+                            <a class="single__link" href="<?php echo $pdf3['url']; ?>" target="_blank" download>Download the <?php echo $pdf3['title']; ?> PDF (<?php the_field("download_size_3")?>)</a>
                           <?php }
 
                           if(get_field('download_pdf_4')){?>
                             <!--single powerpoint link  -->
-                            <a class="single__link" href="<?php echo $pdf4['url']; ?>">Download the <?php echo $pdf4['title']; ?> PDF (<?php the_field("download_size_4")?>)</a>
+                            <a class="single__link" href="<?php echo $pdf4['url']; ?>" target="_blank" download>Download the <?php echo $pdf4['title']; ?> PDF (<?php the_field("download_size_4")?>)</a>
                           <?php }
 
                           if(get_field('download_pdf_5')){?>
                             <!--single powerpoint link  -->
-                            <a class="single__link" href="<?php echo $pdf5['url']; ?>">Download the <?php echo $pdf5['title']; ?> PDF (<?php the_field("download_size_5")?>)</a>
+                            <a class="single__link" href="<?php echo $pdf5['url']; ?>" target="_blank" download>Download the <?php echo $pdf5['title']; ?> PDF (<?php the_field("download_size_5")?>)</a>
                           <?php }
 
                           if(get_field('download_pdf_6')){?>
                             <!--single powerpoint link  -->
-                            <a class="single__link" href="<?php echo $pdf6['url']; ?>">Download the <?php echo $pdf6['title']; ?> PDF (<?php the_field("download_size_6")?>)</a>
+                            <a class="single__link" href="<?php echo $pdf6['url']; ?>" target="_blank" download>Download the <?php echo $pdf6['title']; ?> PDF (<?php the_field("download_size_6")?>)</a>
                           <?php }
                           
                         }?>
