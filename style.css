@@ -247,6 +247,10 @@ body {
   background-image: linear-gradient(transparent calc(100% - 3px), var(--color-blue) 10px);
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 *,
 *::before,
 *::after {
@@ -4516,20 +4520,12 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   color: var(--color-blue);
   font-weight: 600;
   position: relative;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .staff-checklists .staff-checklist .staff-ckecklist__link:hover {
   color: var(--color-teal);
-}
-
-.staff-checklists .staff-checklist .staff-ckecklist__link::after {
-  content: "";
-  width: 82%;
-  position: absolute;
-  top: 2rem;
-  right: 0;
-  height: 2px;
-  background-color: var(--color-blue);
 }
 
 .staff-checklists .grantee {

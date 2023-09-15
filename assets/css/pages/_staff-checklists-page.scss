@@ -118,20 +118,13 @@
       color: var(--color-blue);
       font-weight: 600;
       position: relative;
+      transition: all .3s ease-in-out;
 
       &:hover {
         color: var(--color-teal);
       }
     
-      &::after {
-        content: "";
-        width: 82%;
-        position: absolute;
-        top: 2rem;
-        right: 0;
-        height: 2px;
-        background-color: var(--color-blue);
-      }
+      
     }
   
   

@@ -10,7 +10,7 @@ get_header('general');
 ?>
 
 <main>
-    <!-- Category setion  -->
+    <!-- Category section  -->
     <section class="categories">
         <div class="categories__wrapper">
             <div class="categories__header">
@@ -84,57 +84,62 @@ get_header('general');
                                 <div class="category__materials">
                                     <h4 class="category__heading">Materials</h4>
                                     <?php
-                                        $transcript = get_field('download_transcript');
-                                        $pdf = get_field('download_pdf');
-                                        $pdf2 = get_field('download_pdf_2');
-                                        $pdf3 = get_field('download_pdf_3');
-                                        $pdf4 = get_field('download_pdf_4');
-                                        $pdf5 = get_field('download_pdf_5');
-                                        $pdf6 = get_field('download_pdf_6');
+                                    // Check if download links are available
+                                    $pdf = get_field('download_pdf');
+                                    $pdf2 = get_field('download_pdf_2');
+                                    $pdf3 = get_field('download_pdf_3');
+                                    $pdf4 = get_field('download_pdf_4');
+                                    $pdf5 = get_field('download_pdf_5');
+                                    $pdf6 = get_field('download_pdf_6');
 
-                                    if (!get_field('webinar_link') && !get_field('download_pdf')) {
-                                        echo '<!--If no category paragrapgh  -->';
-                                        echo '<p class="category__none"> Sorry no materials at this time. Check back later.</p>';
-                                    } else {
-                                        if (get_field('download_transcript')) { ?>
-                                            <!--Category transcript link  -->
-                                            <a class="category__link" href="<?php the_field('download_transcript') ?>">View Transcripts (<?php the_field("transcript_size") ?>)</a>
-                                        <?php }
+                                    $transcript = get_field('download_transcript');
 
-                                        if (get_field('webinar_link')) { ?>
-                                            <!--Category webinar link  -->
-                                            <a class="category__link" href="<?php the_field('webinar_link') ?>" target="_blank">Listen/View Webinar</a>
-                                        <?php }
+                                    // Check if any download links are available
+                                    $download_links = array(
+                                        'PDF 1' => $pdf,
+                                        'PDF 2' => $pdf2,
+                                        'PDF 3' => $pdf3,
+                                        'PDF 4' => $pdf4,
+                                        'PDF 5' => $pdf5,
+                                        'PDF 6' => $pdf6,
+                                    );
 
-                                        if (get_field('download_pdf')) { ?>
-                                            <!--Category PDF link  -->
-                                            <a class="category__link" href="<?php echo $pdf['url']; ?>" target="_blank" download>Download the <?php echo $pdf['title']; ?> PDF (<?php the_field("download_size") ?>)</a>
-                                        <?php }
+                                    $foundDownloadLink = false;
 
-                                        if (get_field('download_pdf_2')) { ?>
-                                          <!--Category PDF link  -->
-                                          <a class="category__link" href="<?php echo $pdf['url']; ?>" target="_blank" download>Download the <?php echo $pdf2['title']; ?> PDF (<?php the_field("download_size_2") ?>)</a>
-                                        <?php }
+                                    foreach ($download_links as $label => $download) {
+                                        if ($download) {
+                                            $file_url = $download['url'];
+                                            $file_size = size_format(filesize(get_attached_file($download['ID'])), 2);
+                                            $file_type = pathinfo($file_url, PATHINFO_EXTENSION);
+                                            $file_title = $download['title'];
 
-                                        if (get_field('download_pdf_3')) { ?>
-                                          <!--Category PDF link  -->
-                                          <a class="category__link" href="<?php echo $pdf['url']; ?>" target="_blank" download>Download the <?php echo $pdf3['title']; ?> PDF (<?php the_field("download_size_3") ?>)</a>
-                                        <?php }
+                                            // Display the download link with label, file type, and size
+                                            echo "<a class='category__link' href='{$file_url}' target='_blank' download>Download the {$file_title} PDF ({$file_size})</a>";
 
-                                        if (get_field('download_pdf_4')) { ?>
-                                          <!--Category PDF link  -->
-                                          <a class="category__link" href="<?php echo $pdf['url']; ?>" target="_blank" download>Download the <?php echo $pdf4['title']; ?> PDF (<?php the_field("download_size_4") ?>)</a>
-                                        <?php }
+                                            $foundDownloadLink = true;
+                                        }
+                                    }
 
-                                        if (get_field('download_pdf_5')) { ?>
-                                          <!--Category PDF link  -->
-                                          <a class="category__link" href="<?php echo $pdf['url']; ?>" target="_blank" download>Download the <?php echo $pdf5['title']; ?> PDF (<?php the_field("download_size_5") ?>)</a>
-                                        <?php }
+                                    // Display the webinar link if available
+                                    if (get_field('webinar_link')) { ?>
+                                        <!-- Category webinar link -->
+                                        <a class="category__link" href="<?php the_field('webinar_link'); ?>"
+                                           target="_blank">Listen/View Webinar</a>
+                                    <?php }
 
-                                        if (get_field('download_pdf_6')) { ?>
-                                          <!--Category PDF link  -->
-                                          <a class="category__link" href="<?php echo $pdf['url']; ?>" target="_blank" download>Download the <?php echo $pdf6['title']; ?> PDF (<?php the_field("download_size_6") ?>)</a>
-                                        <?php }
+                                    // Display the transcript link if available
+                                    if ($transcript) {
+                                        $transcript_url = $transcript['url'];
+                                        $transcript_size = size_format(filesize(get_attached_file($transcript['ID'])), 2);
+                                        // Display the transcript link with file size
+                                        echo "<a class='category__link' href='{$transcript_url}' target='_blank' download>View Transcripts ({$transcript_size})</a>";
+                                        $foundDownloadLink = true;
+                                    }
+
+                                    // If no download link is found, display a message
+                                    if (!$foundDownloadLink) {
+                                        echo '<!-- If no category paragraph -->';
+                                        echo '<p class="category__none">Sorry, no materials at this time. Check back later.</p>';
                                     }
                                     ?>
                                 </div>
@@ -152,7 +157,7 @@ get_header('general');
                 <?php endif; ?>
             </div><!-- .Single category wrapper  -->
         </div><!-- .Categories grid wrapper  -->
-    </section><!-- .Categories setion  -->
+    </section><!-- .Categories section  -->
 </main>
 
 <?php get_footer(); ?>
