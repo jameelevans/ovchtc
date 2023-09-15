@@ -48,14 +48,17 @@
             </div>
         </section>
         <section class="improve-trainings">
-            <div class="improve-trainings__header"><h2 class="h2__heading">Improve Your Trainings</h2></div>
+            <div class="improve-trainings__header">
+                <h2 class="h2__heading">Improve Your Trainings</h2>
+            </div>
             <div class="improve-trainings__wrapper">
                 <div>
                     <ul class="improve-trainings__list">
-                        <li class="improve-trainings__item active"><a href="#tab1" class="improve-trainings__link"
-                                                                    title="Display all the One Pagers">One Pagers</a></li>
-                        <li class="improve-trainings__item"><a href="#tab2" class="improve-trainings__link"
-                                                            title="Display all the Training Info">Additional Training Resources</a>
+                        <li class="improve-trainings__item active">
+                            <a href="#tab1" class="improve-trainings__link" title="Display all the One Pagers">One Pagers</a>
+                        </li>
+                        <li class="improve-trainings__item">
+                            <a href="#tab2" class="improve-trainings__link" title="Display all the Training Info">Additional Training Resources</a>
                         </li>
                     </ul>
                 </div>
@@ -73,15 +76,15 @@
                         if ($staff->have_posts()) {
                             while ($staff->have_posts()) {
                                 $staff->the_post(); ?>
-                                <!-- HTC staff -->
+                                <!-- Improve Your Trainings item -->
                                 <div class="improve-training__container">
                                     <div class="improve-training__details">
                                         <h3 class="improve-training__heading"><?php the_title(); ?></h3>
                                         <div class="improve-training__description"><?php the_content(); ?></div>
 
                                         <?php
-                                        // Get the download PDF fields
-                                        $oppdfs = array(
+                                        // Get all download PDF fields into an array
+                                        $pdfs = array(
                                             get_field('download_pdf'),
                                             get_field('download_pdf_2'),
                                             get_field('download_pdf_3'),
@@ -90,74 +93,47 @@
                                             get_field('download_pdf_6')
                                         );
 
-                                        // Initialize a variable to check if any download link is found
-                                        $foundDownloadLink = false;
+                                        // Loop through all PDFs and display the download links
+                                        foreach ($pdfs as $pdf) {
+                                            if ($pdf) {
+                                                $pdf_url = $pdf['url'];
+                                                $pdf_title = $pdf['title'];
+                                                $file_extension = pathinfo($pdf_url, PATHINFO_EXTENSION);
 
-                                        foreach ($oppdfs as $index => $oppdf) {
-                                            if (!empty($oppdf)) {
-                                                // Get the attachment ID from the file URL
-                                                $attachment_id = attachment_url_to_postid($oppdf['url']);
+                                                // Get the file size and format it
+                                                $file_size_bytes = filesize(get_attached_file($pdf['ID']));
+                                                $file_size_formatted = size_format($file_size_bytes, 2);
 
-                                                // Check if the attachment ID is valid
-                                                if ($attachment_id) {
-                                                    // Get attachment metadata
-                                                    $attachment_metadata = wp_get_attachment_metadata($attachment_id);
-
-                                                    // Check if attachment metadata is not empty and contains the 'file' key
-                                                    if (!empty($attachment_metadata['file'])) {
-                                                        // Build the full file path
-                                                        $file_path = wp_get_upload_dir()['basedir'] . '/' . $attachment_metadata['file'];
-
-                                                        // Check if the file exists
-                                                        if (file_exists($file_path)) {
-                                                            // Get the file size in bytes
-                                                            $file_size_bytes = filesize($file_path);
-
-                                                            // Format the file size for display
-                                                            $file_size_formatted = size_format($file_size_bytes, 2);
-
-                                                            // Get the file extension
-                                                            $file_extension = pathinfo($file_path, PATHINFO_EXTENSION);
-
-                                                            // Output the download link with the file type and size
-                                                            ?>
-                                                            <div class="improve-training__cta--wrapper">
-                                                                <?php echo svg_icon('improve-training__icon', 'download'); ?>
-                                                                <!-- Improve Training download link with file type and size -->
-                                                                <a class="improve-training__cta"
-                                                                href="<?php echo esc_url($oppdf['url']); ?>"
-                                                                target="_blank"
-                                                                download>
-                                                                    Download <?php echo strtoupper($file_extension); ?>
-                                                                    (<?php echo esc_html($file_size_formatted); ?>)
-                                                                </a>
-                                                            </div>
-                                                            <?php
-
-                                                            // Set the flag to indicate that a download link was found
-                                                            $foundDownloadLink = true;
-                                                        }
-                                                    }
-                                                }
+                                                // Output the download link with uppercase PDF
+                                                ?>
+                                                <div class="improve-training__cta--wrapper">
+                                                    <?php echo svg_icon('improve-training__icon', 'download'); ?>
+                                                    <a class="improve-training__cta"
+                                                    href="<?php echo esc_url($pdf_url); ?>"
+                                                    target="_blank"
+                                                    download>
+                                                        Download <?php echo strtoupper($file_extension); ?> (<?php echo esc_html($file_size_formatted); ?>)
+                                                    </a>
+                                                </div>
+                                                <?php
                                             }
                                         }
 
-                                        // If no download link is found, display a message
-                                        if (!$foundDownloadLink) {
-                                            echo '<!-- If no improve-training downloads paragraph -->';
+                                        // If no download links are found, display a message
+                                        if (empty($pdfs)) {
                                             echo '<p class="improve-training__none">Materials coming soon...Check back later.</p>';
                                         }
                                         ?>
                                     </div>
                                 </div>
-                                <!-- .HTC staff -->
+                                <!-- .Improve Your Trainings item -->
                             <?php }
                         } else { ?>
                             <p class="improve-training__no-show">There are no One Pagers to show yet</p>
                         <?php } ?>
                     </div>
 
-                    <div id="tab2" class="improve-training_content improve-training__training-info hide">
+                    <div id="tab2" class="improve-training__content improve-training__training-info hide">
                         <?php
                         $staff = new WP_Query(array(
                             'posts_per_page' => -1,
@@ -169,15 +145,15 @@
                         if ($staff->have_posts()) {
                             while ($staff->have_posts()) {
                                 $staff->the_post(); ?>
-                                <!-- TA Navigators Expertise staff -->
+                                <!-- Improve Your Trainings item -->
                                 <div class="improve-training__container">
                                     <div class="improve-training__details">
                                         <h3 class="improve-training__heading"><?php the_title(); ?></h3>
                                         <div class="improve-training__description"><?php the_content(); ?></div>
 
                                         <?php
-                                        // Get the download PDF fields
-                                        $atrpdfs = array(
+                                        // Get all download PDF fields into an array
+                                        $pdfs = array(
                                             get_field('download_pdf'),
                                             get_field('download_pdf_2'),
                                             get_field('download_pdf_3'),
@@ -186,67 +162,40 @@
                                             get_field('download_pdf_6')
                                         );
 
-                                        // Initialize a variable to check if any download link is found
-                                        $foundDownloadLink = false;
+                                        // Loop through all PDFs and display the download links
+                                        foreach ($pdfs as $pdf) {
+                                            if ($pdf) {
+                                                $pdf_url = $pdf['url'];
+                                                $pdf_title = $pdf['title'];
+                                                $file_extension = pathinfo($pdf_url, PATHINFO_EXTENSION);
 
-                                        foreach ($atrpdfs as $index => $atrpdf) {
-                                            if (!empty($atrpdf)) {
-                                                // Get the attachment ID from the file URL
-                                                $attachment_id = attachment_url_to_postid($atrpdf['url']);
+                                                // Get the file size and format it
+                                                $file_size_bytes = filesize(get_attached_file($pdf['ID']));
+                                                $file_size_formatted = size_format($file_size_bytes, 2);
 
-                                                // Check if the attachment ID is valid
-                                                if ($attachment_id) {
-                                                    // Get attachment metadata
-                                                    $attachment_metadata = wp_get_attachment_metadata($attachment_id);
-
-                                                    // Check if attachment metadata is not empty and contains the 'file' key
-                                                    if (!empty($attachment_metadata['file'])) {
-                                                        // Build the full file path
-                                                        $file_path = wp_get_upload_dir()['basedir'] . '/' . $attachment_metadata['file'];
-
-                                                        // Check if the file exists
-                                                        if (file_exists($file_path)) {
-                                                            // Get the file size in bytes
-                                                            $file_size_bytes = filesize($file_path);
-
-                                                            // Format the file size for display
-                                                            $file_size_formatted = size_format($file_size_bytes, 2);
-
-                                                            // Get the file extension
-                                                            $file_extension = pathinfo($file_path, PATHINFO_EXTENSION);
-
-                                                            // Output the download link with the file type and size
-                                                            ?>
-                                                            <div class="improve-training__cta--wrapper">
-                                                                <?php echo svg_icon('improve-training__icon', 'download'); ?>
-                                                                <!-- Improve Training download link with file type and size -->
-                                                                <a class="improve-training__cta"
-                                                                href="<?php echo esc_url($atrpdf['url']); ?>"
-                                                                target="_blank"
-                                                                download>
-                                                                    Download <?php echo strtoupper($file_extension); ?>
-                                                                    (<?php echo esc_html($file_size_formatted); ?>)
-                                                                </a>
-                                                            </div>
-                                                            <?php
-
-                                                            // Set the flag to indicate that a download link was found
-                                                            $foundDownloadLink = true;
-                                                        }
-                                                    }
-                                                }
+                                                // Output the download link with uppercase PDF
+                                                ?>
+                                                <div class="improve-training__cta--wrapper">
+                                                    <?php echo svg_icon('improve-training__icon', 'download'); ?>
+                                                    <a class="improve-training__cta"
+                                                    href="<?php echo esc_url($pdf_url); ?>"
+                                                    target="_blank"
+                                                    download>
+                                                        Download <?php echo strtoupper($file_extension); ?> (<?php echo esc_html($file_size_formatted); ?>)
+                                                    </a>
+                                                </div>
+                                                <?php
                                             }
                                         }
 
-                                        // If no download link is found, display a message
-                                        if (!$foundDownloadLink) {
-                                            echo '<!-- If no improve-training downloads paragraph -->';
+                                        // If no download links are found, display a message
+                                        if (empty($pdfs)) {
                                             echo '<p class="improve-training__none">Materials coming soon...Check back later.</p>';
                                         }
                                         ?>
                                     </div>
                                 </div>
-                                <!-- .TA Navigators Expertise staff -->
+                                <!-- .Improve Your Trainings item -->
                             <?php }
                         } else { ?>
                             <p class="improve-training__no-show">There is no training information to show yet</p>
@@ -255,6 +204,7 @@
                 </div>
             </div>
         </section>
+
 
 	</main>
 <?php get_footer(); ?>
