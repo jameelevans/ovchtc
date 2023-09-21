@@ -2906,16 +2906,12 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
   max-width: 130rem;
   margin: 0 auto;
   position: relative;
-  -webkit-padding-after: 15rem;
-          padding-block-end: 15rem;
 }
 
 .map__top {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: left;
-  -webkit-margin-after: 3rem;
-          margin-block-end: 3rem;
   padding: 8rem;
   gap: 8rem;
 }
@@ -2925,6 +2921,8 @@ html a:focus:not(.screen-reader-shortcut):not(.improve-trainings__link):not(.imp
     grid-template-columns: auto;
     grid-template-rows: auto;
     padding: 0;
+    -webkit-padding-after: 8rem;
+            padding-block-end: 8rem;
   }
 }
 

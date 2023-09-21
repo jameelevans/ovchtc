@@ -114,7 +114,7 @@ get_header('general');
                                             $file_title = $download['title'];
 
                                             // Display the download link with label, file type, and size
-                                            echo "<a class='category__link' href='{$file_url}' target='_blank' download>Download the {$file_title} PDF ({$file_size})</a>";
+                                            echo "<a class='category__link' href='{$file_url}' target='_blank' download>Download Slides (<span class='uppercase'>{$file_type}</span> {$file_size})</a>";
 
                                             $foundDownloadLink = true;
                                         }
@@ -130,9 +130,10 @@ get_header('general');
                                     // Display the transcript link if available
                                     if ($transcript) {
                                         $transcript_url = $transcript['url'];
+                                        $transcript_type = pathinfo($transcript_url, PATHINFO_EXTENSION);
                                         $transcript_size = size_format(filesize(get_attached_file($transcript['ID'])), 2);
                                         // Display the transcript link with file size
-                                        echo "<a class='category__link' href='{$transcript_url}' target='_blank' download>View Transcripts ({$transcript_size})</a>";
+                                        echo "<a class='category__link' href='{$transcript_url}' target='_blank' download>Download Transcripts (<span class='uppercase'>{$transcript_type}</span> {$transcript_size})</a>";
                                         $foundDownloadLink = true;
                                     }
 

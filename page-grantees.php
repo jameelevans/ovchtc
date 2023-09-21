@@ -20,7 +20,7 @@
             <?php echo the_field('content_section_two'); ?>
           </div>
         </div>
-        <!-- Map section -->
+        <!-- 
         <div class="map__bottom">
           <div class="map__dropdown">
             <div id="dropdown-container" class="dropdown-solid">
@@ -32,11 +32,11 @@
               </div>
             </div>
           </div>
-          <!-- US Map -->
-          <?php  echo do_shortcode('[mapsvg id="1"]'); ?>
+          <-- US Map 
+          <?php  //echo do_shortcode('[mapsvg id="1"]'); ?>
           </div>     
          
-        </div><!-- .Map section -->
+        </div> -->
       </div>       
     </section>
 	</main>
