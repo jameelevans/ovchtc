@@ -87,7 +87,7 @@
           }
           else if (is_404()) {
           	echo '';
-					}else if (is_category() || is_page('staff-checklist') || is_page('ovc-faqs') || is_search() || is_single()) {
+					}else if (is_category() || is_page('staff-checklist') || is_page('tta-provider-partner-highlight') || is_page('ovc-faqs') || is_search() || is_single()) {
 							echo '';
           } else {
 						echo the_content();

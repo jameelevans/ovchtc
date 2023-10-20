@@ -96,6 +96,19 @@
     }
   }
 
+  &__container-tta-provider{
+    display: grid;
+    grid-template-columns: auto;
+    padding: 8rem 0;
+
+  
+
+    // Not the last type of Single articles
+    &:not(:last-of-type) {
+      border-bottom: 2px solid var(--color-teal);
+    }
+  }
+
   // single Details
   &__details {
     margin-left: 10rem;
