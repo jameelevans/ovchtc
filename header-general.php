@@ -109,6 +109,9 @@
 						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( 'https://www.ovcttac.gov/UnderstandingHumanTrafficking/index.cfm?nm=wbt&ns=ot&nt=ht' );?>" ? title="Go to the OVC's Understanding Human Trafficking page" target="_blank">Understanding Human Trafficking Training</a>
 						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
 
+						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( site_url('/tta-provider-partner-highlight') );?>" ? title="Go to the TTA Provider Partner Highlight page">TTA Provider Partner Highlight</a>
+						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
+
 				<?php endif;?>
 		
 		
