@@ -78,7 +78,7 @@
   // Single article
   &__container {
     display: grid;
-    grid-template-columns: 6fr 4fr;
+    grid-template-columns: auto;
     gap: 10rem;
     padding: 8rem 0;
 

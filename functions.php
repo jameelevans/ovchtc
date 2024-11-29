@@ -419,6 +419,32 @@ add_filter(
   }
 );
 
+// Add Footer Text Setting to Customizer
+function ovchtc_customize_register($wp_customize) {
+  // Add Footer Section
+  $wp_customize->add_section('ovchtc_footer_section', array(
+      'title'       => __('Footer Settings', 'ovchtc'),
+      'priority'    => 200,
+      'description' => 'Customize the footer text',
+  ));
+
+  // Add Footer Text Setting
+  $wp_customize->add_setting('ovchtc_footer_text', array(
+      'default'           => '', // Default is blank; admin must provide text
+      'sanitize_callback' => 'wp_kses_post', // Allows safe HTML for formatting
+      'transport'         => 'refresh',
+  ));
+
+  // Add Footer Text Control
+  $wp_customize->add_control('ovchtc_footer_text_control', array(
+      'label'       => __('Footer Text', 'ovchtc'),
+      'section'     => 'ovchtc_footer_section',
+      'settings'    => 'ovchtc_footer_text',
+      'type'        => 'textarea', // Allows for longer text
+  ));
+}
+add_action('customize_register', 'ovchtc_customize_register');
+
 
 
 
