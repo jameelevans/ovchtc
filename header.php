@@ -106,39 +106,29 @@
 				<?php endif;?>
 		
 		
-				<?php 
-				$link = get_field('header_link_1');
-				if( $link && !is_home() ): 
+				<?php
+				// Loop through header links dynamically
+				for ($i = 1; $i <= 4; $i++) {
+					$link = get_field("header_link_$i"); // Dynamically fetch each link field
+					if ($link && !is_home()) : 
 						$link_url = $link['url'];
 						$link_title = $link['title'];
 						$link_target = $link['target'] ? $link['target'] : '_self';
 						?>
-						<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
-						<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
-				<?php endif;
+						<div class="header__cta--wrapper">
+							<a class="header__cta underline" 
+							href="<?php echo esc_url($link_url); ?>" 
+							target="<?php echo esc_attr($link_target); ?>" 
+							title="Learn more about <?php echo esc_attr($link_title); ?> now">
+								<?php echo esc_html($link_title); ?>
+							</a>
+							<?php echo svg_icon('header__arrow', 'arrow-right'); ?>
+						</div>
+					<?php 
+					endif;
+				}
+				?>
 			
-		
-		$link = get_field('header_link_2');
-			if( $link && !is_home()): 
-					$link_url = $link['url'];
-					$link_title = $link['title'];
-					$link_target = $link['target'] ? $link['target'] : '_self';
-					?>
-					<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
-					<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
-			<?php endif;
-
-			$link = get_field('header_link_3');
-			if( $link && !is_home()): 
-					$link_url = $link['url'];
-					$link_title = $link['title'];
-					$link_target = $link['target'] ? $link['target'] : '_self';
-					?>
-					<div class="header__cta--wrapper"><a class="header__cta underline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="Learn more about <?php $link_title?> now" ><?php echo esc_html( $link_title ); ?></a>
-					<?php echo svg_icon('header__arrow', 'arrow-right');?></div>
-			<?php endif;
-			?>
-			</>
 			
 
 			

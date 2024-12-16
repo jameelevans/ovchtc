@@ -4,20 +4,21 @@ const sass = require('gulp-sass')(require('sass'));
 const webpack = require('webpack');
 const log = require('fancy-log'); // Replaces gutil.log
 const PluginError = require('plugin-error'); // Replaces gutil.PluginError
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
+const postcssMergeRules = require('postcss-merge-rules'); // Alternative to gulp-merge-media-queries
 
-// Dynamic autoprefixer import
-async function getAutoprefixer() {
-    const { default: autoprefixer } = await import('gulp-autoprefixer');
-    return autoprefixer;
-}
-
-// Compile styles
-gulp.task('styles', async () => {
-    const autoprefixer = await getAutoprefixer();
+// Compile styles with PostCSS for autoprefixing and optimization
+gulp.task('styles', () => {
+    const plugins = [
+        require('autoprefixer'), // Autoprefixer for browser compatibility
+        postcssMergeRules,       // Merge CSS media queries
+        cssnano()                // Minify CSS
+    ];
     return gulp
         .src('./assets/css/style.scss')
         .pipe(sass({ errLogToConsole: true, outputStyle: 'expanded' }).on('error', sass.logError))
-        .pipe(autoprefixer())
+        .pipe(postcss(plugins)) // Use PostCSS with plugins
         .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
 });
@@ -25,7 +26,7 @@ gulp.task('styles', async () => {
 // Compile scripts using Webpack
 gulp.task('scripts', (callback) => {
     log('Starting Webpack...');
-    webpack(require('./webpack.config.js'), function (err, stats) {
+    webpack(require('./webpack.config.js'), (err, stats) => {
         if (err) {
             log('Webpack error:', err.toString());
             callback(new PluginError('scripts', err));
