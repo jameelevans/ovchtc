@@ -2,10 +2,10 @@
   position: fixed;
   top: -10rem;
   right: -10rem;
-  opacity: .9;
+  opacity: 0.9;
 
   @include respond(large) {
-    opacity: .6;
+    opacity: 0.6;
   }
 
   @include respond(medium) {
@@ -22,7 +22,6 @@
   }
 
   & .h2__heading {
-
     @include respond(medium) {
       background-color: var(--color-dark-grey);
       color: var(--color-white);
@@ -30,7 +29,6 @@
       font-weight: 300;
     }
   }
-
 
   &__wrapper {
     max-width: 130rem;
@@ -54,7 +52,7 @@
     display: grid;
     place-items: center;
     z-index: 5;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 
     &:hover {
       background-color: var(--color-light-blue);
@@ -70,7 +68,6 @@
       align-self: baseline;
       line-height: 1.3;
 
-
       @include respond(medlg) {
         font-size: $font-body-mobile;
       }
@@ -83,7 +80,7 @@
     grid-template-columns: 1.5fr 2.5fr;
     z-index: 5;
 
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 
     &:hover {
       background-color: var(--color-grey);
@@ -114,7 +111,7 @@
       align-content: center;
       place-items: center;
       gap: 2rem;
-      transition: all .5s ease;
+      transition: all 0.5s ease;
 
       @include respond(small) {
         float: none;
@@ -136,7 +133,7 @@
       font-weight: 400;
       display: grid;
       align-content: center;
-      transition: all .5s ease;
+      transition: all 0.5s ease;
 
       @include respond(small) {
         height: auto;
@@ -145,7 +142,6 @@
       @include respond(medlg) {
         text-align: center;
       }
-
     }
 
     &__p {
@@ -167,7 +163,6 @@
       line-height: 1;
       margin-bottom: 0.8rem;
 
-
       @include respond(small) {
         margin-left: 0;
       }
@@ -177,10 +172,7 @@
         font-size: $font-body-mobile;
       }
     }
-
-
   }
-
 
   & .proactive__wrapper {
     max-width: 130rem;
@@ -196,7 +188,6 @@
       padding: 2rem;
       margin-top: 0;
     }
-
   }
 
   .resource-sharing {
@@ -208,7 +199,7 @@
     place-items: center;
     z-index: 5;
 
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 
     &:hover {
       background-color: var(--color-light-blue);
@@ -227,8 +218,6 @@
       @include respond(medlg) {
         font-size: $font-body-mobile;
       }
-
-
     }
   }
 
@@ -237,7 +226,7 @@
     flex-direction: row-reverse;
     display: flex;
     z-index: 5;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 
     &:hover {
       background-color: var(--color-grey);
@@ -253,7 +242,6 @@
 
     @include respond(medlg) {
       flex-direction: column;
-
     }
 
     &__header {
@@ -270,7 +258,7 @@
       align-content: center;
       place-items: center;
       gap: 2rem;
-      transition: all .5s ease;
+      transition: all 0.5s ease;
 
       @include respond(medlg) {
         height: auto;
@@ -294,13 +282,12 @@
       text-align: right;
       font-weight: 400;
       display: grid;
-      transition: all .5s ease;
+      transition: all 0.5s ease;
 
       @include respond(medlg) {
         height: auto;
         width: 100%;
       }
-
     }
 
     &__p {
@@ -313,30 +300,27 @@
         text-align: center;
       }
     }
-
-
-
-
   }
-
 }
 
 .staff {
   padding: 8rem 8vw;
   text-align: center;
   min-height: 100%;
-  background: linear-gradient(0deg, rgba(var(--color-grey-a), 0.8), rgba(var(--color-grey-a), 0.8)), url("assets/img/staff-bg.jpg");
+  background: linear-gradient(
+      0deg,
+      rgba(var(--color-grey-a), 0.8),
+      rgba(var(--color-grey-a), 0.8)
+    ),
+    url('assets/img/staff-bg.jpg');
   background-size: cover;
   background-attachment: fixed;
-
-
 
   @include respond(medium) {
     padding: 0 0 10rem 0;
   }
 
   & .h2__heading {
-
     @include respond(medium) {
       background-color: var(--color-dark-grey);
       color: var(--color-white);
@@ -360,16 +344,15 @@
     position: relative;
     margin: 5rem;
     text-decoration: none;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 
-    &:focus{
+    &:focus {
       outline: 4px dashed var(--color-teal);
       outline-offset: 5rem;
       border-radius: 5rem;
     }
 
-
-    //Grey overlay - initially invisible 
+    //Grey overlay - initially invisible
     .staff__overlay {
       content: '';
       position: absolute;
@@ -380,22 +363,18 @@
       z-index: 10;
       clip-path: url(#octo-clip);
       opacity: 0;
-      transition: all .5s ease;
+      transition: all 0.5s ease;
       background-color: var(--color-dark-grey);
 
-      @include respond(medium){
+      @include respond(medium) {
         display: none;
       }
     }
-    
-
 
     // Grey staff overlay is visible on hover
     &:focus .staff__overlay,
-    &:hover .staff__overlay 
-     {
-      opacity: .9;
-      
+    &:hover .staff__overlay {
+      opacity: 0.9;
     }
 
     // Reveil staff details on member hover
@@ -404,13 +383,11 @@
       opacity: 1;
     }
 
-  // Reveil staff details on member hover
+    // Reveil staff details on member hover
     &:focus .staff__name,
     &:hover .staff__name {
       bottom: -3.5rem;
       opacity: 1;
-
-      
     }
 
     &:hover .staff__icon {
@@ -424,15 +401,13 @@
         filter: blur(0);
       }
     }
-
   }
 
-  &__is-mobile .staff__details{
+  &__is-mobile .staff__details {
     color: var(--color-black);
     opacity: 1;
     margin-top: 2.5rem;
   }
-
 
   // Staff name for mobile users
   &__is-mobile .staff__name {
@@ -440,8 +415,8 @@
     opacity: 1;
   }
 
-   // Staff name for mobile users
-   &__is-mobile .staff__title {
+  // Staff name for mobile users
+  &__is-mobile .staff__title {
     display: none;
   }
 
@@ -450,7 +425,7 @@
     display: none;
   }
 
-  &__is-desktop .staff__details{
+  &__is-desktop .staff__details {
     color: var(--color-white);
     position: absolute;
     padding: 1rem;
@@ -465,19 +440,17 @@
 
     @include respond(medium) {
       opacity: 1;
-      position:relative;
+      position: relative;
       margin-block-start: 2rem;
       width: 100%;
-     
     }
   }
 
-  &__is-desktop .staff__name{
+  &__is-desktop .staff__name {
     font-size: 1.5rem;
   }
-  
 
-  // Headshot image 
+  // Headshot image
   &__headshot {
     width: 18.5rem;
     position: relative;
@@ -495,24 +468,22 @@
     left: -1.5rem;
     top: -2px;
     z-index: 1;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
   }
 
   // Staff details wrapper - initially hidden
   &__details {
     z-index: 10;
     width: 18.5rem;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 
     @include respond(medium) {
       opacity: 1;
-      position:relative;
+      position: relative;
       margin-block-start: 2rem;
       width: 100%;
       transform: translateX(-1.5rem);
     }
-    
-
   }
 
   // Staff details name
@@ -522,7 +493,6 @@
     align-self: center;
     z-index: 99;
 
-
     @include respond(medlg) {
       font-size: $font-body-mobile;
       text-align: center;
@@ -531,7 +501,7 @@
 
     @include respond(medium) {
       color: var(--color-black);
-    } 
+    }
   }
 
   // Staff title - Hidden on mobile
@@ -540,11 +510,8 @@
 
     @include respond(medium) {
       display: none;
-    }    
+    }
   }
-
-
-
 }
 
 .statistics {
@@ -560,8 +527,8 @@
     display: grid;
     grid-template-columns: 1fr max-content 1fr;
     place-items: center;
-    transform: translateY(-15rem);
-    transition: all .5s ease;
+    transform: translateY(-4rem);
+    transition: all 0.5s ease;
 
     &:hover {
       background-color: var(--color-dark-grey);
@@ -606,5 +573,4 @@
       margin: 4rem 0;
     }
   }
-
 }

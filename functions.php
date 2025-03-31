@@ -141,18 +141,12 @@ function site_navigation() { ?>
   <div class="navigation">
         <nav class="navigation__nav" aria-controls="primary-navigation">
       <ul class="navigation__list">
-                <li class="navigation__item">
-          <a href="<?php echo esc_url( site_url( '/about' ) ); ?>" class="navigation__link<?php if(is_page('about')){echo ' navigation__current-page';} ?>" title="Go to the About page">About</a>
-        </li>
+                
         <li class="navigation__item">
           <a href="<?php echo esc_url( site_url( '/grantees' ) ); ?>" class="navigation__link<?php if(is_page('grantees')){echo ' navigation__current-page';} ?>" title="Go to the Grantees page">Grantees</a>
         </li>
-        <li class="navigation__item">
-          <a href="<?php echo esc_url( site_url( '/resources' ) ); ?>" class="navigation__link<?php if(is_home() || is_category('orientation') || is_category('capacity-building-webinar') || is_page('staff-checklist') || is_page('ovc-faqs')){echo ' navigation__current-page';} ?>" title="Go to the Resources page">Resources</a>
-        </li>
-        <li class="navigation__item">
-          <a href="<?php echo esc_url( site_url( '/events' ) ); ?>" class="navigation__link<?php if(is_page_template('default-template.php')){echo ' navigation__current-page';} ?>" title="Go to the Events page">Events</a>
-        </li>
+       
+       
        
         <li class="navigation__item">
           <a href="<?php echo esc_url( site_url( '/contact' ) ); ?>" class="navigation__link<?php if(is_page('contact')){echo ' navigation__current-page';} ?>" title="Go to the Contact page">Contact</a>
@@ -179,17 +173,9 @@ function mobile_navigation() { ?>
       
       <nav class="mobile-navigation__nav" aria-label="Mobile menu" aria-labelledby="mobile-menu" aria-hidden="true">
         <ul class="mobile-navigation__list">
-          <li class="mobile-navigation__item">
-            <a href="<?php echo esc_url( site_url( '/about' ) ); ?>" class="mobile-navigation__link<?php if(is_page('about')){echo ' mobile-navigation__current-page';} ?>" title="Go to the About page">About</a>
-          </li>
+         
           <li class="mobile-navigation__item">
             <a href="<?php echo esc_url( site_url( '/grantees' ) ); ?>" class="mobile-navigation__link<?php if(is_page('grantees')){echo ' mobile-navigation__current-page';} ?>" title="Go to the Grantees page">Grantees</a>
-          </li>
-          <li class="mobile-navigation__item">
-            <a href="<?php echo esc_url( site_url( '/resources' ) ); ?>" class="mobile-navigation__link<?php if(is_home() || is_category('orientation') || is_category('capacity-building-webinar') || is_page('staff-checklist') || is_page('ovc-faqs')){echo ' mobile-navigation__current-page';} ?>" title="Go to the Resources page">Resources</a>
-          </li>
-          <li class="mobile-navigation__item">
-            <a href="<?php echo esc_url( site_url( '/events' ) ); ?>" class="mobile-navigation__link<?php if(is_page_template('default-template.php')){echo ' navigation__current-page';} ?>" title="Go to the Resources page">Events</a>
           </li>
          
           <li class="mobile-navigation__item">

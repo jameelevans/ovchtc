@@ -1,67 +1,83 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
-const sass = require('gulp-sass')(require('sass'));
+const dartSass = require('sass');
+const gulpSass = require('gulp-sass');
+const sass = require('gulp-sass')(dartSass);
 const webpack = require('webpack');
-const log = require('fancy-log'); // Replaces gutil.log
-const PluginError = require('plugin-error'); // Replaces gutil.PluginError
+const log = require('fancy-log');
+const PluginError = require('plugin-error');
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
-const postcssMergeRules = require('postcss-merge-rules'); // Alternative to gulp-merge-media-queries
+const autoprefixer = require('autoprefixer');
+const postcssSortMediaQueries = require('postcss-sort-media-queries'); // New package
 
-// Compile styles with PostCSS for autoprefixing and optimization
-gulp.task('styles', () => {
+// File paths
+const paths = {
+    styles: {
+        src: 'assets/css/style.scss',
+        dest: './', // Write style.css to the root of the theme directory
+        watch: 'assets/css/**/*.scss'
+    },
+    scripts: {
+        src: ['./assets/js/modules/*.js', './assets/js/scripts.js'],
+        watch: ['./assets/js/modules/*.js', './assets/js/scripts.js']
+    },
+    php: './**/*.php'
+};
+
+// Compile SCSS into CSS with PostCSS
+function styles() {
     const plugins = [
-        require('autoprefixer'), // Autoprefixer for browser compatibility
-        postcssMergeRules,       // Merge CSS media queries
-        cssnano()                // Minify CSS
+        autoprefixer(),
+        cssnano(),
+        postcssSortMediaQueries() // Replace combine-media-query with sort-media-queries
     ];
-    return gulp
-        .src('./assets/css/style.scss')
-        .pipe(sass({ errLogToConsole: true, outputStyle: 'expanded' }).on('error', sass.logError))
-        .pipe(postcss(plugins)) // Use PostCSS with plugins
-        .pipe(gulp.dest('./'))
+    return gulp.src(paths.styles.src)
+        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+        .pipe(postcss(plugins))
+        .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.stream());
-});
+}
 
 // Compile scripts using Webpack
-gulp.task('scripts', (callback) => {
+function scripts(callback) {
     log('Starting Webpack...');
     webpack(require('./webpack.config.js'), (err, stats) => {
         if (err) {
-            log('Webpack error:', err.toString());
+            log.error('Webpack error:', err.toString());
             callback(new PluginError('scripts', err));
             return;
         }
         log('Webpack completed.');
-        log(stats.toString());
+        log(stats.toString({ colors: true }));
         browserSync.reload();
         callback();
     });
-});
+}
 
-// Watch files for changes
-gulp.task('watch', () => {
+// Watch for changes
+function watch() {
     log('Starting BrowserSync...');
     browserSync.init({
-        notify: false,
-        proxy: 'http://ovc-htc.local', // Update to match your local environment
-        ghostMode: false
+        proxy: 'http://ovc-htc.local', // Ensure this matches your local environment
+        port: 3000, // Default BrowserSync port
+        notify: false, // Disable notifications
+        ghostMode: false // Disable mirroring clicks
+
     });
-    log('BrowserSync started, watching files...');
 
     // Watch PHP files
-    gulp.watch('./**/*.php', (done) => {
-        log('PHP file changed, reloading...');
-        browserSync.reload();
-        done();
-    });
+    gulp.watch(paths.php).on('change', browserSync.reload);
 
     // Watch SCSS files
-    gulp.watch('./assets/css/**/*.scss', gulp.series('styles'));
+    gulp.watch(paths.styles.watch, styles);
 
     // Watch JS files
-    gulp.watch(['./assets/js/modules/*.js', './assets/js/scripts.js'], gulp.series('scripts'));
-});
+    gulp.watch(paths.scripts.watch, scripts);
+}
 
 // Default task
-gulp.task('default', gulp.series('watch'));
+exports.styles = styles;
+exports.scripts = scripts;
+exports.watch = gulp.series(styles, scripts, watch);
+exports.default = exports.watch;
