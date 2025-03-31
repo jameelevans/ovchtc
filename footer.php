@@ -12,7 +12,7 @@
             <div class="footer__contact">
                 <h2 class="footer__header">Contact Us</h2>
                 <ul class="footer__list">
-                    <li class="footer__item"><a href="<?php echo esc_url( site_url( '/about#tab1' ) ); ?>" class="footer__link" title="Go to the staff page">Contact Staff</a></li>
+                    
                     <li class="footer__item"><a href="mailto:HTCollective@Icf.com" class="footer__link">Contact HTC | HTCollective@Icf.com</a></li>
                     
                 </ul>
